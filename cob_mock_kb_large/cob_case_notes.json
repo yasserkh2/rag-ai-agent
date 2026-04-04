@@ -1,0 +1,602 @@
+[
+  {
+    "case_id": "case_0001",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 1",
+    "practice_name": "Practice 001",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0002",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 2",
+    "practice_name": "Practice 002",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0003",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 3",
+    "practice_name": "Practice 003",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0004",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 4",
+    "practice_name": "Practice 004",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0005",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 5",
+    "practice_name": "Practice 005",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0006",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 6",
+    "practice_name": "Practice 006",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0007",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 7",
+    "practice_name": "Practice 007",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0008",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 8",
+    "practice_name": "Practice 008",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0009",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 9",
+    "practice_name": "Practice 009",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0010",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 10",
+    "practice_name": "Practice 010",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0011",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 11",
+    "practice_name": "Practice 011",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0012",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 12",
+    "practice_name": "Practice 012",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0013",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 13",
+    "practice_name": "Practice 013",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0014",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 14",
+    "practice_name": "Practice 014",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0015",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 15",
+    "practice_name": "Practice 015",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0016",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 16",
+    "practice_name": "Practice 016",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0017",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 17",
+    "practice_name": "Practice 017",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0018",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 18",
+    "practice_name": "Practice 018",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0019",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 19",
+    "practice_name": "Practice 019",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0020",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 20",
+    "practice_name": "Practice 020",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0021",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 21",
+    "practice_name": "Practice 021",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0022",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 22",
+    "practice_name": "Practice 022",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0023",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 23",
+    "practice_name": "Practice 023",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0024",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 24",
+    "practice_name": "Practice 024",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0025",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 25",
+    "practice_name": "Practice 025",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0026",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 26",
+    "practice_name": "Practice 026",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0027",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 27",
+    "practice_name": "Practice 027",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0028",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 28",
+    "practice_name": "Practice 028",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0029",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 29",
+    "practice_name": "Practice 029",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0030",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 30",
+    "practice_name": "Practice 030",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0031",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 31",
+    "practice_name": "Practice 031",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0032",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 32",
+    "practice_name": "Practice 032",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0033",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 33",
+    "practice_name": "Practice 033",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0034",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 34",
+    "practice_name": "Practice 034",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0035",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 35",
+    "practice_name": "Practice 035",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0036",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 36",
+    "practice_name": "Practice 036",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0037",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 37",
+    "practice_name": "Practice 037",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0038",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 38",
+    "practice_name": "Practice 038",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0039",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 39",
+    "practice_name": "Practice 039",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0040",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 40",
+    "practice_name": "Practice 040",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0041",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 41",
+    "practice_name": "Practice 041",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0042",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 42",
+    "practice_name": "Practice 042",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0043",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 43",
+    "practice_name": "Practice 043",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0044",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 44",
+    "practice_name": "Practice 044",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0045",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 45",
+    "practice_name": "Practice 045",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0046",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 46",
+    "practice_name": "Practice 046",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0047",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 47",
+    "practice_name": "Practice 047",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0048",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 48",
+    "practice_name": "Practice 048",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0049",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 49",
+    "practice_name": "Practice 049",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0050",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 50",
+    "practice_name": "Practice 050",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0051",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 51",
+    "practice_name": "Practice 051",
+    "summary": "Mock case note about a practice seeking help with new practice launch.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0052",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 52",
+    "practice_name": "Practice 052",
+    "summary": "Mock case note about a practice seeking help with provider enrollment update.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0053",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care case note 53",
+    "practice_name": "Practice 053",
+    "summary": "Mock case note about a practice seeking help with claim denial follow-up.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Customer Care.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0054",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services case note 54",
+    "practice_name": "Practice 054",
+    "summary": "Mock case note about a practice seeking help with patient scheduling backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Digital Marketing and Website Services.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0055",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management case note 55",
+    "practice_name": "Practice 055",
+    "summary": "Mock case note about a practice seeking help with website refresh project.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Financial Management.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0056",
+    "service_id": "svc_communication",
+    "title": "Communication Services case note 56",
+    "practice_name": "Practice 056",
+    "summary": "Mock case note about a practice seeking help with financial dashboard review.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Communication Services.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0057",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance case note 57",
+    "practice_name": "Practice 057",
+    "summary": "Mock case note about a practice seeking help with authorization backlog.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Credentialing and Provider Maintenance.",
+    "status": "resolved",
+    "priority": "low"
+  },
+  {
+    "case_id": "case_0058",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification case note 58",
+    "practice_name": "Practice 058",
+    "summary": "Mock case note about a practice seeking help with customer support complaint.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Authorizations and Benefits Verification.",
+    "status": "in_review",
+    "priority": "medium"
+  },
+  {
+    "case_id": "case_0059",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management case note 59",
+    "practice_name": "Practice 059",
+    "summary": "Mock case note about a practice seeking help with audit preparation.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Billing and Denial Management.",
+    "status": "waiting_on_client",
+    "priority": "high"
+  },
+  {
+    "case_id": "case_0060",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing case note 60",
+    "practice_name": "Practice 060",
+    "summary": "Mock case note about a practice seeking help with patient reminder optimization.",
+    "resolution": "A coordinator reviewed the request, collected missing details, and either provided guidance or scheduled a follow-up for Medical Auditing.",
+    "status": "resolved",
+    "priority": "low"
+  }
+]

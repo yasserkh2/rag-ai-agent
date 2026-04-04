@@ -1,0 +1,1862 @@
+[
+  {
+    "faq_id": "faq_0001",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "What does Credentialing and Provider Maintenance include?",
+    "answer": "Credentialing and Provider Maintenance includes Support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0002",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "Who is Credentialing and Provider Maintenance best for?",
+    "answer": "Credentialing and Provider Maintenance is generally best for medical practices that need support with credentialing, provider enrollment.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0003",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "Can I schedule a consultation for Credentialing and Provider Maintenance?",
+    "answer": "Yes. Credentialing and Provider Maintenance can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0004",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "How do I get started with Credentialing and Provider Maintenance?",
+    "answer": "You can get started with Credentialing and Provider Maintenance by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0005",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "Do you offer customized support for Credentialing and Provider Maintenance?",
+    "answer": "Yes. Support for Credentialing and Provider Maintenance can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0006",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "How quickly can someone follow up about Credentialing and Provider Maintenance?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0007",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "What information should I prepare before discussing Credentialing and Provider Maintenance?",
+    "answer": "Before discussing Credentialing and Provider Maintenance, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0008",
+    "category": "service",
+    "service_id": "svc_credentialing",
+    "question": "Can I ask general questions before booking Credentialing and Provider Maintenance?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance"
+    ]
+  },
+  {
+    "faq_id": "faq_0009",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "What does Authorizations and Benefits Verification include?",
+    "answer": "Authorizations and Benefits Verification includes Support for insurance eligibility checks, benefits verification, and authorization workflows.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0010",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "Who is Authorizations and Benefits Verification best for?",
+    "answer": "Authorizations and Benefits Verification is generally best for medical practices that need support with prior authorization, benefits verification.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0011",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "Can I schedule a consultation for Authorizations and Benefits Verification?",
+    "answer": "Yes. Authorizations and Benefits Verification can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0012",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "How do I get started with Authorizations and Benefits Verification?",
+    "answer": "You can get started with Authorizations and Benefits Verification by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0013",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "Do you offer customized support for Authorizations and Benefits Verification?",
+    "answer": "Yes. Support for Authorizations and Benefits Verification can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0014",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "How quickly can someone follow up about Authorizations and Benefits Verification?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0015",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "What information should I prepare before discussing Authorizations and Benefits Verification?",
+    "answer": "Before discussing Authorizations and Benefits Verification, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0016",
+    "category": "service",
+    "service_id": "svc_auth_benefits",
+    "question": "Can I ask general questions before booking Authorizations and Benefits Verification?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility"
+    ]
+  },
+  {
+    "faq_id": "faq_0017",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "What does Medical Billing and Denial Management include?",
+    "answer": "Medical Billing and Denial Management includes Support for claim submission, denial analysis, appeals, and revenue optimization.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0018",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "Who is Medical Billing and Denial Management best for?",
+    "answer": "Medical Billing and Denial Management is generally best for medical practices that need support with billing, claims.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0019",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "Can I schedule a consultation for Medical Billing and Denial Management?",
+    "answer": "Yes. Medical Billing and Denial Management can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0020",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "How do I get started with Medical Billing and Denial Management?",
+    "answer": "You can get started with Medical Billing and Denial Management by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0021",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "Do you offer customized support for Medical Billing and Denial Management?",
+    "answer": "Yes. Support for Medical Billing and Denial Management can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0022",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "How quickly can someone follow up about Medical Billing and Denial Management?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0023",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "What information should I prepare before discussing Medical Billing and Denial Management?",
+    "answer": "Before discussing Medical Billing and Denial Management, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0024",
+    "category": "service",
+    "service_id": "svc_billing_denials",
+    "question": "Can I ask general questions before booking Medical Billing and Denial Management?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "billing",
+      "claims",
+      "denials"
+    ]
+  },
+  {
+    "faq_id": "faq_0025",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "What does Medical Auditing include?",
+    "answer": "Medical Auditing includes Audit support for documentation, coding quality, and billing process accuracy.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0026",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "Who is Medical Auditing best for?",
+    "answer": "Medical Auditing is generally best for medical practices that need support with audit, documentation review.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0027",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "Can I schedule a consultation for Medical Auditing?",
+    "answer": "Yes. Medical Auditing can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0028",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "How do I get started with Medical Auditing?",
+    "answer": "You can get started with Medical Auditing by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0029",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "Do you offer customized support for Medical Auditing?",
+    "answer": "Yes. Support for Medical Auditing can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0030",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "How quickly can someone follow up about Medical Auditing?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0031",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "What information should I prepare before discussing Medical Auditing?",
+    "answer": "Before discussing Medical Auditing, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0032",
+    "category": "service",
+    "service_id": "svc_auditing",
+    "question": "Can I ask general questions before booking Medical Auditing?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review"
+    ]
+  },
+  {
+    "faq_id": "faq_0033",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "What does Customer Care include?",
+    "answer": "Customer Care includes General customer support, issue intake, status follow-up, and escalation handling.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0034",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "Who is Customer Care best for?",
+    "answer": "Customer Care is generally best for medical practices that need support with support, customer care.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0035",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "Can I schedule a consultation for Customer Care?",
+    "answer": "Yes. Customer Care can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0036",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "How do I get started with Customer Care?",
+    "answer": "You can get started with Customer Care by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0037",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "Do you offer customized support for Customer Care?",
+    "answer": "Yes. Support for Customer Care can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0038",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "How quickly can someone follow up about Customer Care?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0039",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "What information should I prepare before discussing Customer Care?",
+    "answer": "Before discussing Customer Care, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0040",
+    "category": "service",
+    "service_id": "svc_customer_care",
+    "question": "Can I ask general questions before booking Customer Care?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution"
+    ]
+  },
+  {
+    "faq_id": "faq_0041",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "What does Digital Marketing and Website Services include?",
+    "answer": "Digital Marketing and Website Services includes Website and digital growth support for healthcare practices.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0042",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "Who is Digital Marketing and Website Services best for?",
+    "answer": "Digital Marketing and Website Services is generally best for medical practices that need support with digital marketing, website.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0043",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "Can I schedule a consultation for Digital Marketing and Website Services?",
+    "answer": "Yes. Digital Marketing and Website Services can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0044",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "How do I get started with Digital Marketing and Website Services?",
+    "answer": "You can get started with Digital Marketing and Website Services by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0045",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "Do you offer customized support for Digital Marketing and Website Services?",
+    "answer": "Yes. Support for Digital Marketing and Website Services can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0046",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "How quickly can someone follow up about Digital Marketing and Website Services?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0047",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "What information should I prepare before discussing Digital Marketing and Website Services?",
+    "answer": "Before discussing Digital Marketing and Website Services, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0048",
+    "category": "service",
+    "service_id": "svc_digital_marketing",
+    "question": "Can I ask general questions before booking Digital Marketing and Website Services?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO"
+    ]
+  },
+  {
+    "faq_id": "faq_0049",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "What does Financial Management include?",
+    "answer": "Financial Management includes Financial visibility and practice reporting support with dashboard-based monitoring.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0050",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "Who is Financial Management best for?",
+    "answer": "Financial Management is generally best for medical practices that need support with financial reports, dashboard.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0051",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "Can I schedule a consultation for Financial Management?",
+    "answer": "Yes. Financial Management can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0052",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "How do I get started with Financial Management?",
+    "answer": "You can get started with Financial Management by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0053",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "Do you offer customized support for Financial Management?",
+    "answer": "Yes. Support for Financial Management can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0054",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "How quickly can someone follow up about Financial Management?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0055",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "What information should I prepare before discussing Financial Management?",
+    "answer": "Before discussing Financial Management, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0056",
+    "category": "service",
+    "service_id": "svc_financial_management",
+    "question": "Can I ask general questions before booking Financial Management?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping"
+    ]
+  },
+  {
+    "faq_id": "faq_0057",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "What does Communication Services include?",
+    "answer": "Communication Services includes Patient-facing communication workflows, reminders, scheduling coordination, and follow-up.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0058",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "Who is Communication Services best for?",
+    "answer": "Communication Services is generally best for medical practices that need support with scheduling, reminders.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0059",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "Can I schedule a consultation for Communication Services?",
+    "answer": "Yes. Communication Services can be discussed through a scheduled consultation with the relevant team.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0060",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "How do I get started with Communication Services?",
+    "answer": "You can get started with Communication Services by requesting a consultation and sharing your practice needs.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0061",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "Do you offer customized support for Communication Services?",
+    "answer": "Yes. Support for Communication Services can be tailored based on the practice's workflow, payer mix, and goals.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0062",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "How quickly can someone follow up about Communication Services?",
+    "answer": "A support or sales coordinator can review your request and arrange next steps based on availability.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0063",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "What information should I prepare before discussing Communication Services?",
+    "answer": "Before discussing Communication Services, prepare your practice details, goals, timeline, and any current workflow challenges.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0064",
+    "category": "service",
+    "service_id": "svc_communication",
+    "question": "Can I ask general questions before booking Communication Services?",
+    "answer": "Yes. You can ask general questions first, then decide whether to schedule a consultation.",
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up"
+    ]
+  },
+  {
+    "faq_id": "faq_0065",
+    "category": "general",
+    "service_id": null,
+    "question": "What does COB Solution offer?",
+    "answer": "COB Solution offers practice-support services across operations, billing, auditing, customer care, digital growth, financial visibility, and communication workflows.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0066",
+    "category": "general",
+    "service_id": null,
+    "question": "Who does COB Solution work with?",
+    "answer": "COB Solution works with medical facilities, clinics, and healthcare practices.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0067",
+    "category": "general",
+    "service_id": null,
+    "question": "Do you support multiple locations?",
+    "answer": "Yes. The mock knowledge base assumes support for single-site and multi-location healthcare practices.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0068",
+    "category": "general",
+    "service_id": null,
+    "question": "Can I speak with a human agent?",
+    "answer": "Yes. If your issue is sensitive, urgent, or unresolved, the chatbot can escalate you to a human agent.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0069",
+    "category": "general",
+    "service_id": null,
+    "question": "Do you provide onboarding support?",
+    "answer": "Yes. The mock dataset includes onboarding guidance and consultation-first intake.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0070",
+    "category": "general",
+    "service_id": null,
+    "question": "Do you offer customized services?",
+    "answer": "Yes. Service recommendations can be tailored to the practice's goals and operational needs.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0071",
+    "category": "general",
+    "service_id": null,
+    "question": "What if I do not know which package fits my practice?",
+    "answer": "The chatbot can gather a few details and recommend a package or route you to a human consultant.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0072",
+    "category": "general",
+    "service_id": null,
+    "question": "How do you handle compliance-related questions?",
+    "answer": "Compliance-related questions can be answered from the policy records or escalated to a human specialist if needed.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0073",
+    "category": "general",
+    "service_id": null,
+    "question": "Can I get help with billing issues?",
+    "answer": "Yes. Billing and denial inquiries can be routed to revenue-cycle support.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0074",
+    "category": "general",
+    "service_id": null,
+    "question": "How can I reschedule an appointment?",
+    "answer": "You can request a new date and time, and the chatbot will check availability or escalate if needed.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0075",
+    "category": "general",
+    "service_id": null,
+    "question": "What if the chatbot cannot answer my question?",
+    "answer": "If no relevant answer is found, the chatbot should explain that and offer escalation to a human agent.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0076",
+    "category": "general",
+    "service_id": null,
+    "question": "Do you support communication workflows?",
+    "answer": "Yes. Communication services include reminders, scheduling coordination, and follow-up support.",
+    "tags": [
+      "general",
+      "support"
+    ]
+  },
+  {
+    "faq_id": "faq_0077",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with new practice launch?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0078",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with provider enrollment update?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0079",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with claim denial follow-up?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0080",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with patient scheduling backlog?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0081",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with website refresh project?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0082",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with financial dashboard review?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0083",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with authorization backlog?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0084",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with customer support complaint?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0085",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with audit preparation?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0086",
+    "category": "scenario",
+    "service_id": "svc_credentialing",
+    "question": "Can Credentialing and Provider Maintenance help with patient reminder optimization?",
+    "answer": "Yes. Credentialing and Provider Maintenance may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "operations",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0087",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with new practice launch?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0088",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with provider enrollment update?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0089",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with claim denial follow-up?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0090",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with patient scheduling backlog?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0091",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with website refresh project?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0092",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with financial dashboard review?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0093",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with authorization backlog?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0094",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with customer support complaint?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0095",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with audit preparation?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0096",
+    "category": "scenario",
+    "service_id": "svc_auth_benefits",
+    "question": "Can Authorizations and Benefits Verification help with patient reminder optimization?",
+    "answer": "Yes. Authorizations and Benefits Verification may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "insurance support",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0097",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with new practice launch?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0098",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with provider enrollment update?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0099",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with claim denial follow-up?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0100",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with patient scheduling backlog?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0101",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with website refresh project?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0102",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with financial dashboard review?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0103",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with authorization backlog?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0104",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with customer support complaint?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0105",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with audit preparation?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0106",
+    "category": "scenario",
+    "service_id": "svc_billing_denials",
+    "question": "Can Medical Billing and Denial Management help with patient reminder optimization?",
+    "answer": "Yes. Medical Billing and Denial Management may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "revenue cycle",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0107",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with new practice launch?",
+    "answer": "Yes. Medical Auditing may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0108",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with provider enrollment update?",
+    "answer": "Yes. Medical Auditing may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0109",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with claim denial follow-up?",
+    "answer": "Yes. Medical Auditing may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0110",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with patient scheduling backlog?",
+    "answer": "Yes. Medical Auditing may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0111",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with website refresh project?",
+    "answer": "Yes. Medical Auditing may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0112",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with financial dashboard review?",
+    "answer": "Yes. Medical Auditing may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0113",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with authorization backlog?",
+    "answer": "Yes. Medical Auditing may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0114",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with customer support complaint?",
+    "answer": "Yes. Medical Auditing may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0115",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with audit preparation?",
+    "answer": "Yes. Medical Auditing may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0116",
+    "category": "scenario",
+    "service_id": "svc_auditing",
+    "question": "Can Medical Auditing help with patient reminder optimization?",
+    "answer": "Yes. Medical Auditing may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "compliance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0117",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with new practice launch?",
+    "answer": "Yes. Customer Care may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0118",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with provider enrollment update?",
+    "answer": "Yes. Customer Care may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0119",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with claim denial follow-up?",
+    "answer": "Yes. Customer Care may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0120",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with patient scheduling backlog?",
+    "answer": "Yes. Customer Care may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0121",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with website refresh project?",
+    "answer": "Yes. Customer Care may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0122",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with financial dashboard review?",
+    "answer": "Yes. Customer Care may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0123",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with authorization backlog?",
+    "answer": "Yes. Customer Care may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0124",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with customer support complaint?",
+    "answer": "Yes. Customer Care may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0125",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with audit preparation?",
+    "answer": "Yes. Customer Care may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0126",
+    "category": "scenario",
+    "service_id": "svc_customer_care",
+    "question": "Can Customer Care help with patient reminder optimization?",
+    "answer": "Yes. Customer Care may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "customer care",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0127",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with new practice launch?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0128",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with provider enrollment update?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0129",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with claim denial follow-up?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0130",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with patient scheduling backlog?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0131",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with website refresh project?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0132",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with financial dashboard review?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0133",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with authorization backlog?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0134",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with customer support complaint?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0135",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with audit preparation?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0136",
+    "category": "scenario",
+    "service_id": "svc_digital_marketing",
+    "question": "Can Digital Marketing and Website Services help with patient reminder optimization?",
+    "answer": "Yes. Digital Marketing and Website Services may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "marketing",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0137",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with new practice launch?",
+    "answer": "Yes. Financial Management may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0138",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with provider enrollment update?",
+    "answer": "Yes. Financial Management may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0139",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with claim denial follow-up?",
+    "answer": "Yes. Financial Management may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0140",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with patient scheduling backlog?",
+    "answer": "Yes. Financial Management may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0141",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with website refresh project?",
+    "answer": "Yes. Financial Management may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0142",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with financial dashboard review?",
+    "answer": "Yes. Financial Management may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0143",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with authorization backlog?",
+    "answer": "Yes. Financial Management may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0144",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with customer support complaint?",
+    "answer": "Yes. Financial Management may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0145",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with audit preparation?",
+    "answer": "Yes. Financial Management may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0146",
+    "category": "scenario",
+    "service_id": "svc_financial_management",
+    "question": "Can Financial Management help with patient reminder optimization?",
+    "answer": "Yes. Financial Management may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "finance",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0147",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with new practice launch?",
+    "answer": "Yes. Communication Services may support practices dealing with new practice launch, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "new practice launch",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0148",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with provider enrollment update?",
+    "answer": "Yes. Communication Services may support practices dealing with provider enrollment update, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "provider enrollment update",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0149",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with claim denial follow-up?",
+    "answer": "Yes. Communication Services may support practices dealing with claim denial follow-up, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "claim denial follow-up",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0150",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with patient scheduling backlog?",
+    "answer": "Yes. Communication Services may support practices dealing with patient scheduling backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient scheduling backlog",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0151",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with website refresh project?",
+    "answer": "Yes. Communication Services may support practices dealing with website refresh project, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "website refresh project",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0152",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with financial dashboard review?",
+    "answer": "Yes. Communication Services may support practices dealing with financial dashboard review, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "financial dashboard review",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0153",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with authorization backlog?",
+    "answer": "Yes. Communication Services may support practices dealing with authorization backlog, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "authorization backlog",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0154",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with customer support complaint?",
+    "answer": "Yes. Communication Services may support practices dealing with customer support complaint, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "customer support complaint",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0155",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with audit preparation?",
+    "answer": "Yes. Communication Services may support practices dealing with audit preparation, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "audit preparation",
+      "communications",
+      "consultation"
+    ]
+  },
+  {
+    "faq_id": "faq_0156",
+    "category": "scenario",
+    "service_id": "svc_communication",
+    "question": "Can Communication Services help with patient reminder optimization?",
+    "answer": "Yes. Communication Services may support practices dealing with patient reminder optimization, depending on scope and operational needs. A consultation can clarify fit, timing, and next steps.",
+    "tags": [
+      "patient reminder optimization",
+      "communications",
+      "consultation"
+    ]
+  }
+]

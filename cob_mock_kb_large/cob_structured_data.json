@@ -1,0 +1,4281 @@
+{
+  "company_profile": {
+    "company_name": "COB Solution",
+    "industry": "Healthcare services",
+    "description": "Synthetic company profile aligned to public COB messaging for interview-task use only."
+  },
+  "general_information": [
+    {
+      "key": "company_name",
+      "value": "COB Solution"
+    },
+    {
+      "key": "industry_focus",
+      "value": "Healthcare and medical practice support services"
+    },
+    {
+      "key": "client_profile",
+      "value": "Medical facilities, clinics, and healthcare practices"
+    },
+    {
+      "key": "client_scale",
+      "value": "Partnered with 100+ locations in the medical field"
+    },
+    {
+      "key": "service_style",
+      "value": "Customized service packages aligned to client needs"
+    },
+    {
+      "key": "support_availability",
+      "value": "24/7 support and visibility-oriented service model"
+    },
+    {
+      "key": "public_faq_note",
+      "value": "Public FAQ highlights include onboarding, compliance, dashboard transparency, and practice software support"
+    },
+    {
+      "key": "supported_chatbot_tasks",
+      "value": "Knowledge-base answers, consultation scheduling, contact updates, and human escalation workflows"
+    },
+    {
+      "key": "mock_integration_note",
+      "value": "The dataset includes mock booking and handoff API contracts for interview-task demonstrations"
+    }
+  ],
+  "products": [
+    {
+      "product_id": "prd_001",
+      "name": "Revenue Insights Dashboard",
+      "category": "analytics",
+      "summary": "A mock dashboard product that gives practices visibility into claims, denials, and financial performance.",
+      "related_service_ids": [
+        "svc_billing_denials",
+        "svc_financial_management"
+      ],
+      "kb_keywords": [
+        "dashboard",
+        "financial visibility",
+        "revenue insights",
+        "reporting"
+      ]
+    },
+    {
+      "product_id": "prd_002",
+      "name": "Patient Communication Hub",
+      "category": "communication",
+      "summary": "A mock communication product for reminders, follow-up messaging, and scheduling coordination.",
+      "related_service_ids": [
+        "svc_communication",
+        "svc_customer_care"
+      ],
+      "kb_keywords": [
+        "patient communication",
+        "reminders",
+        "follow-up",
+        "messaging"
+      ]
+    },
+    {
+      "product_id": "prd_003",
+      "name": "Practice Launch Toolkit",
+      "category": "onboarding",
+      "summary": "A mock onboarding toolkit for new practices that bundles credentialing, benefits, and launch support.",
+      "related_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_customer_care"
+      ],
+      "kb_keywords": [
+        "launch toolkit",
+        "new practice",
+        "onboarding",
+        "setup"
+      ]
+    },
+    {
+      "product_id": "prd_004",
+      "name": "Support Visibility Portal",
+      "category": "support",
+      "summary": "A mock portal product for tracking open requests, escalations, and service follow-up status.",
+      "related_service_ids": [
+        "svc_customer_care",
+        "svc_communication",
+        "svc_financial_management"
+      ],
+      "kb_keywords": [
+        "support portal",
+        "ticket status",
+        "escalation tracking",
+        "visibility"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "svc_credentialing",
+      "name": "Credentialing and Provider Maintenance",
+      "department": "Operations",
+      "keywords": [
+        "credentialing",
+        "provider enrollment",
+        "provider maintenance",
+        "payer enrollment"
+      ],
+      "summary": "Support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+    },
+    {
+      "id": "svc_auth_benefits",
+      "name": "Authorizations and Benefits Verification",
+      "department": "Insurance Support",
+      "keywords": [
+        "prior authorization",
+        "benefits verification",
+        "eligibility",
+        "insurance"
+      ],
+      "summary": "Support for insurance eligibility checks, benefits verification, and authorization workflows."
+    },
+    {
+      "id": "svc_billing_denials",
+      "name": "Medical Billing and Denial Management",
+      "department": "Revenue Cycle",
+      "keywords": [
+        "billing",
+        "claims",
+        "denials",
+        "reimbursement"
+      ],
+      "summary": "Support for claim submission, denial analysis, appeals, and revenue optimization."
+    },
+    {
+      "id": "svc_auditing",
+      "name": "Medical Auditing",
+      "department": "Compliance",
+      "keywords": [
+        "audit",
+        "documentation review",
+        "coding review",
+        "compliance"
+      ],
+      "summary": "Audit support for documentation, coding quality, and billing process accuracy."
+    },
+    {
+      "id": "svc_customer_care",
+      "name": "Customer Care",
+      "department": "Customer Care",
+      "keywords": [
+        "support",
+        "customer care",
+        "issue resolution",
+        "help desk"
+      ],
+      "summary": "General customer support, issue intake, status follow-up, and escalation handling."
+    },
+    {
+      "id": "svc_digital_marketing",
+      "name": "Digital Marketing and Website Services",
+      "department": "Marketing",
+      "keywords": [
+        "digital marketing",
+        "website",
+        "SEO",
+        "online presence"
+      ],
+      "summary": "Website and digital growth support for healthcare practices."
+    },
+    {
+      "id": "svc_financial_management",
+      "name": "Financial Management",
+      "department": "Finance",
+      "keywords": [
+        "financial reports",
+        "dashboard",
+        "bookkeeping",
+        "payroll"
+      ],
+      "summary": "Financial visibility and practice reporting support with dashboard-based monitoring."
+    },
+    {
+      "id": "svc_communication",
+      "name": "Communication Services",
+      "department": "Communications",
+      "keywords": [
+        "scheduling",
+        "reminders",
+        "follow-up",
+        "communication"
+      ],
+      "summary": "Patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+    }
+  ],
+  "policies": [
+    {
+      "policy_id": "pol_001",
+      "title": "Privacy and Data Handling Policy",
+      "category": "privacy",
+      "summary": "Mock policy for handling practice and patient data using healthcare-appropriate safeguards and access controls.",
+      "escalate_if": [
+        "privacy complaint",
+        "security incident",
+        "data access request"
+      ]
+    },
+    {
+      "policy_id": "pol_002",
+      "title": "Regulatory Compliance Policy",
+      "category": "compliance",
+      "summary": "Mock policy describing compliance-aligned operations and documentation practices for healthcare clients.",
+      "escalate_if": [
+        "compliance concern",
+        "audit request",
+        "regulatory complaint"
+      ]
+    },
+    {
+      "policy_id": "pol_003",
+      "title": "Scheduling and Follow-Up Policy",
+      "category": "scheduling",
+      "summary": "Mock policy for service appointments, reminders, rescheduling windows, and communication expectations.",
+      "escalate_if": [
+        "missed appointment complaint",
+        "urgent reschedule",
+        "repeat scheduling failure"
+      ]
+    },
+    {
+      "policy_id": "pol_004",
+      "title": "Human Escalation Policy",
+      "category": "support",
+      "summary": "Mock policy instructing the chatbot to escalate when confidence is low, the case is sensitive, or the user asks for an agent.",
+      "escalate_if": [
+        "user asks for human",
+        "frustration detected",
+        "three failed attempts"
+      ]
+    },
+    {
+      "policy_id": "pol_005",
+      "title": "Billing Inquiry and Resolution Policy",
+      "category": "billing",
+      "summary": "Mock policy for claim follow-up, billing issue intake, turnaround targets, and handoff to revenue specialists.",
+      "escalate_if": [
+        "payment dispute",
+        "repeated denial",
+        "urgent reimbursement issue"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "package_id": "pkg_001",
+      "name": "Starter Operations Package",
+      "service_ids": [
+        "svc_customer_care",
+        "svc_communication"
+      ],
+      "best_for": "Small practices needing scheduling and support workflows",
+      "booking_required": true
+    },
+    {
+      "package_id": "pkg_002",
+      "name": "Revenue Performance Package",
+      "service_ids": [
+        "svc_billing_denials",
+        "svc_financial_management"
+      ],
+      "best_for": "Practices focused on claims performance and reporting visibility",
+      "booking_required": true
+    },
+    {
+      "package_id": "pkg_003",
+      "name": "Practice Launch Package",
+      "service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_customer_care"
+      ],
+      "best_for": "New practices or providers expanding networks",
+      "booking_required": true
+    },
+    {
+      "package_id": "pkg_004",
+      "name": "Growth and Presence Package",
+      "service_ids": [
+        "svc_digital_marketing",
+        "svc_communication"
+      ],
+      "best_for": "Practices wanting stronger digital presence and patient outreach",
+      "booking_required": true
+    }
+  ],
+  "contacts": [
+    {
+      "team": "Customer Care",
+      "email": "support@cobsolution.mock",
+      "phone": "+1-800-555-0101",
+      "hours": "24/7"
+    },
+    {
+      "team": "Scheduling",
+      "email": "scheduling@cobsolution.mock",
+      "phone": "+1-800-555-0102",
+      "hours": "Mon-Fri 8:00-18:00"
+    },
+    {
+      "team": "Billing",
+      "email": "billing@cobsolution.mock",
+      "phone": "+1-800-555-0103",
+      "hours": "Mon-Fri 8:00-18:00"
+    },
+    {
+      "team": "Compliance",
+      "email": "compliance@cobsolution.mock",
+      "phone": "+1-800-555-0104",
+      "hours": "Mon-Fri 9:00-17:00"
+    }
+  ],
+  "intents": [
+    {
+      "intent": "kb_query",
+      "description": "Answer factual questions from documents, FAQs, and records.",
+      "example_utterances": [
+        "What services do you offer?",
+        "Do you have a dashboard product?",
+        "How do you handle compliance concerns?",
+        "What are your scheduling policies?"
+      ],
+      "primary_outcome": "Retrieve a concise answer from the knowledge base."
+    },
+    {
+      "intent": "action_schedule_consultation",
+      "description": "Book a consultation or service discussion.",
+      "example_utterances": [
+        "I want to book an appointment.",
+        "Schedule a consultation for billing support next Tuesday afternoon.",
+        "Can you reschedule my credentialing consultation?",
+        "Book a marketing discovery call for our clinic."
+      ],
+      "required_entities_for_completion": [
+        "service_name",
+        "practice_name",
+        "contact_name",
+        "email",
+        "phone",
+        "date",
+        "time"
+      ],
+      "primary_outcome": "Collect booking details, confirm them, and create a mock appointment."
+    },
+    {
+      "intent": "action_update_contact_info",
+      "description": "Capture updated practice or provider information.",
+      "example_utterances": [
+        "Please update our office email.",
+        "I need to change the phone number on file.",
+        "Can you update our practice contact details?"
+      ],
+      "required_entities_for_completion": [
+        "practice_name",
+        "contact_name"
+      ],
+      "primary_outcome": "Capture updated contact details and prepare them for follow-up processing."
+    },
+    {
+      "intent": "escalate_human",
+      "description": "Transfer to a human agent for sensitive or unresolved cases.",
+      "example_utterances": [
+        "I need to speak to a person.",
+        "This is the third time I am asking.",
+        "I am frustrated and need a supervisor.",
+        "This is a compliance complaint."
+      ],
+      "primary_outcome": "Hand the conversation to the right human team with enough context."
+    }
+  ],
+  "entities": [
+    {
+      "entity": "service_name",
+      "examples": [
+        "Credentialing and Provider Maintenance",
+        "Authorizations and Benefits Verification",
+        "Medical Billing and Denial Management",
+        "Medical Auditing"
+      ]
+    },
+    {
+      "entity": "date",
+      "examples": [
+        "next Tuesday",
+        "2026-04-21",
+        "tomorrow afternoon"
+      ]
+    },
+    {
+      "entity": "time",
+      "examples": [
+        "2 PM",
+        "15:30",
+        "late morning"
+      ]
+    },
+    {
+      "entity": "provider_name",
+      "examples": [
+        "Dr. Sarah Khan",
+        "Dr. Miguel Ortiz"
+      ]
+    },
+    {
+      "entity": "practice_name",
+      "examples": [
+        "BrightCare Clinic",
+        "North Valley Pediatrics"
+      ]
+    },
+    {
+      "entity": "email",
+      "examples": [
+        "office@example.com",
+        "manager@example.com"
+      ]
+    },
+    {
+      "entity": "phone",
+      "examples": [
+        "+1-555-123-4567",
+        "+1-555-987-6543"
+      ]
+    },
+    {
+      "entity": "contact_name",
+      "examples": [
+        "Maya Johnson",
+        "Omar Reed"
+      ]
+    },
+    {
+      "entity": "urgency_level",
+      "examples": [
+        "urgent",
+        "routine",
+        "high priority"
+      ]
+    }
+  ],
+  "appointment_slots": [
+    {
+      "slot_id": "slot_0001",
+      "date": "2026-04-06",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0002",
+      "date": "2026-04-06",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0003",
+      "date": "2026-04-06",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0004",
+      "date": "2026-04-06",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0005",
+      "date": "2026-04-06",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0006",
+      "date": "2026-04-06",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0007",
+      "date": "2026-04-06",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0008",
+      "date": "2026-04-07",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0009",
+      "date": "2026-04-07",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0010",
+      "date": "2026-04-07",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0011",
+      "date": "2026-04-07",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0012",
+      "date": "2026-04-07",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0013",
+      "date": "2026-04-07",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0014",
+      "date": "2026-04-07",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0015",
+      "date": "2026-04-08",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0016",
+      "date": "2026-04-08",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0017",
+      "date": "2026-04-08",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0018",
+      "date": "2026-04-08",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0019",
+      "date": "2026-04-08",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0020",
+      "date": "2026-04-08",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0021",
+      "date": "2026-04-08",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0022",
+      "date": "2026-04-09",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0023",
+      "date": "2026-04-09",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0024",
+      "date": "2026-04-09",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0025",
+      "date": "2026-04-09",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0026",
+      "date": "2026-04-09",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0027",
+      "date": "2026-04-09",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0028",
+      "date": "2026-04-09",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0029",
+      "date": "2026-04-10",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0030",
+      "date": "2026-04-10",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0031",
+      "date": "2026-04-10",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0032",
+      "date": "2026-04-10",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0033",
+      "date": "2026-04-10",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0034",
+      "date": "2026-04-10",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0035",
+      "date": "2026-04-10",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0036",
+      "date": "2026-04-13",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0037",
+      "date": "2026-04-13",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0038",
+      "date": "2026-04-13",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0039",
+      "date": "2026-04-13",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0040",
+      "date": "2026-04-13",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0041",
+      "date": "2026-04-13",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0042",
+      "date": "2026-04-13",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0043",
+      "date": "2026-04-14",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0044",
+      "date": "2026-04-14",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0045",
+      "date": "2026-04-14",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0046",
+      "date": "2026-04-14",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0047",
+      "date": "2026-04-14",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0048",
+      "date": "2026-04-14",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0049",
+      "date": "2026-04-14",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0050",
+      "date": "2026-04-15",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0051",
+      "date": "2026-04-15",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0052",
+      "date": "2026-04-15",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0053",
+      "date": "2026-04-15",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0054",
+      "date": "2026-04-15",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0055",
+      "date": "2026-04-15",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0056",
+      "date": "2026-04-15",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0057",
+      "date": "2026-04-16",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0058",
+      "date": "2026-04-16",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0059",
+      "date": "2026-04-16",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0060",
+      "date": "2026-04-16",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0061",
+      "date": "2026-04-16",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0062",
+      "date": "2026-04-16",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0063",
+      "date": "2026-04-16",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0064",
+      "date": "2026-04-17",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0065",
+      "date": "2026-04-17",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0066",
+      "date": "2026-04-17",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0067",
+      "date": "2026-04-17",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0068",
+      "date": "2026-04-17",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0069",
+      "date": "2026-04-17",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0070",
+      "date": "2026-04-17",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0071",
+      "date": "2026-04-20",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0072",
+      "date": "2026-04-20",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0073",
+      "date": "2026-04-20",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0074",
+      "date": "2026-04-20",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0075",
+      "date": "2026-04-20",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0076",
+      "date": "2026-04-20",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0077",
+      "date": "2026-04-20",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0078",
+      "date": "2026-04-21",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0079",
+      "date": "2026-04-21",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0080",
+      "date": "2026-04-21",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0081",
+      "date": "2026-04-21",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0082",
+      "date": "2026-04-21",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0083",
+      "date": "2026-04-21",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0084",
+      "date": "2026-04-21",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0085",
+      "date": "2026-04-22",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0086",
+      "date": "2026-04-22",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0087",
+      "date": "2026-04-22",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0088",
+      "date": "2026-04-22",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0089",
+      "date": "2026-04-22",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0090",
+      "date": "2026-04-22",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0091",
+      "date": "2026-04-22",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0092",
+      "date": "2026-04-23",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0093",
+      "date": "2026-04-23",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0094",
+      "date": "2026-04-23",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0095",
+      "date": "2026-04-23",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0096",
+      "date": "2026-04-23",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0097",
+      "date": "2026-04-23",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0098",
+      "date": "2026-04-23",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0099",
+      "date": "2026-04-24",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0100",
+      "date": "2026-04-24",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0101",
+      "date": "2026-04-24",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0102",
+      "date": "2026-04-24",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0103",
+      "date": "2026-04-24",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0104",
+      "date": "2026-04-24",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0105",
+      "date": "2026-04-24",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0106",
+      "date": "2026-04-27",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0107",
+      "date": "2026-04-27",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0108",
+      "date": "2026-04-27",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0109",
+      "date": "2026-04-27",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0110",
+      "date": "2026-04-27",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0111",
+      "date": "2026-04-27",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0112",
+      "date": "2026-04-27",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0113",
+      "date": "2026-04-28",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0114",
+      "date": "2026-04-28",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0115",
+      "date": "2026-04-28",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0116",
+      "date": "2026-04-28",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0117",
+      "date": "2026-04-28",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0118",
+      "date": "2026-04-28",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0119",
+      "date": "2026-04-28",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0120",
+      "date": "2026-04-29",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0121",
+      "date": "2026-04-29",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0122",
+      "date": "2026-04-29",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0123",
+      "date": "2026-04-29",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0124",
+      "date": "2026-04-29",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0125",
+      "date": "2026-04-29",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0126",
+      "date": "2026-04-29",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0127",
+      "date": "2026-04-30",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0128",
+      "date": "2026-04-30",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0129",
+      "date": "2026-04-30",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0130",
+      "date": "2026-04-30",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0131",
+      "date": "2026-04-30",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0132",
+      "date": "2026-04-30",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0133",
+      "date": "2026-04-30",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0134",
+      "date": "2026-05-01",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0135",
+      "date": "2026-05-01",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0136",
+      "date": "2026-05-01",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0137",
+      "date": "2026-05-01",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0138",
+      "date": "2026-05-01",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0139",
+      "date": "2026-05-01",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0140",
+      "date": "2026-05-01",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0141",
+      "date": "2026-05-04",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0142",
+      "date": "2026-05-04",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0143",
+      "date": "2026-05-04",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0144",
+      "date": "2026-05-04",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0145",
+      "date": "2026-05-04",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0146",
+      "date": "2026-05-04",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0147",
+      "date": "2026-05-04",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0148",
+      "date": "2026-05-05",
+      "time": "09:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0149",
+      "date": "2026-05-05",
+      "time": "10:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0150",
+      "date": "2026-05-05",
+      "time": "11:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0151",
+      "date": "2026-05-05",
+      "time": "13:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0152",
+      "date": "2026-05-05",
+      "time": "14:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0153",
+      "date": "2026-05-05",
+      "time": "15:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": true,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    },
+    {
+      "slot_id": "slot_0154",
+      "date": "2026-05-05",
+      "time": "16:00",
+      "service_types": [
+        "Consultation",
+        "Billing Review",
+        "Credentialing Review",
+        "Marketing Discovery"
+      ],
+      "available": false,
+      "supported_service_ids": [
+        "svc_credentialing",
+        "svc_auth_benefits",
+        "svc_billing_denials",
+        "svc_auditing",
+        "svc_customer_care",
+        "svc_digital_marketing",
+        "svc_financial_management",
+        "svc_communication"
+      ],
+      "supports_reschedule": true
+    }
+  ],
+  "action_flows": [
+    {
+      "flow_id": "flow_schedule_consultation",
+      "intent": "action_schedule_consultation",
+      "goal": "Schedule a consultation or service discussion through a guided conversational flow.",
+      "required_entities": [
+        "service_name",
+        "practice_name",
+        "contact_name",
+        "email",
+        "phone",
+        "date",
+        "time"
+      ],
+      "optional_entities": [
+        "urgency_level",
+        "notes"
+      ],
+      "state_tracking_keys": [
+        "service_name",
+        "practice_name",
+        "contact_name",
+        "email",
+        "phone",
+        "date",
+        "time",
+        "confirmation_status"
+      ],
+      "steps": [
+        {
+          "step_id": "confirm_action",
+          "instruction": "Confirm that the user wants to schedule or reschedule an appointment."
+        },
+        {
+          "step_id": "collect_service",
+          "instruction": "Capture the requested service or package and clarify it if the user is vague."
+        },
+        {
+          "step_id": "collect_contact_details",
+          "instruction": "Collect the practice name, contact name, email address, and phone number."
+        },
+        {
+          "step_id": "collect_time_preferences",
+          "instruction": "Collect the preferred date and time, then match against appointment slots."
+        },
+        {
+          "step_id": "confirm_booking",
+          "instruction": "Summarize the collected details and ask for explicit confirmation before booking."
+        },
+        {
+          "step_id": "submit_booking",
+          "instruction": "Send the confirmed payload to the mock scheduling API contract."
+        }
+      ],
+      "confirmation_template": "You want a {service_name} appointment for {practice_name} on {date} at {time}. I have {contact_name} listed with {email} and {phone}. Should I confirm this booking?",
+      "success_template": "Your {service_name} appointment is booked for {date} at {time}. Reference code: {reference_code}.",
+      "fallback_when_no_slots": "Offer the next available slot from appointment_slots or ask for an alternate date and time.",
+      "mock_api_contract_id": "api_schedule_appointment"
+    },
+    {
+      "flow_id": "flow_update_contact_info",
+      "intent": "action_update_contact_info",
+      "goal": "Capture updated practice or provider contact details for follow-up.",
+      "required_entities": [
+        "practice_name",
+        "contact_name"
+      ],
+      "optional_entities": [
+        "email",
+        "phone"
+      ],
+      "state_tracking_keys": [
+        "practice_name",
+        "contact_name",
+        "email",
+        "phone",
+        "confirmation_status"
+      ],
+      "steps": [
+        {
+          "step_id": "confirm_update",
+          "instruction": "Confirm that the user wants to update contact details."
+        },
+        {
+          "step_id": "collect_changes",
+          "instruction": "Capture the new email, phone number, or provider detail that changed."
+        },
+        {
+          "step_id": "confirm_update_payload",
+          "instruction": "Summarize the changes and ask for confirmation before saving."
+        },
+        {
+          "step_id": "queue_follow_up",
+          "instruction": "Route the confirmed change to the appropriate follow-up team or mock API."
+        }
+      ],
+      "confirmation_template": "I have an update for {practice_name} with contact {contact_name}. Should I save the new details now?",
+      "success_template": "The updated contact details for {practice_name} have been queued for follow-up.",
+      "mock_api_contract_id": "api_update_contact_info"
+    }
+  ],
+  "escalation_playbook": {
+    "repeated_failure_threshold": 3,
+    "required_handoff_fields": [
+      "user_request_summary",
+      "practice_name",
+      "contact_name",
+      "email",
+      "phone",
+      "reason_for_escalation"
+    ],
+    "frustration_patterns": [
+      "this still does not help",
+      "I already asked",
+      "third time",
+      "frustrated",
+      "supervisor"
+    ],
+    "triggers": [
+      {
+        "trigger_id": "esc_001",
+        "condition": "explicit_request_for_human",
+        "route_to_team": "Customer Care",
+        "examples": [
+          "I want a human.",
+          "Can I talk to an agent?",
+          "Connect me to support."
+        ]
+      },
+      {
+        "trigger_id": "esc_002",
+        "condition": "privacy_or_compliance_concern",
+        "route_to_team": "Compliance",
+        "examples": [
+          "This is a compliance issue.",
+          "I have a privacy complaint.",
+          "I need help with a data request."
+        ]
+      },
+      {
+        "trigger_id": "esc_003",
+        "condition": "billing_dispute_or_urgent_reimbursement_issue",
+        "route_to_team": "Billing",
+        "examples": [
+          "This is a payment dispute.",
+          "We need urgent reimbursement help.",
+          "Our billing issue is unresolved."
+        ]
+      },
+      {
+        "trigger_id": "esc_004",
+        "condition": "frustration_or_repeated_failure",
+        "route_to_team": "Customer Care",
+        "examples": [
+          "This is the third time.",
+          "I am frustrated with this process.",
+          "You still are not answering my question."
+        ]
+      }
+    ],
+    "default_handoff_message": "I am sorry this has been frustrating. I am preparing a handoff to the right team now and will include the details you already shared.",
+    "mock_api_contract_id": "api_transfer_human"
+  },
+  "mock_api_contracts": [
+    {
+      "contract_id": "api_schedule_appointment",
+      "method": "POST",
+      "path": "/mock-api/appointments",
+      "description": "Create a mock consultation appointment after the user confirms all collected fields.",
+      "required_fields": [
+        "service_id",
+        "service_name",
+        "practice_name",
+        "contact_name",
+        "email",
+        "phone",
+        "date",
+        "time"
+      ],
+      "success_response_example": {
+        "appointment_id": "apt_0121",
+        "status": "confirmed",
+        "reference_code": "COB-20260429-0121"
+      },
+      "error_response_example": {
+        "error": "slot_unavailable",
+        "message": "The requested slot is no longer available. Offer the next available slot."
+      }
+    },
+    {
+      "contract_id": "api_transfer_human",
+      "method": "POST",
+      "path": "/mock-api/handoffs",
+      "description": "Create a mock handoff record when the conversation needs a human agent.",
+      "required_fields": [
+        "team",
+        "reason_for_escalation",
+        "user_request_summary",
+        "contact_name",
+        "email",
+        "phone"
+      ],
+      "success_response_example": {
+        "handoff_id": "handoff_0001",
+        "status": "queued",
+        "team": "Customer Care"
+      }
+    },
+    {
+      "contract_id": "api_update_contact_info",
+      "method": "POST",
+      "path": "/mock-api/contact-updates",
+      "description": "Queue a mock contact-information update for internal follow-up.",
+      "required_fields": [
+        "practice_name",
+        "contact_name"
+      ],
+      "success_response_example": {
+        "update_id": "upd_0001",
+        "status": "queued"
+      }
+    }
+  ],
+  "routing_rules": [
+    {
+      "if_contains": [
+        "book",
+        "schedule",
+        "consultation",
+        "appointment",
+        "reschedule"
+      ],
+      "route": "action_schedule_consultation"
+    },
+    {
+      "if_contains": [
+        "update email",
+        "update phone",
+        "change contact",
+        "contact info",
+        "provider info"
+      ],
+      "route": "action_update_contact_info"
+    },
+    {
+      "if_contains": [
+        "human",
+        "agent",
+        "supervisor",
+        "complaint",
+        "frustrated",
+        "third time",
+        "still not",
+        "privacy"
+      ],
+      "route": "escalate_human"
+    },
+    {
+      "if_contains": [
+        "product",
+        "package",
+        "service",
+        "policy",
+        "hours",
+        "onboarding",
+        "price",
+        "dashboard",
+        "support"
+      ],
+      "route": "kb_query"
+    }
+  ]
+}

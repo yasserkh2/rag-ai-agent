@@ -1,0 +1,1777 @@
+[
+  {
+    "doc_id": "doc_0001",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Credentialing and Provider Maintenance supports healthcare practices with support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with credentialing, provider enrollment, provider maintenance, payer enrollment."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance",
+      "payer enrollment",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0002",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Credentialing and Provider Maintenance supports healthcare practices with support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with credentialing, provider enrollment, provider maintenance, payer enrollment."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance",
+      "payer enrollment",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0003",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Credentialing and Provider Maintenance supports healthcare practices with support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with credentialing, provider enrollment, provider maintenance, payer enrollment."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance",
+      "payer enrollment",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0004",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Credentialing and Provider Maintenance supports healthcare practices with support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with credentialing, provider enrollment, provider maintenance, payer enrollment."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance",
+      "payer enrollment",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0005",
+    "service_id": "svc_credentialing",
+    "title": "Credentialing and Provider Maintenance - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Credentialing and Provider Maintenance supports healthcare practices with support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with credentialing, provider enrollment, provider maintenance, payer enrollment."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "credentialing",
+      "provider enrollment",
+      "provider maintenance",
+      "payer enrollment",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0006",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Authorizations and Benefits Verification supports healthcare practices with support for insurance eligibility checks, benefits verification, and authorization workflows."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with prior authorization, benefits verification, eligibility, insurance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility",
+      "insurance",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0007",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Authorizations and Benefits Verification supports healthcare practices with support for insurance eligibility checks, benefits verification, and authorization workflows."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with prior authorization, benefits verification, eligibility, insurance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility",
+      "insurance",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0008",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Authorizations and Benefits Verification supports healthcare practices with support for insurance eligibility checks, benefits verification, and authorization workflows."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with prior authorization, benefits verification, eligibility, insurance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility",
+      "insurance",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0009",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Authorizations and Benefits Verification supports healthcare practices with support for insurance eligibility checks, benefits verification, and authorization workflows."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with prior authorization, benefits verification, eligibility, insurance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility",
+      "insurance",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0010",
+    "service_id": "svc_auth_benefits",
+    "title": "Authorizations and Benefits Verification - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Authorizations and Benefits Verification supports healthcare practices with support for insurance eligibility checks, benefits verification, and authorization workflows."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with prior authorization, benefits verification, eligibility, insurance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "prior authorization",
+      "benefits verification",
+      "eligibility",
+      "insurance",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0011",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Billing and Denial Management supports healthcare practices with support for claim submission, denial analysis, appeals, and revenue optimization."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with billing, claims, denials, reimbursement."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "billing",
+      "claims",
+      "denials",
+      "reimbursement",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0012",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Billing and Denial Management supports healthcare practices with support for claim submission, denial analysis, appeals, and revenue optimization."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with billing, claims, denials, reimbursement."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "billing",
+      "claims",
+      "denials",
+      "reimbursement",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0013",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Billing and Denial Management supports healthcare practices with support for claim submission, denial analysis, appeals, and revenue optimization."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with billing, claims, denials, reimbursement."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "billing",
+      "claims",
+      "denials",
+      "reimbursement",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0014",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Billing and Denial Management supports healthcare practices with support for claim submission, denial analysis, appeals, and revenue optimization."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with billing, claims, denials, reimbursement."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "billing",
+      "claims",
+      "denials",
+      "reimbursement",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0015",
+    "service_id": "svc_billing_denials",
+    "title": "Medical Billing and Denial Management - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Billing and Denial Management supports healthcare practices with support for claim submission, denial analysis, appeals, and revenue optimization."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with billing, claims, denials, reimbursement."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "billing",
+      "claims",
+      "denials",
+      "reimbursement",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0016",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Auditing supports healthcare practices with audit support for documentation, coding quality, and billing process accuracy."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with audit, documentation review, coding review, compliance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review",
+      "compliance",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0017",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Auditing supports healthcare practices with audit support for documentation, coding quality, and billing process accuracy."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with audit, documentation review, coding review, compliance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review",
+      "compliance",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0018",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Auditing supports healthcare practices with audit support for documentation, coding quality, and billing process accuracy."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with audit, documentation review, coding review, compliance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review",
+      "compliance",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0019",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Auditing supports healthcare practices with audit support for documentation, coding quality, and billing process accuracy."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with audit, documentation review, coding review, compliance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review",
+      "compliance",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0020",
+    "service_id": "svc_auditing",
+    "title": "Medical Auditing - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Medical Auditing supports healthcare practices with audit support for documentation, coding quality, and billing process accuracy."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with audit, documentation review, coding review, compliance."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "audit",
+      "documentation review",
+      "coding review",
+      "compliance",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0021",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Customer Care supports healthcare practices with general customer support, issue intake, status follow-up, and escalation handling."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with support, customer care, issue resolution, help desk."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution",
+      "help desk",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0022",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Customer Care supports healthcare practices with general customer support, issue intake, status follow-up, and escalation handling."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with support, customer care, issue resolution, help desk."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution",
+      "help desk",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0023",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Customer Care supports healthcare practices with general customer support, issue intake, status follow-up, and escalation handling."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with support, customer care, issue resolution, help desk."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution",
+      "help desk",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0024",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Customer Care supports healthcare practices with general customer support, issue intake, status follow-up, and escalation handling."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with support, customer care, issue resolution, help desk."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution",
+      "help desk",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0025",
+    "service_id": "svc_customer_care",
+    "title": "Customer Care - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Customer Care supports healthcare practices with general customer support, issue intake, status follow-up, and escalation handling."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with support, customer care, issue resolution, help desk."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "support",
+      "customer care",
+      "issue resolution",
+      "help desk",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0026",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Digital Marketing and Website Services supports healthcare practices with website and digital growth support for healthcare practices."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with digital marketing, website, SEO, online presence."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO",
+      "online presence",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0027",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Digital Marketing and Website Services supports healthcare practices with website and digital growth support for healthcare practices."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with digital marketing, website, SEO, online presence."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO",
+      "online presence",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0028",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Digital Marketing and Website Services supports healthcare practices with website and digital growth support for healthcare practices."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with digital marketing, website, SEO, online presence."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO",
+      "online presence",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0029",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Digital Marketing and Website Services supports healthcare practices with website and digital growth support for healthcare practices."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with digital marketing, website, SEO, online presence."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO",
+      "online presence",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0030",
+    "service_id": "svc_digital_marketing",
+    "title": "Digital Marketing and Website Services - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Digital Marketing and Website Services supports healthcare practices with website and digital growth support for healthcare practices."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with digital marketing, website, SEO, online presence."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "digital marketing",
+      "website",
+      "SEO",
+      "online presence",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0031",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Financial Management supports healthcare practices with financial visibility and practice reporting support with dashboard-based monitoring."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with financial reports, dashboard, bookkeeping, payroll."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping",
+      "payroll",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0032",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Financial Management supports healthcare practices with financial visibility and practice reporting support with dashboard-based monitoring."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with financial reports, dashboard, bookkeeping, payroll."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping",
+      "payroll",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0033",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Financial Management supports healthcare practices with financial visibility and practice reporting support with dashboard-based monitoring."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with financial reports, dashboard, bookkeeping, payroll."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping",
+      "payroll",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0034",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Financial Management supports healthcare practices with financial visibility and practice reporting support with dashboard-based monitoring."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with financial reports, dashboard, bookkeeping, payroll."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping",
+      "payroll",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0035",
+    "service_id": "svc_financial_management",
+    "title": "Financial Management - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Financial Management supports healthcare practices with financial visibility and practice reporting support with dashboard-based monitoring."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with financial reports, dashboard, bookkeeping, payroll."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "financial reports",
+      "dashboard",
+      "bookkeeping",
+      "payroll",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0036",
+    "service_id": "svc_communication",
+    "title": "Communication Services - Service Overview",
+    "doc_type": "Service Overview",
+    "purpose": "High-level overview of service goals, scope, and ideal customer profile.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Communication Services supports healthcare practices with patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with scheduling, reminders, follow-up, communication."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up",
+      "communication",
+      "service overview"
+    ]
+  },
+  {
+    "doc_id": "doc_0037",
+    "service_id": "svc_communication",
+    "title": "Communication Services - Implementation Guide",
+    "doc_type": "Implementation Guide",
+    "purpose": "Mock implementation guidance, onboarding steps, prerequisites, and success criteria.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Communication Services supports healthcare practices with patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with scheduling, reminders, follow-up, communication."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up",
+      "communication",
+      "implementation guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0038",
+    "service_id": "svc_communication",
+    "title": "Communication Services - Troubleshooting Guide",
+    "doc_type": "Troubleshooting Guide",
+    "purpose": "Common issues, escalation conditions, and recovery recommendations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Communication Services supports healthcare practices with patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with scheduling, reminders, follow-up, communication."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up",
+      "communication",
+      "troubleshooting guide"
+    ]
+  },
+  {
+    "doc_id": "doc_0039",
+    "service_id": "svc_communication",
+    "title": "Communication Services - Customer Conversation Playbook",
+    "doc_type": "Customer Conversation Playbook",
+    "purpose": "Suggested handling patterns for support and discovery conversations.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Communication Services supports healthcare practices with patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with scheduling, reminders, follow-up, communication."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up",
+      "communication",
+      "customer conversation playbook"
+    ]
+  },
+  {
+    "doc_id": "doc_0040",
+    "service_id": "svc_communication",
+    "title": "Communication Services - Policy Reference",
+    "doc_type": "Policy Reference",
+    "purpose": "Mock operational policy notes relevant to the service area.",
+    "audience": "Customer support chatbot and internal support teams",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": "Communication Services supports healthcare practices with patient-facing communication workflows, reminders, scheduling coordination, and follow-up."
+      },
+      {
+        "heading": "Who It Helps",
+        "content": "This service is intended for clinics, group practices, or medical facilities needing support with scheduling, reminders, follow-up, communication."
+      },
+      {
+        "heading": "Typical Requests",
+        "content": "Common requests include status checks, consultation requests, process questions, and issue resolution."
+      },
+      {
+        "heading": "Data Collected",
+        "content": "Typical data points include practice name, contact name, email, phone number, preferred dates, and service-specific notes."
+      },
+      {
+        "heading": "Escalation Rules",
+        "content": "Escalate when the request is urgent, sensitive, unresolved after repeated attempts, or explicitly asks for a human agent."
+      },
+      {
+        "heading": "Sample Conversation Notes",
+        "content": "The chatbot should confirm intent, gather missing fields, summarize the request, and confirm next steps."
+      }
+    ],
+    "tags": [
+      "scheduling",
+      "reminders",
+      "follow-up",
+      "communication",
+      "policy reference"
+    ]
+  },
+  {
+    "doc_id": "doc_0041",
+    "service_id": null,
+    "title": "Company Overview",
+    "doc_type": "Overview",
+    "purpose": "COB Solution supports healthcare practices with customized service offerings and consultation-led intake.",
+    "audience": "Interview-task demo",
+    "sections": [
+      {
+        "heading": "Summary",
+        "content": "COB Solution supports healthcare practices with customized service offerings and consultation-led intake."
+      },
+      {
+        "heading": "Usage",
+        "content": "Use this content as retrieval context for answers and action-oriented dialog flows."
+      },
+      {
+        "heading": "Limitations",
+        "content": "This is synthetic data created for demonstration and testing."
+      }
+    ],
+    "tags": [
+      "general",
+      "mock",
+      "kb"
+    ]
+  },
+  {
+    "doc_id": "doc_0042",
+    "service_id": null,
+    "title": "Onboarding Guide",
+    "doc_type": "Guide",
+    "purpose": "Mock onboarding includes intake, service matching, data collection, and kickoff preparation.",
+    "audience": "Interview-task demo",
+    "sections": [
+      {
+        "heading": "Summary",
+        "content": "Mock onboarding includes intake, service matching, data collection, and kickoff preparation."
+      },
+      {
+        "heading": "Usage",
+        "content": "Use this content as retrieval context for answers and action-oriented dialog flows."
+      },
+      {
+        "heading": "Limitations",
+        "content": "This is synthetic data created for demonstration and testing."
+      }
+    ],
+    "tags": [
+      "general",
+      "mock",
+      "kb"
+    ]
+  },
+  {
+    "doc_id": "doc_0043",
+    "service_id": null,
+    "title": "Escalation Matrix",
+    "doc_type": "Operations",
+    "purpose": "This document defines when the chatbot should transfer a conversation to a human agent.",
+    "audience": "Interview-task demo",
+    "sections": [
+      {
+        "heading": "Summary",
+        "content": "This document defines when the chatbot should transfer a conversation to a human agent."
+      },
+      {
+        "heading": "Usage",
+        "content": "Use this content as retrieval context for answers and action-oriented dialog flows."
+      },
+      {
+        "heading": "Limitations",
+        "content": "This is synthetic data created for demonstration and testing."
+      }
+    ],
+    "tags": [
+      "general",
+      "mock",
+      "kb"
+    ]
+  },
+  {
+    "doc_id": "doc_0044",
+    "service_id": null,
+    "title": "FAQ Source Notes",
+    "doc_type": "Reference",
+    "purpose": "This document maps FAQ categories to services, policies, and general knowledge sections.",
+    "audience": "Interview-task demo",
+    "sections": [
+      {
+        "heading": "Summary",
+        "content": "This document maps FAQ categories to services, policies, and general knowledge sections."
+      },
+      {
+        "heading": "Usage",
+        "content": "Use this content as retrieval context for answers and action-oriented dialog flows."
+      },
+      {
+        "heading": "Limitations",
+        "content": "This is synthetic data created for demonstration and testing."
+      }
+    ],
+    "tags": [
+      "general",
+      "mock",
+      "kb"
+    ]
+  },
+  {
+    "doc_id": "doc_0045",
+    "service_id": null,
+    "title": "Scheduling Flow Spec",
+    "doc_type": "Workflow",
+    "purpose": "This document describes the fields required to schedule a consultation and confirm a booking.",
+    "audience": "Interview-task demo",
+    "sections": [
+      {
+        "heading": "Summary",
+        "content": "This document describes the fields required to schedule a consultation and confirm a booking."
+      },
+      {
+        "heading": "Usage",
+        "content": "Use this content as retrieval context for answers and action-oriented dialog flows."
+      },
+      {
+        "heading": "Limitations",
+        "content": "This is synthetic data created for demonstration and testing."
+      }
+    ],
+    "tags": [
+      "general",
+      "mock",
+      "kb"
+    ]
+  }
+]
