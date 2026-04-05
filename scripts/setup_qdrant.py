@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from app.config import load_env_file
 from vector_db.contracts import VectorDatabaseSetup
 from vector_db.qdrant.setup import QdrantSettings, QdrantVectorDatabaseSetup
 
 
 def main() -> None:
+    load_env_file()
+
     settings = QdrantSettings.from_env()
     vector_database: VectorDatabaseSetup = QdrantVectorDatabaseSetup(settings)
     result = vector_database.ensure_collection()

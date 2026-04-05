@@ -39,14 +39,17 @@ graph.png
 # Env/local config
 .env
 .env.*
+!.env.example
 
 # Local docs
 Customer Care AI Chatbot Agent Development Task-v2 (1) (1).docx
 Customer Care AI Chatbot Agent Development Task-v2 (1) (1).md
 DEVELOPMENT_DECISIONS.md
+FAQ_INGESTION_METADATA_PLAN.md
 INTERFACE_DECISIONS.md
 RAG_IMPLEMENTATION_PLAN.md
 OOP_SOLID_PRINCIPLES.md
+VECTOR_SEARCH_DECISION.md
 
 # Local tooling
 .codex

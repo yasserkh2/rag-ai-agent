@@ -13,11 +13,12 @@ if str(PROJECT_ROOT) not in sys.path:
 
 T = TypeVar("T")
 
+from app.config import load_env_file
 from processing.chunking import FaqChunkingStrategy
 from processing.ingestion_pipeline import FaqJsonlIngestionPipeline, IngestionSource
 from processing.vectorization import (
-    DeterministicEmbeddingGenerator,
     FaqVectorizationStrategy,
+    build_embedding_generator,
 )
 from vector_db.contracts import VectorDatabaseSetup, VectorStore
 from vector_db.qdrant import (
@@ -65,6 +66,8 @@ def _batched(items: Sequence[T], batch_size: int) -> list[Sequence[T]]:
 
 
 def main() -> None:
+    load_env_file(PROJECT_ROOT / ".env")
+
     source = _build_source()
     limit = _parse_limit()
     batch_size = _parse_batch_size()
@@ -73,7 +76,7 @@ def main() -> None:
     ingestion_pipeline = FaqJsonlIngestionPipeline()
     chunking_strategy = FaqChunkingStrategy()
     vectorization_strategy = FaqVectorizationStrategy(
-        DeterministicEmbeddingGenerator(qdrant_settings.embedding_dimension)
+        build_embedding_generator(qdrant_settings.embedding_dimension)
     )
     qdrant_setup = QdrantVectorDatabaseSetup(qdrant_settings)
     vector_database: VectorDatabaseSetup = qdrant_setup

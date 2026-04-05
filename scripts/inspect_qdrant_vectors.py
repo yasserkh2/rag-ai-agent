@@ -9,6 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from app.config import load_env_file
 from vector_db.qdrant import QdrantSettings
 from vector_db.record_management import QdrantVectorRecordReader
 
@@ -31,6 +32,8 @@ def _parse_with_vectors() -> bool:
 
 
 def main() -> None:
+    load_env_file(PROJECT_ROOT / ".env")
+
     settings = QdrantSettings.from_env()
     reader = QdrantVectorRecordReader(settings=settings)
 

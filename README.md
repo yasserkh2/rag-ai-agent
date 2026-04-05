@@ -86,6 +86,12 @@ processing/
     __init__.py
     contracts.py
     faqs.py
+    providers/
+      __init__.py
+      factory.py
+      gemini.py
+      local.py
+      openai.py
     models.py
 vector_db/
   __init__.py
@@ -203,6 +209,18 @@ Current status:
 
 This means FAQ, document, and structured-data workflows can be built without coupling parsing, chunking, or vector preparation logic to Qdrant or any future vector backend.
 
+### Embedding providers
+
+The embedding layer now supports provider-based implementations through `processing/vectorization/providers/`.
+
+Current providers:
+
+- `gemini` for Google AI Studio embeddings
+- `openai` for OpenAI embeddings
+- `local` for deterministic pipeline-only testing
+
+The vectorization pipeline embeds stored FAQ chunks as documents, while retrieval embeds incoming user questions as queries. This matters for providers such as Gemini that support retrieval-specific task types.
+
 ## Setup
 
 Use the local virtual environment:
@@ -211,6 +229,16 @@ Use the local virtual environment:
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
+```
+
+Set the provider you want in `.env`:
+
+```bash
+EMBEDDING_PROVIDER=gemini
+GEMINI_API_KEY=your_gemini_api_key_here
+# Latest stable Gemini embedding model
+GEMINI_EMBEDDING_MODEL=gemini-embedding-001
+QDRANT_EMBEDDING_DIMENSION=1536
 ```
 
 ## Qdrant setup
@@ -256,36 +284,37 @@ Run the CLI chatbot:
 .venv/bin/python scripts/run_cli_chat.py
 ```
 
-Export the graph PNG:
-
-```bash
-.venv/bin/python scripts/export_graph_png.py
-```
-
 ## FAQ Pipeline Commands
 
-Run the FAQ processing pipeline and store vectors in Qdrant:
+Run the full FAQ processing pipeline with your `.env` settings:
 
 ```bash
 .venv/bin/python scripts/run_faq_processing_pipeline.py
 ```
 
-Run a small experiment with only 20 FAQ records in a separate local Qdrant path:
+Run a small Gemini experiment with only 20 FAQ records:
 
 ```bash
-QDRANT_PATH=vector_db/qdrant/data/experiment_faq_20 FAQ_PIPELINE_LIMIT=20 .venv/bin/python scripts/run_faq_processing_pipeline.py
+EMBEDDING_PROVIDER=gemini FAQ_PIPELINE_LIMIT=20 QDRANT_PATH=vector_db/qdrant/data/experiment_gemini_20 .venv/bin/python scripts/run_faq_processing_pipeline.py
 ```
 
-Key environment variables:
+Run a small OpenAI experiment with only 20 FAQ records:
 
-- `FAQS_JSONL_PATH`
-- `FAQ_PIPELINE_LIMIT`
-- `FAQ_PIPELINE_BATCH_SIZE`
-- `QDRANT_PATH`
-- `QDRANT_COLLECTION`
-- `QDRANT_EMBEDDING_DIMENSION`
+```bash
+EMBEDDING_PROVIDER=openai FAQ_PIPELINE_LIMIT=20 QDRANT_PATH=vector_db/qdrant/data/experiment_openai_20 .venv/bin/python scripts/run_faq_processing_pipeline.py
+```
 
-## Inspect Stored Vectors
+Run a small local-provider experiment for pipeline-only testing:
+
+```bash
+EMBEDDING_PROVIDER=local FAQ_PIPELINE_LIMIT=20 QDRANT_PATH=vector_db/qdrant/data/experiment_faq_20 .venv/bin/python scripts/run_faq_processing_pipeline.py
+```
+
+Test retrieval against a stored experiment:
+
+```bash
+EMBEDDING_PROVIDER=gemini QDRANT_PATH=vector_db/qdrant/data/experiment_gemini_20 FAQ_RETRIEVAL_QUERY="What does credentialing include?" FAQ_RETRIEVAL_LIMIT=3 .venv/bin/python scripts/test_faq_retrieval.py
+```
 
 Inspect saved vector records from Qdrant:
 
@@ -299,15 +328,25 @@ Inspect saved records and include vector values:
 QDRANT_PATH=vector_db/qdrant/data/experiment_faq_20 VECTOR_INSPECT_LIMIT=1 VECTOR_INSPECT_WITH_VECTORS=true .venv/bin/python scripts/inspect_qdrant_vectors.py
 ```
 
-The inspector shows:
+Export the graph PNG:
 
-- collection name
-- backend path
-- stored point count
-- Qdrant point ID
-- original application `record_id`
-- payload metadata
-- vector dimension and first values when enabled
+```bash
+.venv/bin/python scripts/export_graph_png.py
+```
+
+Key environment variables:
+
+- `EMBEDDING_PROVIDER`
+- `FAQS_JSONL_PATH`
+- `FAQ_PIPELINE_LIMIT`
+- `FAQ_PIPELINE_BATCH_SIZE`
+- `QDRANT_PATH`
+- `QDRANT_COLLECTION`
+- `QDRANT_EMBEDDING_DIMENSION`
+- `GEMINI_API_KEY`
+- `GEMINI_EMBEDDING_MODEL`
+- `OPENAI_API_KEY`
+- `OPENAI_EMBEDDING_MODEL`
 
 ## Example interaction
 
@@ -331,10 +370,10 @@ Bot: I can help with an appointment request. Please share the service you need, 
 
 ## Next development steps
 
-- Implement a real embedding generator
-- Add semantic retrieval and query-time search over stored vectors
 - Replace the placeholder KB service with real retrieval over the mock KB
-- Ingest FAQ data from `cob_mock_kb_large/very_large_mixed_kb/faqs/faqs.jsonl`
+- Add provider-specific retry and error handling for embedding failures
+- Add retrieval-quality checks for Gemini/OpenAI experiment sets
+- Expand ingestion beyond FAQs into documents and structured data
 - Add entity extraction for appointment requests
 - Add slot filling and confirmation flow
 - Add a mock or real booking integration

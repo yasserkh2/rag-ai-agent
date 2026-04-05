@@ -9,7 +9,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from processing.vectorization import DeterministicEmbeddingGenerator
+from app.config import load_env_file
+from processing.vectorization import build_embedding_generator
 from vector_db.contracts import VectorSearcher
 from vector_db.qdrant import QdrantSettings, QdrantVectorSearcher
 
@@ -32,6 +33,8 @@ def _parse_with_vectors() -> bool:
 
 
 def main() -> None:
+    load_env_file(PROJECT_ROOT / ".env")
+
     query_text = os.getenv(
         "FAQ_RETRIEVAL_QUERY",
         "What does credentialing include?",
@@ -40,14 +43,12 @@ def main() -> None:
         raise ValueError("FAQ_RETRIEVAL_QUERY must not be empty.")
 
     settings = QdrantSettings.from_env()
-    embedding_generator = DeterministicEmbeddingGenerator(
-        settings.embedding_dimension
-    )
+    embedding_generator = build_embedding_generator(settings.embedding_dimension)
     searcher: VectorSearcher = QdrantVectorSearcher(settings=settings)
 
     limit = _parse_limit()
     with_vectors = _parse_with_vectors()
-    query_vector = embedding_generator.embed_text(query_text)
+    query_vector = embedding_generator.embed_query(query_text)
     matches = searcher.search(
         query_vector=query_vector,
         limit=limit,
