@@ -25,3 +25,12 @@ class VectorRecord:
 class VectorUpsertResult:
     collection_name: str
     points_upserted: int
+
+
+@dataclass(frozen=True, slots=True)
+class VectorSearchMatch:
+    point_id: str
+    record_id: str
+    score: float
+    payload: dict[str, Any]
+    vector: list[float] | None = None
