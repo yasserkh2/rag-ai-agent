@@ -35,6 +35,11 @@ class KnowledgeBaseService(Protocol):
         ...
 
 
+class RetrievalQueryRewriter(Protocol):
+    def rewrite(self, query: str, history: list[str]) -> str:
+        ...
+
+
 class ActionRequestService(Protocol):
     def handle_turn(self, state: ChatState) -> ChatState:
         ...

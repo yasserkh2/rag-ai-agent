@@ -6,7 +6,9 @@ from typing import TYPE_CHECKING
 
 from app.graph.state import ChatState
 from app.llm import AnswerGenerator, KbAnswerGeneratorFactory, is_conversational_query
+from app.services.contracts import RetrievalQueryRewriter
 from app.services.models import KnowledgeBaseAnswer
+from app.services.query_rewriting import DefaultRetrievalQueryRewriter
 from processing.vectorization import build_embedding_generator
 from processing.vectorization.contracts import EmbeddingGenerator
 from vector_db.contracts import VectorSearcher
@@ -106,6 +108,7 @@ class RetrievalKnowledgeBaseService:
         answer_generator: AnswerGenerator | None = None,
         retrieval_limit: int = 3,
         document_searcher: VectorSearcher | None = None,
+        query_rewriter: RetrievalQueryRewriter | None = None,
     ) -> None:
         if retrieval_limit <= 0:
             raise ValueError("retrieval_limit must be greater than zero.")
@@ -116,6 +119,7 @@ class RetrievalKnowledgeBaseService:
         self._answer_generator = answer_generator
         self._retrieval_limit = retrieval_limit
         self._search_documents = document_searcher is not None or searcher is None
+        self._query_rewriter = query_rewriter or DefaultRetrievalQueryRewriter()
         self._settings: QdrantSettings | None = None
         self._document_settings: QdrantSettings | None = None
 
@@ -142,7 +146,8 @@ class RetrievalKnowledgeBaseService:
             )
 
         try:
-            matches = self._retrieve(query)
+            retrieval_query = self._query_rewriter.rewrite(query=query, history=history)
+            matches = self._retrieve(retrieval_query)
         except Exception:
             return KnowledgeBaseAnswer(
                 final_response=(

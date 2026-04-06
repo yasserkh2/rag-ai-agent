@@ -349,6 +349,8 @@ Helpful repo docs:
 - [Action Agent Walkthrough](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/ACTION_AGENT_WALKTHROUGH.md)
 - [Agent Interface Decision](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/AGENT_INTERFACE_DECISION.md)
 - [OOP and SOLID Principles](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/OOP_SOLID_PRINCIPLES.md)
+- [Document RAG Implementation](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/DOCUMENT_RAG_IMPLEMENTATION.md)
+- [Retrieval Query Rewriting](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/RETRIEVAL_QUERY_REWRITING.md)
 
 This set is intended to be a better retrieval baseline than the older large mixed synthetic FAQ source because it is:
 
@@ -577,6 +579,8 @@ Bot: I need to transfer this conversation to a human agent. A human agent will f
 
 - `README.md`: project overview and usage
 - `KB_AGENT_WALKTHROUGH.md`: end-to-end explanation of the KB agent flow, prompt, retrieval, memory, and fallback behavior
+- `DOCUMENT_RAG_IMPLEMENTATION.md`: document ingestion, chunking, dual-collection retrieval, and verification notes
+- `RETRIEVAL_QUERY_REWRITING.md`: follow-up query rewrite design and implementation details
 - `DEVELOPMENT_DECISIONS.md`: architecture and implementation decisions
 - `INTERFACE_DECISIONS.md`: contract-style and package-boundary decisions
 - `RAG_IMPLEMENTATION_PLAN.md`: initial RAG starting point and rollout plan

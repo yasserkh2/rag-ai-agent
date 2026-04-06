@@ -78,6 +78,21 @@ class BrokenAnswerGenerator:
         raise RuntimeError("Generation failed.")
 
 
+class StubQueryRewriter:
+    def __init__(self, rewritten_query: str) -> None:
+        self._rewritten_query = rewritten_query
+        self.calls: list[dict[str, object]] = []
+
+    def rewrite(self, query: str, history: list[str]) -> str:
+        self.calls.append(
+            {
+                "query": query,
+                "history": list(history),
+            }
+        )
+        return self._rewritten_query
+
+
 class RetrievalKnowledgeBaseServiceTests(unittest.TestCase):
     def test_returns_grounded_generated_answer_and_context(self) -> None:
         embedding_generator = StubEmbeddingGenerator([0.1, 0.2, 0.3])
@@ -160,6 +175,65 @@ class RetrievalKnowledgeBaseServiceTests(unittest.TestCase):
         self.assertEqual(answer_generator.calls[0]["user_query"], "What does credentialing include?")
         self.assertEqual(len(answer_generator.calls[0]["retrieved_context"]), 1)
         self.assertEqual(answer_generator.calls[0]["conversation_history"], [])
+
+    def test_rewrites_follow_up_query_before_retrieval(self) -> None:
+        embedding_generator = StubEmbeddingGenerator([0.1, 0.2, 0.3])
+        searcher = StubVectorSearcher(
+            [
+                VectorSearchMatch(
+                    point_id="point-1",
+                    record_id="faq_001_chunk_0001",
+                    score=0.93,
+                    payload={
+                        "faq_id": "faq_001",
+                        "category": "credentialing",
+                        "service_name": "Credentialing and Provider Maintenance",
+                        "text": (
+                            "Question: What does credentialing include?\n"
+                            "Answer: Credentialing includes primary source "
+                            "verification and application review.\n"
+                            "Service: Credentialing and Provider Maintenance"
+                        ),
+                    },
+                )
+            ]
+        )
+        query_rewriter = StubQueryRewriter(
+            "What does Credentialing and Provider Maintenance usually include?"
+        )
+        service = RetrievalKnowledgeBaseService(
+            embedding_generator=embedding_generator,
+            searcher=searcher,
+            answer_generator=StubAnswerGenerator("unused"),
+            query_rewriter=query_rewriter,
+        )
+
+        service.answer(
+            {
+                "user_query": "What This Service Usually Includes",
+                "history": [
+                    "user: do Credentialing and Provider Maintenance supports provider enrollment",
+                    "assistant: Yes, the Credentialing and Provider Maintenance service supports provider enrollment.",
+                ],
+            }
+        )
+
+        self.assertEqual(
+            embedding_generator.queries,
+            ["What does Credentialing and Provider Maintenance usually include?"],
+        )
+        self.assertEqual(
+            query_rewriter.calls,
+            [
+                {
+                    "query": "What This Service Usually Includes",
+                    "history": [
+                        "user: do Credentialing and Provider Maintenance supports provider enrollment",
+                        "assistant: Yes, the Credentialing and Provider Maintenance service supports provider enrollment.",
+                    ],
+                }
+            ],
+        )
 
     def test_falls_back_to_extractive_answer_when_generation_fails(self) -> None:
         service = RetrievalKnowledgeBaseService(
