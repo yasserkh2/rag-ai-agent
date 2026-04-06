@@ -1,0 +1,66 @@
+[
+  {
+    "doc_id": "doc_0001",
+    "service_id": "svc_credentialing",
+    "service_name": "Credentialing and Provider Maintenance",
+    "title": "Credentialing and Provider Maintenance",
+    "file_path": "doc_0001_credentialing.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0002",
+    "service_id": "svc_auth_benefits",
+    "service_name": "Authorizations and Benefits Verification",
+    "title": "Authorizations and Benefits Verification",
+    "file_path": "doc_0002_authorizations_benefits.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0003",
+    "service_id": "svc_billing_denials",
+    "service_name": "Medical Billing and Denial Management",
+    "title": "Medical Billing and Denial Management",
+    "file_path": "doc_0003_billing_denials.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0004",
+    "service_id": "svc_auditing",
+    "service_name": "Medical Auditing",
+    "title": "Medical Auditing",
+    "file_path": "doc_0004_medical_auditing.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0005",
+    "service_id": "svc_customer_care",
+    "service_name": "Customer Care",
+    "title": "Customer Care",
+    "file_path": "doc_0005_customer_care.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0006",
+    "service_id": "svc_digital_marketing",
+    "service_name": "Digital Marketing and Website Services",
+    "title": "Digital Marketing and Website Services",
+    "file_path": "doc_0006_digital_marketing.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0007",
+    "service_id": "svc_financial_management",
+    "service_name": "Financial Management",
+    "title": "Financial Management",
+    "file_path": "doc_0007_financial_management.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0008",
+    "service_id": "svc_communication",
+    "service_name": "Communication Services",
+    "title": "Communication Services",
+    "file_path": "doc_0008_communication_services.md",
+    "source_type": "document"
+  }
+]

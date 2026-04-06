@@ -282,6 +282,169 @@ class RetrievalKnowledgeBaseServiceTests(unittest.TestCase):
         self.assertEqual(result.turn_outcome, "unresolved")
         self.assertEqual(list(result.retrieved_context), [])
 
+    def test_returns_document_context_and_fallback_for_document_match(self) -> None:
+        document_searcher = StubVectorSearcher(
+            [
+                VectorSearchMatch(
+                    point_id="point-doc-1",
+                    record_id="doc_0002_chunk_0003",
+                    score=0.94,
+                    payload={
+                        "doc_id": "doc_0002",
+                        "service_name": "Authorizations and Benefits Verification",
+                        "title": "Authorizations and Benefits Verification",
+                        "section_title": "Information To Collect During Intake",
+                        "source_type": "document",
+                        "text": (
+                            "Title: Authorizations and Benefits Verification\n"
+                            "Service: Authorizations and Benefits Verification\n"
+                            "Section: Information To Collect During Intake\n\n"
+                            "Information To Collect During Intake\n"
+                            "- Practice name\n"
+                            "- Payer details\n"
+                            "- Procedure types"
+                        ),
+                    },
+                )
+            ]
+        )
+        service = RetrievalKnowledgeBaseService(
+            embedding_generator=StubEmbeddingGenerator([1.0]),
+            searcher=StubVectorSearcher([]),
+            document_searcher=document_searcher,
+            answer_generator=BrokenAnswerGenerator(),
+            retrieval_limit=2,
+        )
+
+        result = service.answer({"user_query": "What should we prepare before discussing this service?"})
+
+        self.assertIn("Title: Authorizations and Benefits Verification", result.final_response)
+        self.assertIn(
+            "Source: Document doc_0002",
+            result.final_response,
+        )
+        self.assertEqual(
+            result.retrieved_context[0],
+            "Document: doc_0002\n"
+            "Score: 0.9400\n"
+            "Service: Authorizations and Benefits Verification\n"
+            "Title: Authorizations and Benefits Verification\n"
+            "Section: Information To Collect During Intake\n"
+            "Text: Title: Authorizations and Benefits Verification\n"
+            "Service: Authorizations and Benefits Verification\n"
+            "Section: Information To Collect During Intake\n\n"
+            "Information To Collect During Intake\n"
+            "- Practice name\n"
+            "- Payer details\n"
+            "- Procedure types",
+        )
+        self.assertEqual(len(document_searcher.calls), 1)
+
+    def test_merges_faq_and_document_results_for_generation(self) -> None:
+        embedding_generator = StubEmbeddingGenerator([0.5, 0.6])
+        faq_searcher = StubVectorSearcher(
+            [
+                VectorSearchMatch(
+                    point_id="faq-point-1",
+                    record_id="faq_001_chunk_0001",
+                    score=0.91,
+                    payload={
+                        "faq_id": "faq_001",
+                        "category": "service_scope",
+                        "service_name": "Credentialing and Provider Maintenance",
+                        "source_type": "faq",
+                        "text": (
+                            "Question: What does credentialing include?\n"
+                            "Answer: Credentialing includes enrollment and provider maintenance.\n"
+                            "Service: Credentialing and Provider Maintenance"
+                        ),
+                    },
+                )
+            ]
+        )
+        document_searcher = StubVectorSearcher(
+            [
+                VectorSearchMatch(
+                    point_id="doc-point-1",
+                    record_id="doc_0001_chunk_0003",
+                    score=0.92,
+                    payload={
+                        "doc_id": "doc_0001",
+                        "service_name": "Credentialing and Provider Maintenance",
+                        "title": "Credentialing and Provider Maintenance",
+                        "section_title": "Information To Collect During Intake",
+                        "source_type": "document",
+                        "text": (
+                            "Title: Credentialing and Provider Maintenance\n"
+                            "Service: Credentialing and Provider Maintenance\n"
+                            "Section: Information To Collect During Intake\n\n"
+                            "Information To Collect During Intake\n"
+                            "- Practice name\n"
+                            "- Provider names"
+                        ),
+                    },
+                )
+            ]
+        )
+        answer_generator = StubAnswerGenerator(
+            "Credentialing includes enrollment support, and the intake details include "
+            "practice and provider information."
+        )
+        service = RetrievalKnowledgeBaseService(
+            embedding_generator=embedding_generator,
+            searcher=faq_searcher,
+            document_searcher=document_searcher,
+            answer_generator=answer_generator,
+            retrieval_limit=2,
+        )
+
+        result = service.answer({"user_query": "What does credentialing include and what should we prepare?"})
+
+        self.assertEqual(result.turn_outcome, "resolved")
+        self.assertEqual(len(result.retrieved_context), 2)
+        self.assertTrue(result.retrieved_context[0].startswith("Document: doc_0001"))
+        self.assertTrue(result.retrieved_context[1].startswith("FAQ: faq_001"))
+        self.assertEqual(embedding_generator.queries, ["What does credentialing include and what should we prepare?"])
+        self.assertEqual(len(faq_searcher.calls), 1)
+        self.assertEqual(len(document_searcher.calls), 1)
+        self.assertEqual(len(answer_generator.calls[0]["retrieved_context"]), 2)
+
+    def test_filters_unrelated_document_matches_before_answering(self) -> None:
+        service = RetrievalKnowledgeBaseService(
+            embedding_generator=StubEmbeddingGenerator([1.0]),
+            searcher=StubVectorSearcher([]),
+            document_searcher=StubVectorSearcher(
+                [
+                    VectorSearchMatch(
+                        point_id="point-doc-9",
+                        record_id="doc_0006_chunk_0001",
+                        score=0.95,
+                        payload={
+                            "doc_id": "doc_0006",
+                            "service_name": "Digital Marketing and Website Services",
+                            "title": "Digital Marketing and Website Services",
+                            "section_title": "Service Overview | What This Service Usually Includes",
+                            "source_type": "document",
+                            "text": (
+                                "Title: Digital Marketing and Website Services\n"
+                                "Service: Digital Marketing and Website Services\n"
+                                "Section: Service Overview | What This Service Usually Includes\n\n"
+                                "Service Overview\n"
+                                "This service helps practices improve online presence."
+                            ),
+                        },
+                    )
+                ]
+            ),
+            answer_generator=StubAnswerGenerator("unused"),
+        )
+
+        result = service.answer({"user_query": "What does credentialing include?"})
+
+        self.assertIn("could not find a grounded answer", result.final_response)
+        self.assertEqual(result.turn_outcome, "unresolved")
+        self.assertEqual(list(result.retrieved_context), [])
+
 
 if __name__ == "__main__":
     unittest.main()

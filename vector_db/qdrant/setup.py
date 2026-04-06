@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import atexit
 import os
 from dataclasses import dataclass
 from pathlib import Path
@@ -9,6 +10,20 @@ from qdrant_client.models import Distance, VectorParams
 
 from vector_db.contracts import VectorDatabaseSetup
 from vector_db.models import VectorCollectionSetupResult
+
+_CLIENT_CACHE: dict[tuple[str, ...], QdrantClient] = {}
+
+
+def _close_cached_clients() -> None:
+    unique_clients = {id(client): client for client in _CLIENT_CACHE.values()}
+    for client in unique_clients.values():
+        try:
+            client.close()
+        except Exception:
+            pass
+
+
+atexit.register(_close_cached_clients)
 
 
 def _parse_bool(value: str | None, default: bool = False) -> bool:
@@ -28,7 +43,12 @@ class QdrantSettings:
     api_key: str | None = None
 
     @classmethod
-    def from_env(cls) -> "QdrantSettings":
+    def from_env(
+        cls,
+        *,
+        collection_env_key: str = "QDRANT_COLLECTION",
+        collection_default: str = "customer_care_kb",
+    ) -> "QdrantSettings":
         distance_name = os.getenv("QDRANT_DISTANCE", "cosine").strip().upper()
         try:
             distance = Distance[distance_name]
@@ -40,7 +60,7 @@ class QdrantSettings:
             ) from exc
 
         return cls(
-            collection_name=os.getenv("QDRANT_COLLECTION", "customer_care_kb"),
+            collection_name=os.getenv(collection_env_key, collection_default),
             embedding_dimension=int(os.getenv("QDRANT_EMBEDDING_DIMENSION", "1536")),
             storage_path=Path(
                 os.getenv("QDRANT_PATH", "vector_db/qdrant/data/local")
@@ -66,15 +86,30 @@ class QdrantVectorDatabaseSetup(VectorDatabaseSetup):
             return self._client
 
         if self._settings.url:
-            self._client = QdrantClient(
-                url=self._settings.url,
-                api_key=self._settings.api_key,
-                prefer_grpc=self._settings.prefer_grpc,
+            cache_key = (
+                "url",
+                self._settings.url,
+                self._settings.api_key or "",
+                str(self._settings.prefer_grpc),
             )
+            cached_client = _CLIENT_CACHE.get(cache_key)
+            if cached_client is None:
+                cached_client = QdrantClient(
+                    url=self._settings.url,
+                    api_key=self._settings.api_key,
+                    prefer_grpc=self._settings.prefer_grpc,
+                )
+                _CLIENT_CACHE[cache_key] = cached_client
+            self._client = cached_client
             return self._client
 
         self._settings.storage_path.mkdir(parents=True, exist_ok=True)
-        self._client = QdrantClient(path=str(self._settings.storage_path))
+        cache_key = ("path", str(self._settings.storage_path.resolve()))
+        cached_client = _CLIENT_CACHE.get(cache_key)
+        if cached_client is None:
+            cached_client = QdrantClient(path=str(self._settings.storage_path))
+            _CLIENT_CACHE[cache_key] = cached_client
+        self._client = cached_client
         return self._client
 
     def ensure_collection(self) -> VectorCollectionSetupResult:

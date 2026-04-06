@@ -1,10 +1,17 @@
 from processing.ingestion_pipeline import (
+    DocumentManifestIngestionPipeline,
     IngestionPipeline,
     IngestionResult,
     IngestionSource,
 )
-from processing.chunking import ChunkingInput, ChunkingStrategy, TextChunk
+from processing.chunking import (
+    ChunkingInput,
+    ChunkingStrategy,
+    DocumentChunkingStrategy,
+    TextChunk,
+)
 from processing.vectorization import (
+    DocumentVectorizationStrategy,
     EmbeddingGenerator,
     FaqVectorizationStrategy,
     VectorizationResult,
@@ -14,6 +21,9 @@ from processing.vectorization import (
 __all__ = [
     "ChunkingInput",
     "ChunkingStrategy",
+    "DocumentChunkingStrategy",
+    "DocumentManifestIngestionPipeline",
+    "DocumentVectorizationStrategy",
     "EmbeddingGenerator",
     "FaqVectorizationStrategy",
     "IngestionPipeline",

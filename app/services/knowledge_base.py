@@ -56,19 +56,35 @@ _STOPWORDS = {
 
 
 @dataclass(frozen=True, slots=True)
-class FaqContextItem:
-    faq_id: str
+class RetrievedContextItem:
+    source_type: str
+    record_id: str
+    source_id: str
     score: float
+    service: str
+    title: str
+    section_title: str
     category: str
     question: str
     answer: str
-    service: str
     raw_text: str
     vector_score: float
     lexical_overlap: int = 0
 
     def as_retrieved_context(self) -> str:
-        lines = [f"FAQ: {self.faq_id}", f"Score: {self.score:.4f}"]
+        if self.source_type == "document":
+            lines = [f"Document: {self.source_id}", f"Score: {self.score:.4f}"]
+            if self.service:
+                lines.append(f"Service: {self.service}")
+            if self.title:
+                lines.append(f"Title: {self.title}")
+            if self.section_title:
+                lines.append(f"Section: {self.section_title}")
+            if self.raw_text:
+                lines.append(f"Text: {self.raw_text}")
+            return "\n".join(lines)
+
+        lines = [f"FAQ: {self.source_id}", f"Score: {self.score:.4f}"]
         if self.category:
             lines.append(f"Category: {self.category}")
         if self.service:
@@ -89,15 +105,19 @@ class RetrievalKnowledgeBaseService:
         searcher: VectorSearcher | None = None,
         answer_generator: AnswerGenerator | None = None,
         retrieval_limit: int = 3,
+        document_searcher: VectorSearcher | None = None,
     ) -> None:
         if retrieval_limit <= 0:
             raise ValueError("retrieval_limit must be greater than zero.")
 
         self._embedding_generator = embedding_generator
         self._searcher = searcher
+        self._document_searcher = document_searcher
         self._answer_generator = answer_generator
         self._retrieval_limit = retrieval_limit
+        self._search_documents = document_searcher is not None or searcher is None
         self._settings: QdrantSettings | None = None
+        self._document_settings: QdrantSettings | None = None
 
     def answer(self, state: ChatState) -> KnowledgeBaseAnswer:
         query = state.get("user_query", "").strip()
@@ -171,18 +191,26 @@ class RetrievalKnowledgeBaseService:
 
     def _retrieve(self, query: str) -> list[VectorSearchMatch]:
         embedding_generator = self._get_embedding_generator()
-        searcher = self._get_searcher()
         query_vector = embedding_generator.embed_query(query)
-        return searcher.search(
+
+        faq_matches = self._get_searcher().search(
             query_vector=query_vector,
             limit=self._retrieval_limit,
             with_vectors=False,
         )
+        document_matches: list[VectorSearchMatch] = []
+        if self._search_documents:
+            document_matches = self._get_document_searcher().search(
+                query_vector=query_vector,
+                limit=self._retrieval_limit,
+                with_vectors=False,
+            )
+        return faq_matches + document_matches
 
     def _generate_or_fallback_answer(
         self,
         user_query: str,
-        context_items: list[FaqContextItem],
+        context_items: list[RetrievedContextItem],
         retrieved_context: list[str],
         conversation_history: list[str],
     ) -> str:
@@ -247,6 +275,15 @@ class RetrievalKnowledgeBaseService:
             self._searcher = QdrantVectorSearcher(settings=self._get_settings())
         return self._searcher
 
+    def _get_document_searcher(self) -> VectorSearcher:
+        if self._document_searcher is None:
+            from vector_db.qdrant import QdrantVectorSearcher
+
+            self._document_searcher = QdrantVectorSearcher(
+                settings=self._get_document_settings()
+            )
+        return self._document_searcher
+
     def _get_answer_generator(self) -> AnswerGenerator | None:
         if self._answer_generator is None:
             self._answer_generator = KbAnswerGeneratorFactory().build()
@@ -259,36 +296,85 @@ class RetrievalKnowledgeBaseService:
             self._settings = QdrantSettings.from_env()
         return self._settings
 
-    def _build_context_item(self, match: VectorSearchMatch) -> FaqContextItem:
-        payload_text = str(match.payload.get("text", "")).strip()
+    def _get_document_settings(self) -> QdrantSettings:
+        if self._document_settings is None:
+            from vector_db.qdrant import QdrantSettings
+
+            self._document_settings = QdrantSettings.from_env(
+                collection_env_key="QDRANT_DOCUMENT_COLLECTION",
+                collection_default="customer_care_documents_kb",
+            )
+        return self._document_settings
+
+    def _build_context_item(self, match: VectorSearchMatch) -> RetrievedContextItem:
+        payload = match.payload
+        payload_text = str(payload.get("text", "")).strip()
+        source_type = self._infer_source_type(payload=payload, payload_text=payload_text)
+
+        if source_type == "document":
+            doc_id = str(payload.get("doc_id", "")).strip() or match.record_id
+            return RetrievedContextItem(
+                source_type="document",
+                record_id=match.record_id,
+                source_id=doc_id,
+                score=match.score,
+                service=str(payload.get("service_name", "")).strip(),
+                title=str(payload.get("title", "")).strip(),
+                section_title=str(payload.get("section_title", "")).strip(),
+                category="",
+                question="",
+                answer="",
+                raw_text=payload_text,
+                vector_score=match.score,
+            )
+
         parsed = _FAQ_TEXT_PATTERN.match(payload_text)
         if parsed is None:
             question = ""
             answer = payload_text
-            service = str(match.payload.get("service_name", "")).strip()
+            service = str(payload.get("service_name", "")).strip()
         else:
             question = parsed.group("question").strip()
             answer = parsed.group("answer").strip()
             service = parsed.group("service").strip()
 
-        faq_id = str(match.payload.get("faq_id", "")).strip() or match.record_id
-        category = str(match.payload.get("category", "")).strip()
-        return FaqContextItem(
-            faq_id=faq_id,
+        faq_id = str(payload.get("faq_id", "")).strip() or match.record_id
+        category = str(payload.get("category", "")).strip()
+        return RetrievedContextItem(
+            source_type="faq",
+            record_id=match.record_id,
+            source_id=faq_id,
             score=match.score,
+            service=service,
+            title="",
+            section_title="",
             category=category,
             question=question,
             answer=answer,
-            service=service,
             raw_text=payload_text,
             vector_score=match.score,
         )
+
+    def _infer_source_type(
+        self,
+        *,
+        payload: dict[str, object],
+        payload_text: str,
+    ) -> str:
+        explicit_source_type = str(payload.get("source_type", "")).strip().lower()
+        if explicit_source_type in {"faq", "document"}:
+            return explicit_source_type
+        if "doc_id" in payload or "section_title" in payload:
+            return "document"
+        if _FAQ_TEXT_PATTERN.match(payload_text) is not None or "faq_id" in payload:
+            return "faq"
+        return "faq"
 
     def _build_ranked_context_items(
         self,
         query: str,
         matches: list[VectorSearchMatch],
-    ) -> list[FaqContextItem]:
+    ) -> list[RetrievedContextItem]:
         query_tokens = _normalize_tokens(query)
         context_items = [self._build_context_item(match) for match in matches]
         scored_items = [
@@ -302,13 +388,13 @@ class RetrievalKnowledgeBaseService:
             key=lambda item: (item.lexical_overlap, item.vector_score),
             reverse=True,
         )
-        return filtered_items
+        return filtered_items[: self._retrieval_limit]
 
     def _with_lexical_overlap(
         self,
-        item: FaqContextItem,
+        item: RetrievedContextItem,
         query_tokens: set[str],
-    ) -> FaqContextItem:
+    ) -> RetrievedContextItem:
         candidate_tokens = _normalize_tokens(
             " ".join(
                 part
@@ -317,17 +403,24 @@ class RetrievalKnowledgeBaseService:
                     item.answer,
                     item.service,
                     item.category,
+                    item.title,
+                    item.section_title,
+                    item.raw_text,
                 ]
                 if part
             )
         )
-        return FaqContextItem(
-            faq_id=item.faq_id,
+        return RetrievedContextItem(
+            source_type=item.source_type,
+            record_id=item.record_id,
+            source_id=item.source_id,
             score=item.score,
+            service=item.service,
+            title=item.title,
+            section_title=item.section_title,
             category=item.category,
             question=item.question,
             answer=item.answer,
-            service=item.service,
             raw_text=item.raw_text,
             vector_score=item.vector_score,
             lexical_overlap=len(query_tokens & candidate_tokens),
@@ -335,7 +428,7 @@ class RetrievalKnowledgeBaseService:
 
     def _is_relevant_match(
         self,
-        item: FaqContextItem,
+        item: RetrievedContextItem,
         query_tokens: set[str],
     ) -> bool:
         if not query_tokens:
@@ -346,24 +439,45 @@ class RetrievalKnowledgeBaseService:
 
         return item.vector_score >= 0.97
 
-    def _build_fallback_answer(self, best_item: FaqContextItem) -> str:
+    def _build_fallback_answer(self, best_item: RetrievedContextItem) -> str:
+        if best_item.source_type == "document":
+            answer = (
+                best_item.raw_text
+                or "I found a related document chunk, but its text was empty."
+            )
+            source_bits: list[str] = []
+            if best_item.service:
+                source_bits.append(f"Service: {best_item.service}")
+            if best_item.title:
+                source_bits.append(f"Title: {best_item.title}")
+            if best_item.section_title:
+                source_bits.append(f"Section: {best_item.section_title}")
+            if best_item.source_id:
+                source_bits.append(f"Source: Document {best_item.source_id}")
+            if not source_bits:
+                return answer
+            return f"{answer}\n\n{' | '.join(source_bits)}"
+
         answer = (
             best_item.answer
             or best_item.raw_text
             or "I found a related FAQ entry, but its answer text was empty."
         )
-        source_bits: list[str] = []
+        source_bits = []
         if best_item.service:
             source_bits.append(f"Service: {best_item.service}")
-        if best_item.faq_id:
-            source_bits.append(f"Source: FAQ {best_item.faq_id}")
+        if best_item.source_id:
+            source_bits.append(f"Source: FAQ {best_item.source_id}")
         if not source_bits:
             return answer
         return f"{answer}\n\n{' | '.join(source_bits)}"
 
     def _build_conversational_fallback_answer(self, user_query: str) -> str:
         normalized_query = user_query.strip().lower()
-        if any(token in normalized_query for token in {"hello", "hi", "hey", "good morning", "good evening"}):
+        if any(
+            token in normalized_query
+            for token in {"hello", "hi", "hey", "good morning", "good evening"}
+        ):
             return (
                 "Hello! I can help with questions about COB Company's services, "
                 "policies, and general information."
@@ -377,9 +491,8 @@ class RetrievalKnowledgeBaseService:
 
 
 def _normalize_tokens(text: str) -> set[str]:
-    tokens = {
+    return {
         token
         for token in _TOKEN_PATTERN.findall(text.lower())
         if token and token not in _STOPWORDS and len(token) > 2
     }
-    return tokens

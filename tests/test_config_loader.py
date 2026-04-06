@@ -24,6 +24,8 @@ class ConfigLoaderTests(unittest.TestCase):
                       chat_deployment: gpt-4o-mini
                     qdrant:
                       prefer_grpc: false
+                    qdrant_document_collection: customer_care_documents_kb
+                    documents_manifest_path: cob_mock_kb_large/high_quality_documents/documents_manifest.json
                     """
                 ).strip(),
                 encoding="utf-8",
@@ -39,6 +41,14 @@ class ConfigLoaderTests(unittest.TestCase):
                     "gpt-4o-mini",
                 )
                 self.assertEqual(os.environ["QDRANT_PREFER_GRPC"], "false")
+                self.assertEqual(
+                    os.environ["QDRANT_DOCUMENT_COLLECTION"],
+                    "customer_care_documents_kb",
+                )
+                self.assertEqual(
+                    os.environ["DOCUMENTS_MANIFEST_PATH"],
+                    "cob_mock_kb_large/high_quality_documents/documents_manifest.json",
+                )
 
     def test_runtime_config_lets_dotenv_override_yaml_but_not_real_env(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
