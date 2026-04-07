@@ -34,7 +34,7 @@ def _build_source() -> IngestionSource:
         source_name="faq_jsonl",
         file_path=os.getenv(
             "FAQS_JSONL_PATH",
-            "cob_mock_kb_large/very_large_mixed_kb/faqs/faqs.jsonl",
+            "cob_mock_kb_large/interview_demo_kb/retrieval/faqs/faqs.jsonl",
         ),
         content_type="application/jsonl",
     )

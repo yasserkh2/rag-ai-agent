@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 
 from app.graph.state import ChatState
 from app.llm import AnswerGenerator, KbAnswerGeneratorFactory, is_conversational_query
+from app.observability import get_logger, truncate_text
 from app.services.contracts import RetrievalQueryRewriter
 from app.services.models import KnowledgeBaseAnswer
 from app.services.query_rewriting import DefaultRetrievalQueryRewriter
@@ -16,6 +17,8 @@ from vector_db.models import VectorSearchMatch
 
 if TYPE_CHECKING:
     from vector_db.qdrant import QdrantSettings
+
+logger = get_logger("services.knowledge_base")
 
 _FAQ_TEXT_PATTERN = re.compile(
     r"^Question:\s*(?P<question>.*?)\n"
@@ -125,56 +128,67 @@ class RetrievalKnowledgeBaseService:
 
     def answer(self, state: ChatState) -> KnowledgeBaseAnswer:
         query = state.get("user_query", "").strip()
+        logger.info("kb service received query='%s'", truncate_text(query, 120))
         if not query:
             return KnowledgeBaseAnswer(
                 final_response=(
                     "Please share your question and I will look for the closest "
                     "knowledge-base answer."
                 ),
+                retrieval_query="",
                 turn_outcome="needs_input",
             )
 
         history = list(state.get("history", []))
 
         if is_conversational_query(query):
+            logger.info("kb service detected conversational query, skipping retrieval")
             return KnowledgeBaseAnswer(
                 final_response=self._generate_conversational_or_fallback_answer(
                     user_query=query,
                     conversation_history=history,
                 ),
+                retrieval_query="",
                 turn_outcome="resolved",
             )
 
         try:
             retrieval_query = self._query_rewriter.rewrite(query=query, history=history)
+            logger.info("kb retrieval query='%s'", truncate_text(retrieval_query, 140))
             matches = self._retrieve(retrieval_query)
-        except Exception:
+        except Exception as exc:
+            logger.exception("kb retrieval failed: %s", exc)
             return KnowledgeBaseAnswer(
                 final_response=(
                     "I could not access the knowledge base just now. "
                     "Please try again after the retrieval setup is ready."
                 ),
+                retrieval_query=retrieval_query,
                 turn_outcome="unresolved",
                 turn_failure_reason="knowledge_base_unavailable",
             )
 
         if not matches:
+            logger.info("kb retrieval returned no matches")
             return KnowledgeBaseAnswer(
                 final_response=(
                     "I could not find a grounded answer in the knowledge base yet. "
                     "Please rephrase your question or share a little more detail."
                 ),
+                retrieval_query=retrieval_query,
                 turn_outcome="unresolved",
                 turn_failure_reason="no_grounded_answer",
             )
 
         context_items = self._build_ranked_context_items(query=query, matches=matches)
+        logger.info("kb ranked context items=%s", len(context_items))
         if not context_items:
             return KnowledgeBaseAnswer(
                 final_response=(
                     "I could not find a grounded answer in the knowledge base yet. "
                     "Please rephrase your question or share a little more detail."
                 ),
+                retrieval_query=retrieval_query,
                 turn_outcome="unresolved",
                 turn_failure_reason="no_grounded_answer",
             )
@@ -188,8 +202,13 @@ class RetrievalKnowledgeBaseService:
             retrieved_context=retrieved_context,
             conversation_history=history,
         )
+        logger.info(
+            "kb final response ready with %s retrieved context items",
+            len(retrieved_context),
+        )
         return KnowledgeBaseAnswer(
             final_response=final_response,
+            retrieval_query=retrieval_query,
             retrieved_context=retrieved_context,
             turn_outcome="resolved",
         )
@@ -197,6 +216,7 @@ class RetrievalKnowledgeBaseService:
     def _retrieve(self, query: str) -> list[VectorSearchMatch]:
         embedding_generator = self._get_embedding_generator()
         query_vector = embedding_generator.embed_query(query)
+        logger.info("kb embedding generated for retrieval query")
 
         faq_matches = self._get_searcher().search(
             query_vector=query_vector,
@@ -210,7 +230,22 @@ class RetrievalKnowledgeBaseService:
                 limit=self._retrieval_limit,
                 with_vectors=False,
             )
-        return faq_matches + document_matches
+        combined_matches = faq_matches + document_matches
+        logger.info(
+            "kb retrieved faq_matches=%s document_matches=%s total=%s top=%s",
+            len(faq_matches),
+            len(document_matches),
+            len(combined_matches),
+            [
+                {
+                    "record_id": match.record_id,
+                    "score": round(match.score, 4),
+                    "source_type": str(match.payload.get("source_type", "")),
+                }
+                for match in combined_matches[: self._retrieval_limit]
+            ],
+        )
+        return combined_matches
 
     def _generate_or_fallback_answer(
         self,
@@ -393,7 +428,21 @@ class RetrievalKnowledgeBaseService:
             key=lambda item: (item.lexical_overlap, item.vector_score),
             reverse=True,
         )
-        return filtered_items[: self._retrieval_limit]
+        ranked_items = filtered_items[: self._retrieval_limit]
+        logger.info(
+            "kb ranked chunks=%s",
+            [
+                {
+                    "source_type": item.source_type,
+                    "source_id": item.source_id,
+                    "score": round(item.score, 4),
+                    "lexical_overlap": item.lexical_overlap,
+                    "preview": truncate_text(item.answer or item.raw_text, 120),
+                }
+                for item in ranked_items
+            ],
+        )
+        return ranked_items
 
     def _with_lexical_overlap(
         self,

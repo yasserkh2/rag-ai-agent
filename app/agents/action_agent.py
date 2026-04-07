@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from app.agents.contracts import StateAgent
 from app.graph.state import ChatState
+from app.observability import get_logger, summarize_update
 from app.services.contracts import ActionRequestService
+
+logger = get_logger("agents.action")
 
 
 class ActionRequestAgent(StateAgent):
@@ -10,4 +13,6 @@ class ActionRequestAgent(StateAgent):
         self._action_request_service = action_request_service
 
     def execute(self, state: ChatState) -> ChatState:
-        return self._action_request_service.handle_turn(state)
+        update = self._action_request_service.handle_turn(state)
+        logger.info("action agent produced update: %s", summarize_update(update))
+        return update

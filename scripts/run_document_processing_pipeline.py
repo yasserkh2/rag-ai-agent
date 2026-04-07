@@ -41,7 +41,7 @@ def _resolve_manifest_path() -> str:
     if root_path:
         return str(Path(root_path) / "documents_manifest.json")
 
-    return "cob_mock_kb_large/high_quality_documents/documents_manifest.json"
+    return "cob_mock_kb_large/interview_demo_kb/retrieval/documents/documents_manifest.json"
 
 
 def _build_source() -> IngestionSource:

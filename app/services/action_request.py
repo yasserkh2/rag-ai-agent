@@ -5,6 +5,7 @@ from typing import Protocol
 
 from app.graph.state import ChatState
 from app.llm.contracts import ActionReplyGenerator
+from app.observability import get_logger, truncate_text
 from app.services.action_models import (
     APPOINTMENT_SERVICE_OPTIONS,
     AppointmentActionReplyContext,
@@ -20,6 +21,8 @@ from app.services.action_models import (
 
 _EMAIL_PATTERN = re.compile(r"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$", re.IGNORECASE)
 _NAME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z .'-]{0,98}[A-Za-z.]?$")
+
+logger = get_logger("services.action_request")
 
 
 class AppointmentExtractor(Protocol):
@@ -81,6 +84,14 @@ class AppointmentActionService:
         awaiting_confirmation = bool(state.get("awaiting_confirmation"))
         invalid_field: str | None = None
         validation_error: str | None = None
+        logger.info(
+            "action turn start query='%s' slots=%s awaiting_confirmation=%s available_dates=%s available_slots=%s",
+            truncate_text(query, 120),
+            current_slots,
+            awaiting_confirmation,
+            available_dates,
+            available_slots,
+        )
 
         try:
             extraction = self._extract_with_llm(
@@ -91,7 +102,17 @@ class AppointmentActionService:
                 offered_times=available_slots,
                 awaiting_confirmation=awaiting_confirmation,
             )
+            logger.info(
+                "action extraction result service=%s selected_date=%s selected_time=%s confirmation=%s name=%s email=%s",
+                extraction.selected_service,
+                extraction.selected_date,
+                extraction.selected_time,
+                extraction.confirmation_intent,
+                bool(extraction.name),
+                bool(extraction.email),
+            )
         except Exception as exc:
+            logger.exception("action extraction failed: %s", exc)
             return self._state_update(
                 current_slots=current_slots,
                 available_dates=available_dates,
@@ -166,10 +187,12 @@ class AppointmentActionService:
         elif allow_service_update and extraction.selected_service:
             invalid_field = "service"
             validation_error = "Please choose one of the listed services."
+            logger.info("action service validation failed for service='%s'", extraction.selected_service)
 
         if allow_date_update and available_dates and extraction.selected_date and extraction.selected_date not in available_dates:
             invalid_field = "date"
             validation_error = "Please choose one of the available dates."
+            logger.info("action service rejected selected date='%s'", extraction.selected_date)
         elif allow_date_update and extraction.selected_date:
             current_slots["date"] = extraction.selected_date
             available_dates = []
@@ -207,6 +230,7 @@ class AppointmentActionService:
         if allow_time_update and available_slots and extraction.selected_time and extraction.selected_time not in available_slots:
             invalid_field = "time"
             validation_error = "Please choose one of the available times."
+            logger.info("action service rejected selected time='%s'", extraction.selected_time)
         elif allow_time_update and extraction.selected_time:
             current_slots["time"] = extraction.selected_time
             available_slots = []
@@ -481,6 +505,7 @@ class AppointmentActionService:
         )
 
     def _book_appointment(self, current_slots: dict[str, str]) -> ChatState:
+        logger.info("action booking attempt slots=%s", current_slots)
         try:
             booking_result = self._booking_api_client.create_booking(
                 AppointmentBookingRequest(
@@ -491,7 +516,8 @@ class AppointmentActionService:
                     email=current_slots["email"],
                 )
             )
-        except Exception:
+        except Exception as exc:
+            logger.exception("action booking failed: %s", exc)
             return self._state_update(
                 current_slots=current_slots,
                 available_dates=[],
@@ -531,6 +557,10 @@ class AppointmentActionService:
             "email": booking_result.email,
             "saved_booking": booking_result.saved_booking,
         }
+        logger.info(
+            "action booking succeeded confirmation_id=%s",
+            booking_result.confirmation_id,
+        )
         return {
             "active_action": None,
             "appointment_slots": {},
@@ -752,7 +782,7 @@ class AppointmentActionService:
         invalid_field: str | None = None,
         validation_error: str | None = None,
     ) -> ChatState:
-        return {
+        update = {
             "active_action": "appointment_scheduling",
             "appointment_slots": current_slots,
             "missing_slots": missing_appointment_fields(current_slots),
@@ -769,6 +799,17 @@ class AppointmentActionService:
             "escalation_reason": escalation_reason,
             "final_response": final_response,
         }
+        logger.info(
+            "action state update slots=%s missing=%s available_dates=%s available_slots=%s turn_outcome=%s invalid_field=%s booking_error=%s",
+            current_slots,
+            update["missing_slots"],
+            available_dates,
+            available_slots,
+            turn_outcome,
+            invalid_field,
+            booking_error,
+        )
+        return update
 
     @staticmethod
     def _normalize_email(value: str) -> str | None:
@@ -790,14 +831,23 @@ class AppointmentActionService:
         time_preference: str | None,
     ) -> AppointmentAvailabilityResult | None:
         try:
-            return self._booking_api_client.get_availability(
+            logger.info(
+                "action lookup availability service=%s date=%s time_preference=%s",
+                current_slots["service"],
+                current_slots["date"],
+                time_preference,
+            )
+            result = self._booking_api_client.get_availability(
                 AppointmentAvailabilityRequest(
                     service=current_slots["service"],
                     date=current_slots["date"],
                     time_preference=time_preference,
                 )
             )
-        except Exception:
+            logger.info("action availability result slots=%s", result.slots)
+            return result
+        except Exception as exc:
+            logger.exception("action availability lookup failed: %s", exc)
             return None
 
     def _lookup_available_dates(
@@ -805,11 +855,19 @@ class AppointmentActionService:
         current_slots: dict[str, str],
     ) -> AppointmentDateAvailabilityResult | None:
         try:
-            return self._booking_api_client.get_available_dates(
+            logger.info(
+                "action lookup available dates service=%s date_preference=%s",
+                current_slots["service"],
+                current_slots.get("date"),
+            )
+            result = self._booking_api_client.get_available_dates(
                 AppointmentDateAvailabilityRequest(
                     service=current_slots["service"],
                     date_preference=current_slots.get("date"),
                 )
             )
-        except Exception:
+            logger.info("action available dates result=%s", result.available_dates)
+            return result
+        except Exception as exc:
+            logger.exception("action available dates lookup failed: %s", exc)
             return None

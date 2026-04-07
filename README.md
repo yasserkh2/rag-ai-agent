@@ -453,6 +453,12 @@ The CLI keeps chat history in memory for the current session, so follow-up quest
 
 ## FAQ Pipeline Commands
 
+Build the interview-ready non-overlapping dataset first:
+
+```bash
+.venv/bin/python scripts/build_interview_demo_dataset.py
+```
+
 Run the full FAQ processing pipeline with your `.env` settings:
 
 ```bash
@@ -463,6 +469,12 @@ Run the pipeline against the smaller high-quality FAQ test set:
 
 ```bash
 FAQS_JSONL_PATH=cob_mock_kb_large/high_quality_faqs/high_quality_faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/high_quality_faqs .venv/bin/python scripts/run_faq_processing_pipeline.py
+```
+
+Run the document pipeline against the interview-ready retrieval corpus:
+
+```bash
+.venv/bin/python scripts/run_document_processing_pipeline.py
 ```
 
 If you want more visible progress during ingestion, lower the batch size:

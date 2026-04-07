@@ -6,7 +6,10 @@ from dataclasses import dataclass, field
 from app.graph.state import ChatState
 from app.llm.contracts import IntentDecisionGenerator
 from app.llm.intent_factory import IntentDecisionGeneratorFactory
+from app.observability import get_logger, summarize_state, truncate_text
 from app.services.models import IntentDecision
+
+logger = get_logger("services.intent")
 
 
 @dataclass(frozen=True, slots=True)
@@ -50,9 +53,14 @@ class KeywordIntentClassifier:
         frustration_flag = self._contains_any(
             normalized_query, self._keyword_catalog.frustration_keywords
         )
+        logger.info(
+            "keyword classifier evaluating query='%s' active_action=%s",
+            truncate_text(query, 100),
+            active_action,
+        )
 
         if frustration_flag or self._is_explicit_escalation_request(normalized_query):
-            return IntentDecision(
+            decision = IntentDecision(
                 intent="human_escalation",
                 confidence=0.9,
                 frustration_flag=frustration_flag,
@@ -60,26 +68,34 @@ class KeywordIntentClassifier:
                     "User requested help from a human or showed frustration."
                 ),
             )
+            logger.info("keyword classifier chose human_escalation")
+            return decision
 
         if active_action == "appointment_scheduling":
-            return IntentDecision(
+            decision = IntentDecision(
                 intent="action_request",
                 confidence=0.95,
                 frustration_flag=frustration_flag,
             )
+            logger.info("keyword classifier stayed in action_request")
+            return decision
 
         if self._contains_any(normalized_query, self._keyword_catalog.action_keywords):
-            return IntentDecision(
+            decision = IntentDecision(
                 intent="action_request",
                 confidence=0.85,
                 frustration_flag=frustration_flag,
             )
+            logger.info("keyword classifier chose action_request")
+            return decision
 
-        return IntentDecision(
+        decision = IntentDecision(
             intent="kb_query",
             confidence=0.65,
             frustration_flag=frustration_flag,
         )
+        logger.info("keyword classifier chose kb_query")
+        return decision
 
     @staticmethod
     def _contains_any(text: str, keywords: Iterable[str]) -> bool:
@@ -114,16 +130,26 @@ class LlmIntentClassifier:
 
     def classify(self, state: ChatState) -> IntentDecision:
         if self._decision_generator is None:
+            logger.info("llm intent classifier unavailable, using keyword fallback")
             return self._fallback_classifier.classify(state)
 
         try:
-            return self._decision_generator.classify_intent(
+            logger.info("llm intent classifier evaluating state=%s", summarize_state(state))
+            decision = self._decision_generator.classify_intent(
                 user_query=state.get("user_query", ""),
                 conversation_history=list(state.get("history", [])),
                 active_action=state.get("active_action"),
                 failure_count=int(state.get("failure_count", 0)),
             )
-        except Exception:
+            logger.info(
+                "llm intent classifier chose intent=%s confidence=%s frustration=%s",
+                decision.intent,
+                decision.confidence,
+                decision.frustration_flag,
+            )
+            return decision
+        except Exception as exc:
+            logger.exception("llm intent classifier failed, using keyword fallback: %s", exc)
             return self._fallback_classifier.classify(state)
 
     @staticmethod

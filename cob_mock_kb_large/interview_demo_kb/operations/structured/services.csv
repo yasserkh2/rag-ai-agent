@@ -1,0 +1,9 @@
+id,name,department,summary
+svc_credentialing,Credentialing and Provider Maintenance,Operations,"Support for provider enrollment, credentialing workflows, revalidation, and provider profile maintenance."
+svc_auth_benefits,Authorizations and Benefits Verification,Insurance Support,"Support for insurance eligibility checks, benefits verification, and authorization workflows."
+svc_billing_denials,Medical Billing and Denial Management,Revenue Cycle,"Support for claim submission, denial analysis, appeals, and revenue optimization."
+svc_auditing,Medical Auditing,Compliance,"Audit support for documentation, coding quality, and billing process accuracy."
+svc_customer_care,Customer Care,Customer Care,"General customer support, issue intake, status follow-up, and escalation handling."
+svc_digital_marketing,Digital Marketing and Website Services,Marketing,Website and digital growth support for healthcare practices.
+svc_financial_management,Financial Management,Finance,Financial visibility and practice reporting support with dashboard-based monitoring.
+svc_communication,Communication Services,Communications,"Patient-facing communication workflows, reminders, scheduling coordination, and follow-up."

@@ -7,6 +7,7 @@ TurnOutcome = Literal["resolved", "needs_input", "unresolved"]
 
 class ChatState(TypedDict, total=False):
     user_query: str
+    retrieval_query: str
     intent: Intent
     confidence: float
     entities: dict[str, Any]
@@ -37,6 +38,7 @@ class ChatState(TypedDict, total=False):
 def create_initial_state(user_query: str) -> ChatState:
     return {
         "user_query": user_query,
+        "retrieval_query": "",
         "intent": "unknown",
         "confidence": 0.0,
         "entities": {},

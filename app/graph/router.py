@@ -1,15 +1,21 @@
 from app.graph.state import ChatState
+from app.observability import get_logger, summarize_state
 from app.services.contracts import IntentRouter
 from app.services.router import DefaultIntentRouter
+
+logger = get_logger("graph.router")
 
 
 class ActiveFlowRouter:
     def __call__(self, state: ChatState) -> str:
         if state.get("handoff_pending"):
-            return "human_escalation"
-        if state.get("active_action") == "appointment_scheduling":
-            return "action_request"
-        return "classify_intent"
+            route = "human_escalation"
+        elif state.get("active_action") == "appointment_scheduling":
+            route = "action_request"
+        else:
+            route = "classify_intent"
+        logger.info("active_flow route=%s state=%s", route, summarize_state(state))
+        return route
 
 
 class GraphRouter:
@@ -17,7 +23,14 @@ class GraphRouter:
         self._router = router
 
     def __call__(self, state: ChatState) -> str:
-        return self._router.route(state)
+        route = self._router.route(state)
+        logger.info(
+            "intent route=%s intent=%s confidence=%s",
+            route,
+            state.get("intent"),
+            state.get("confidence"),
+        )
+        return route
 
 
 _default_active_flow_router = ActiveFlowRouter()
@@ -27,15 +40,21 @@ _default_router = GraphRouter(DefaultIntentRouter())
 class PostTurnRouter:
     def __call__(self, state: ChatState) -> str:
         if state.get("handoff_pending"):
-            return "human_escalation"
-        return "response"
+            route = "human_escalation"
+        else:
+            route = "response"
+        logger.info("post_turn route=%s state=%s", route, summarize_state(state))
+        return route
 
 
 class ServiceResultRouter:
     def __call__(self, state: ChatState) -> str:
         if state.get("handoff_pending"):
-            return "human_escalation"
-        return "evaluate_escalation"
+            route = "human_escalation"
+        else:
+            route = "evaluate_escalation"
+        logger.info("service_result route=%s state=%s", route, summarize_state(state))
+        return route
 
 
 def route_active_flow(state: ChatState) -> str:

@@ -25,6 +25,7 @@ class IntentDecision:
 @dataclass(frozen=True, slots=True)
 class KnowledgeBaseAnswer:
     final_response: str
+    retrieval_query: str = ""
     retrieved_context: Sequence[str] = ()
     turn_outcome: TurnOutcome = "resolved"
     turn_failure_reason: str | None = None
@@ -33,6 +34,7 @@ class KnowledgeBaseAnswer:
     def as_state_update(self) -> ChatState:
         return {
             "final_response": self.final_response,
+            "retrieval_query": self.retrieval_query,
             "retrieved_context": list(self.retrieved_context),
             "turn_outcome": self.turn_outcome,
             "turn_failure_reason": self.turn_failure_reason,

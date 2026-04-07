@@ -1,0 +1,19 @@
+{
+  "dataset_name": "Interview Demo KB",
+  "version": "1.0",
+  "generated_from": {
+    "retrieval_documents": "cob_mock_kb_large/high_quality_documents",
+    "retrieval_faqs": "cob_mock_kb_large/high_quality_faqs/high_quality_faqs.jsonl",
+    "operations": "cob_mock_kb_large/very_large_mixed_kb"
+  },
+  "principles": [
+    "retrieval and operational data are separated",
+    "no large mixed documents or large mixed faqs are included in retrieval",
+    "high-quality rewritten retrieval sources are preferred for demo RAG"
+  ],
+  "counts": {
+    "retrieval_documents": 8,
+    "retrieval_faqs": 48,
+    "operations_files": 7
+  }
+}
