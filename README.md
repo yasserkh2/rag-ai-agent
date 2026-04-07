@@ -451,6 +451,19 @@ Run the CLI chatbot:
 
 The CLI keeps chat history in memory for the current session, so follow-up questions can use prior turns as context.
 
+Run the standalone Streamlit demo UI:
+
+```bash
+.venv/bin/python -m streamlit run ui/streamlit_app.py
+```
+
+The UI is useful for interview demos because it shows:
+
+- the assistant reply
+- the rewritten vector query used for retrieval
+- the retrieved chunks for that specific turn
+- backend trace logs for routing, retrieval, and escalation decisions
+
 ## FAQ Pipeline Commands
 
 Build the interview-ready non-overlapping dataset first:
@@ -458,6 +471,14 @@ Build the interview-ready non-overlapping dataset first:
 ```bash
 .venv/bin/python scripts/build_interview_demo_dataset.py
 ```
+
+That script creates:
+
+- `cob_mock_kb_large/interview_demo_kb/retrieval/documents`
+- `cob_mock_kb_large/interview_demo_kb/retrieval/faqs`
+- `cob_mock_kb_large/interview_demo_kb/operations`
+
+Only `retrieval/` should be indexed for normal RAG. `operations/` is for appointment, case, and structured workflow data.
 
 Run the full FAQ processing pipeline with your `.env` settings:
 
@@ -476,6 +497,22 @@ Run the document pipeline against the interview-ready retrieval corpus:
 ```bash
 .venv/bin/python scripts/run_document_processing_pipeline.py
 ```
+
+Recommended clean rebuild flow for the interview demo:
+
+```bash
+rm -rf vector_db/qdrant/data/local
+mkdir -p vector_db/qdrant/data/local
+.venv/bin/python scripts/setup_qdrant.py
+.venv/bin/python scripts/build_interview_demo_dataset.py
+FAQS_JSONL_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/faqs/faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_faq_processing_pipeline.py
+DOCUMENTS_MANIFEST_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/documents/documents_manifest.json QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_document_processing_pipeline.py
+```
+
+Why `DOCUMENTS_MANIFEST_PATH` is set explicitly:
+
+- `config.yml` may still contain an older document manifest path
+- setting the env var ensures ingestion uses the interview demo document corpus
 
 If you want more visible progress during ingestion, lower the batch size:
 
@@ -531,6 +568,8 @@ Key environment variables:
 - `KB_ANSWER_PROVIDER`
 - `INTENT_CLASSIFIER_PROVIDER`
 - `FAQS_JSONL_PATH`
+- `DOCUMENTS_MANIFEST_PATH`
+- `DOCUMENTS_ROOT_PATH`
 - `FAQ_PIPELINE_LIMIT`
 - `FAQ_PIPELINE_BATCH_SIZE`
 - `QDRANT_PATH`
@@ -555,6 +594,8 @@ Important:
 - retrieval quality depends on using the same embedding provider for both ingestion and query time
 - if you ingest with `EMBEDDING_PROVIDER=local`, you should also chat/query with `EMBEDDING_PROVIDER=local`
 - if you ingest with `EMBEDDING_PROVIDER=gemini`, you should also chat/query with `EMBEDDING_PROVIDER=gemini`
+- the interview demo defaults now target `cob_mock_kb_large/interview_demo_kb/retrieval/...`
+- for the cleanest interview demo, do not index `cob_mock_kb_large/very_large_mixed_kb/documents` and `cob_mock_kb_large/very_large_mixed_kb/faqs` into the same retrieval store as the distilled high-quality corpus
 
 ## Example interaction
 
@@ -590,6 +631,7 @@ Bot: I need to transfer this conversation to a human agent. A human agent will f
 ## Documentation
 
 - `README.md`: project overview and usage
+- `UI_DEBUG_GUIDE.md`: how to use the Streamlit demo, vector-query display, retrieved chunks, and backend trace panels
 - `KB_AGENT_WALKTHROUGH.md`: end-to-end explanation of the KB agent flow, prompt, retrieval, memory, and fallback behavior
 - `DOCUMENT_RAG_IMPLEMENTATION.md`: document ingestion, chunking, dual-collection retrieval, and verification notes
 - `RETRIEVAL_QUERY_REWRITING.md`: follow-up query rewrite design and implementation details
@@ -612,4 +654,4 @@ Bot: I need to transfer this conversation to a human agent. A human agent will f
 - Add entity extraction for appointment requests
 - Expand the LLM intent classifier prompt and evaluation rules for richer escalation decisions
 - Add automated tests for nodes, services, and routing
-- Add an API or UI layer
+- Improve the Streamlit debug presentation and source metadata display
