@@ -61,4 +61,5 @@ vector_db/qdrant/data/local/
 vector_db/qdrant/data/docker/
 
 # Large local datasets
+cob_mock_kb_large/
 cob_mock_kb_large/very_large_mixed_kb/

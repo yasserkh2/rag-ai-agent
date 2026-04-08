@@ -246,7 +246,7 @@ class AppointmentActionServiceTests(unittest.TestCase):
         self.assertEqual(result["final_response"], "Generated action-agent reply.")
         self.assertEqual(reply_generator.calls[0].phase, "collecting")
 
-    def test_selected_service_moves_flow_to_date_collection(self) -> None:
+    def test_selected_service_fetches_and_shows_available_dates(self) -> None:
         extractor = StubAppointmentExtractor(
             {
                 "Digital Marketing": AppointmentExtraction(
@@ -254,9 +254,16 @@ class AppointmentActionServiceTests(unittest.TestCase):
                 )
             }
         )
+        booking_client = StubBookingApiClient(
+            date_availability=AppointmentDateAvailabilityResult(
+                service="Digital Marketing and Website Services",
+                available_dates=["Next Thursday", "Next Friday", "Next Monday"],
+                date_preference=None,
+            )
+        )
         service = AppointmentActionService(
             extractor=extractor,
-            booking_api_client=StubBookingApiClient(),
+            booking_api_client=booking_client,
             response_generator=StubActionReplyGenerator(),
         )
 
@@ -266,7 +273,12 @@ class AppointmentActionServiceTests(unittest.TestCase):
             result["appointment_slots"],
             {"service": "Digital Marketing and Website Services"},
         )
-        self.assertIn("What date would you like", result["final_response"])
+        self.assertEqual(
+            result["available_dates"],
+            ["Next Thursday", "Next Friday", "Next Monday"],
+        )
+        self.assertIn("available dates", result["final_response"])
+        self.assertEqual(len(booking_client.date_availability_calls), 1)
 
     def test_date_is_validated_and_available_dates_are_shown_first(self) -> None:
         extractor = StubAppointmentExtractor(
@@ -292,6 +304,51 @@ class AppointmentActionServiceTests(unittest.TestCase):
         self.assertEqual(result["available_slots"], [])
         self.assertIn("available dates", result["final_response"])
         self.assertEqual(len(booking_client.date_availability_calls), 1)
+
+    def test_weekday_preference_shows_available_days_instead_of_asking_for_exact_date(self) -> None:
+        extractor = StubAppointmentExtractor(
+            {
+                "can it be thursday": AppointmentExtraction(
+                    date="thursday",
+                )
+            }
+        )
+        booking_client = StubBookingApiClient(
+            date_availability=AppointmentDateAvailabilityResult(
+                service="Digital Marketing and Website Services",
+                available_dates=["Next Thursday", "Next Friday", "Next Monday"],
+                date_preference="thursday",
+            )
+        )
+        service = AppointmentActionService(
+            extractor=extractor,
+            booking_api_client=booking_client,
+            response_generator=StubActionReplyGenerator(),
+        )
+
+        result = service.handle_turn(
+            {
+                "user_query": "can it be thursday",
+                "appointment_slots": {
+                    "service": "Digital Marketing and Website Services",
+                },
+            }
+        )
+
+        self.assertEqual(
+            result["appointment_slots"],
+            {"service": "Digital Marketing and Website Services"},
+        )
+        self.assertEqual(
+            result["available_dates"],
+            ["Next Thursday", "Next Friday", "Next Monday"],
+        )
+        self.assertFalse(result["date_confirmed"])
+        self.assertIn("available dates", result["final_response"])
+        self.assertEqual(
+            booking_client.date_availability_calls[0].date_preference,
+            "thursday",
+        )
 
     def test_user_can_select_offered_date_before_times_are_shown(self) -> None:
         extractor = StubAppointmentExtractor(

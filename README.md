@@ -9,6 +9,7 @@ The project is set up as a runnable foundation for a customer support chatbot. I
 - Query ingestion
 - LLM-based intent classification with deterministic fallback
 - Graph-based routing
+- General conversation path for greetings, thanks, and vague helper turns
 - Knowledge-base answer path with retrieval plus grounded RAG answering
 - Multi-turn appointment action agent with mock external integration
 - Mid-conversation human escalation routing with sticky handoff state
@@ -32,6 +33,7 @@ The chatbot flow is:
 1. `ingest_query`
 2. `classify_intent`
 3. Conditional route to:
+   - `general_conversation`
    - `kb_answer`
    - `action_request`
    - `human_escalation`
@@ -65,6 +67,7 @@ app/
       __init__.py
       ingest_query.py
       classify_intent.py
+      general_conversation.py
       kb_answer.py
       action_request.py
       evaluate_escalation.py
@@ -76,6 +79,7 @@ app/
     models.py
     kb_agent.py
     action_agent.py
+    general_conversation_agent.py
     escalation_agent.py
     factory.py
   llm/
@@ -169,6 +173,7 @@ The `app/agents/` package provides graph-ready agents such as:
 
 - `KnowledgeBaseAgent`
 - `ActionRequestAgent`
+- `GeneralConversationAgent`
 - `HumanEscalationAgent`
 
 This creates a cleaner expansion path for future agents while keeping graph nodes small.
@@ -210,6 +215,7 @@ This keeps parsing, chunking, and embedding preparation independent from the cho
 
 The default classifier is now LLM-based and supports:
 
+- `general_conversation`
 - `kb_query`
 - `action_request`
 - `human_escalation`
@@ -218,6 +224,7 @@ Current behavior:
 
 - the classifier uses a dedicated intent-classification prompt
 - it considers the latest user message, recent conversation history, active action state, and current failure count
+- it can route greetings, thanks, and capability/help turns into `general_conversation`
 - it returns structured JSON for:
   - `intent`
   - `confidence`
@@ -229,6 +236,7 @@ Current behavior:
 
 The router sends the conversation to:
 
+- `general_conversation` for greetings, thanks, broad capability questions, and vague conversational turns that should get a short guided reply
 - `kb_answer` for knowledge-base-style questions
 - `action_request` for appointment-related requests
 - `human_escalation` for human help requests, frustration signals, or handoff-pending sessions
@@ -240,6 +248,8 @@ After `kb_answer` and `action_request`, the graph now runs a post-turn escalatio
 - route the current turn into `human_escalation` before the normal response path finishes
 
 ### Response generation
+
+The general conversation path returns short conversational guidance for turns like greetings, thanks, or “what can you do?” without forcing a retrieval or action workflow. This keeps the experience natural while preserving a clean graph separation between routing and user-facing replies.
 
 The knowledge-base path now retrieves FAQ context from Qdrant and uses a grounded generation prompt to produce the final answer. If generation is not configured or fails, it falls back to the best extractive FAQ answer.
 
@@ -315,6 +325,7 @@ Current behavior:
 
 - extracts booking fields with Gemini, OpenAI, or Azure OpenAI through `app/llm/action_extraction.py`
 - stores slots in `ChatState`
+- proactively fetches available dates when the service is known and the date is still missing
 - asks for one missing field at a time across turns
 - fetches available time slots through a local mock HTTP API
 - validates malformed slot values such as incomplete email addresses

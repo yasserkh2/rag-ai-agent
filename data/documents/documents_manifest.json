@@ -1,0 +1,90 @@
+[
+  {
+    "doc_id": "doc_0001",
+    "service_id": "svc_company_overview",
+    "service_name": "COB Solution Company Overview",
+    "title": "COB Solution Company Overview",
+    "file_path": "doc_0001_company_overview.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0002",
+    "service_id": "svc_authorizations",
+    "service_name": "Authorizations",
+    "title": "Authorizations",
+    "file_path": "doc_0002_authorizations.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0003",
+    "service_id": "svc_benefits_verification",
+    "service_name": "Benefits Verification",
+    "title": "Benefits Verification",
+    "file_path": "doc_0003_benefits_verification.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0004",
+    "service_id": "svc_billing_denials",
+    "service_name": "Medical Billing and Denial Management",
+    "title": "Medical Billing and Denial Management",
+    "file_path": "doc_0004_medical_billing_denial_management.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0005",
+    "service_id": "svc_auditing",
+    "service_name": "Medical Auditing",
+    "title": "Medical Auditing",
+    "file_path": "doc_0005_medical_auditing.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0006",
+    "service_id": "svc_financial_management",
+    "service_name": "Financial Management",
+    "title": "Financial Management",
+    "file_path": "doc_0006_financial_management.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0007",
+    "service_id": "svc_digital_marketing",
+    "service_name": "Digital Marketing and Website Services",
+    "title": "Digital Marketing and Website Services",
+    "file_path": "doc_0007_digital_marketing_website_services.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0008",
+    "service_id": "svc_customer_care",
+    "service_name": "Customer Care",
+    "title": "Customer Care",
+    "file_path": "doc_0008_customer_care.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0009",
+    "service_id": "svc_communication",
+    "service_name": "Elevate Communication Services",
+    "title": "Elevate Communication Services",
+    "file_path": "doc_0009_elevate_communication_services.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0010",
+    "service_id": "svc_credentialing",
+    "service_name": "Credentialing and Provider Maintenance",
+    "title": "Credentialing and Provider Maintenance",
+    "file_path": "doc_0010_credentialing_provider_maintenance.md",
+    "source_type": "document"
+  },
+  {
+    "doc_id": "doc_0011",
+    "service_id": "svc_contact_information",
+    "service_name": "COB Solution Contact Information",
+    "title": "COB Solution Contact Information",
+    "file_path": "doc_0011_contact_information.md",
+    "source_type": "document"
+  }
+]

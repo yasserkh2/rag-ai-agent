@@ -225,6 +225,7 @@ class AppointmentActionService:
                 )
             available_slots = []
         elif allow_date_update and extraction.date:
+            current_slots["date"] = extraction.date
             date_confirmed = False
 
         if allow_time_update and available_slots and extraction.selected_time and extraction.selected_time not in available_slots:
@@ -424,6 +425,38 @@ class AppointmentActionService:
                 )
 
         missing_fields = missing_appointment_fields(current_slots)
+        if (
+            "date" in missing_fields
+            and current_slots.get("service")
+            and not available_dates
+        ):
+            date_availability = self._lookup_available_dates(current_slots=current_slots)
+            available_dates = (
+                date_availability.available_dates if date_availability else []
+            )
+            if available_dates:
+                return self._state_update(
+                    current_slots=current_slots,
+                    available_dates=available_dates,
+                    available_slots=[],
+                    date_confirmed=False,
+                    time_confirmed=False,
+                    awaiting_confirmation=False,
+                    final_response=self._build_action_reply(
+                        phase="choose_date",
+                        user_query=query,
+                        conversation_history=history,
+                        current_slots=current_slots,
+                        available_dates=available_dates,
+                        available_slots=[],
+                        date_confirmed=False,
+                        time_confirmed=False,
+                        awaiting_confirmation=False,
+                        invalid_field=invalid_field,
+                        validation_error=validation_error,
+                    ),
+                )
+
         if not missing_fields and date_confirmed and time_confirmed:
             return self._state_update(
                 current_slots=current_slots,

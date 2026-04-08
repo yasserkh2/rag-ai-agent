@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from app.graph.router import ActiveFlowRouter, PostTurnRouter, ServiceResultRouter
+from app.services.router import DefaultIntentRouter
 
 
 class ActiveFlowRouterTests(unittest.TestCase):
@@ -53,6 +54,22 @@ class PostTurnRouterTests(unittest.TestCase):
         route = router({"handoff_pending": False})
 
         self.assertEqual(route, "response")
+
+
+class DefaultIntentRouterTests(unittest.TestCase):
+    def test_routes_general_conversation_intent(self) -> None:
+        router = DefaultIntentRouter()
+
+        route = router.route({"intent": "general_conversation", "handoff_pending": False})
+
+        self.assertEqual(route, "general_conversation")
+
+    def test_falls_back_to_general_conversation_for_unknown_intent(self) -> None:
+        router = DefaultIntentRouter()
+
+        route = router.route({"intent": "unknown", "handoff_pending": False})
+
+        self.assertEqual(route, "general_conversation")
 
 
 if __name__ == "__main__":

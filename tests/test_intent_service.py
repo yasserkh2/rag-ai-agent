@@ -77,6 +77,33 @@ class KeywordIntentClassifierTests(unittest.TestCase):
 
         self.assertEqual(result.intent, "human_escalation")
 
+    def test_routes_greeting_to_general_conversation(self) -> None:
+        classifier = KeywordIntentClassifier()
+
+        result = classifier.classify(
+            {
+                "user_query": "hi",
+            }
+        )
+
+        self.assertEqual(result.intent, "general_conversation")
+
+    def test_short_follow_up_uses_history_to_continue_action_request(self) -> None:
+        classifier = KeywordIntentClassifier()
+
+        result = classifier.classify(
+            {
+                "user_query": "Thursday",
+                "history": [
+                    "user: I want to book a meeting",
+                    "assistant: I found available dates: Next Thursday, Next Friday, Next Monday. Which date would you like?",
+                ],
+                "active_action": None,
+            }
+        )
+
+        self.assertEqual(result.intent, "action_request")
+
 
 class LlmIntentClassifierTests(unittest.TestCase):
     def test_uses_llm_decision_when_generator_succeeds(self) -> None:
@@ -107,6 +134,28 @@ class LlmIntentClassifierTests(unittest.TestCase):
             generator.calls[0]["conversation_history"],
             ["user: hi", "assistant: hello"],
         )
+
+    def test_uses_llm_general_conversation_decision_when_generator_succeeds(self) -> None:
+        generator = StubIntentDecisionGenerator(
+            IntentDecision(
+                intent="general_conversation",
+                confidence=0.88,
+                frustration_flag=False,
+                escalation_reason=None,
+            )
+        )
+        classifier = LlmIntentClassifier(decision_generator=generator)
+
+        result = classifier.classify(
+            {
+                "user_query": "hi there",
+                "history": ["user: hi"],
+                "active_action": None,
+                "failure_count": 0,
+            }
+        )
+
+        self.assertEqual(result.intent, "general_conversation")
 
     def test_falls_back_to_keyword_classifier_when_generator_fails(self) -> None:
         classifier = LlmIntentClassifier(

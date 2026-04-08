@@ -4,10 +4,10 @@ from app.graph.state import ChatState, Intent
 
 
 class DefaultIntentRouter:
-    def __init__(self, fallback_intent: Intent = "kb_query") -> None:
+    def __init__(self, fallback_intent: Intent = "general_conversation") -> None:
         self._fallback_intent = fallback_intent
         self._valid_routes = frozenset(
-            {"kb_query", "action_request", "human_escalation"}
+            {"kb_query", "action_request", "human_escalation", "general_conversation"}
         )
 
     def route(self, state: ChatState) -> str:

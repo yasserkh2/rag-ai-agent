@@ -1,7 +1,13 @@
 from typing import Any, Literal, TypedDict
 
 
-Intent = Literal["kb_query", "action_request", "human_escalation", "unknown"]
+Intent = Literal[
+    "kb_query",
+    "action_request",
+    "human_escalation",
+    "general_conversation",
+    "unknown",
+]
 TurnOutcome = Literal["resolved", "needs_input", "unresolved"]
 
 

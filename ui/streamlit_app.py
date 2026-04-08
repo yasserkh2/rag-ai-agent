@@ -23,6 +23,41 @@ from app.observability import (
 logger = get_logger("ui.streamlit")
 
 
+def _extract_trace_sections(turn_logs: list[str]) -> tuple[list[str], list[str]]:
+    routing_lines: list[str] = []
+    node_lines: list[str] = []
+
+    for line in turn_logs:
+        if any(
+            marker in line
+            for marker in (
+                "active_flow route=",
+                "intent route=",
+                "service_result route=",
+                "post_turn route=",
+            )
+        ):
+            routing_lines.append(line)
+            continue
+
+        if any(
+            marker in line
+            for marker in (
+                "graph.nodes.ingest_query",
+                "graph.nodes.classify_intent",
+                "graph.nodes.general_conversation",
+                "graph.nodes.kb_answer",
+                "graph.nodes.action_request",
+                "graph.nodes.evaluate_escalation",
+                "graph.nodes.human_escalation",
+                "graph.nodes.response",
+            )
+        ):
+            node_lines.append(line)
+
+    return routing_lines, node_lines
+
+
 def _bootstrap_app() -> None:
     configure_logging()
     load_runtime_config(
@@ -115,7 +150,23 @@ def _render_sidebar() -> None:
             st.caption("No chunks retrieved on the current turn.")
 
         st.divider()
-        st.subheader("Backend Trace")
+        routing_lines, node_lines = _extract_trace_sections(st.session_state.turn_logs)
+
+        st.subheader("Routing Trace")
+        if routing_lines:
+            st.code("\n".join(routing_lines), language="text")
+        else:
+            st.caption("Routing steps will appear here after the first message.")
+
+        st.divider()
+        st.subheader("Node Trace")
+        if node_lines:
+            st.code("\n".join(node_lines), language="text")
+        else:
+            st.caption("Node execution steps will appear here after the first message.")
+
+        st.divider()
+        st.subheader("Full Backend Trace")
         turn_logs = st.session_state.turn_logs
         if turn_logs:
             st.code("\n".join(turn_logs), language="text")
@@ -131,6 +182,18 @@ def _render_message(message: dict[str, object]) -> None:
         if retrieval_query:
             with st.expander("Vector DB Query", expanded=False):
                 st.code(retrieval_query, language="text")
+
+        turn_logs = message.get("turn_logs", [])
+        if isinstance(turn_logs, list) and turn_logs:
+            routing_lines, node_lines = _extract_trace_sections(
+                [str(item) for item in turn_logs]
+            )
+            if routing_lines:
+                with st.expander("Routing Trace", expanded=False):
+                    st.code("\n".join(routing_lines), language="text")
+            if node_lines:
+                with st.expander("Node Trace", expanded=False):
+                    st.code("\n".join(node_lines), language="text")
 
         retrieved_context = message.get("retrieved_context", [])
         if isinstance(retrieved_context, list) and retrieved_context:
@@ -206,7 +269,7 @@ def main() -> None:
         st.markdown(user_query)
 
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("Routing request and running graph nodes..."):
             try:
                 assistant_message = _run_turn(user_query)
             except Exception:
@@ -225,6 +288,18 @@ def main() -> None:
         if retrieval_query:
             with st.expander("Vector DB Query", expanded=False):
                 st.code(retrieval_query, language="text")
+
+        turn_logs = assistant_message.get("turn_logs", [])
+        if isinstance(turn_logs, list) and turn_logs:
+            routing_lines, node_lines = _extract_trace_sections(
+                [str(item) for item in turn_logs]
+            )
+            if routing_lines:
+                with st.expander("Routing Trace", expanded=False):
+                    st.code("\n".join(routing_lines), language="text")
+            if node_lines:
+                with st.expander("Node Trace", expanded=False):
+                    st.code("\n".join(node_lines), language="text")
 
         retrieved_context = assistant_message.get("retrieved_context", [])
         if isinstance(retrieved_context, list) and retrieved_context:
