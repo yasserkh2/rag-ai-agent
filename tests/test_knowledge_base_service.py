@@ -104,6 +104,66 @@ class BrokenQueryRewriter:
 
 
 class RetrievalKnowledgeBaseServiceTests(unittest.TestCase):
+    def test_contact_query_prioritizes_chunk_with_contact_details(self) -> None:
+        service = RetrievalKnowledgeBaseService(
+            embedding_generator=StubEmbeddingGenerator([1.0]),
+            searcher=StubVectorSearcher([]),
+            document_searcher=StubVectorSearcher(
+                [
+                    VectorSearchMatch(
+                        point_id="point-doc-scenarios",
+                        record_id="doc_0011_chunk_0002",
+                        score=0.74,
+                        payload={
+                            "doc_id": "doc_0011",
+                            "service_name": "COB Solution Contact Information",
+                            "title": "COB Solution Contact Information",
+                            "section_title": "Common Practice Scenarios",
+                            "source_type": "document",
+                            "text": (
+                                "Title: COB Solution Contact Information\n"
+                                "Service: COB Solution Contact Information\n"
+                                "Section: Common Practice Scenarios\n\n"
+                                "Common Practice Scenarios\n"
+                                "- A user asks where COB Solution is located."
+                            ),
+                        },
+                    ),
+                    VectorSearchMatch(
+                        point_id="point-doc-contact",
+                        record_id="doc_0011_chunk_0001",
+                        score=0.72,
+                        payload={
+                            "doc_id": "doc_0011",
+                            "service_name": "COB Solution Contact Information",
+                            "title": "COB Solution Contact Information",
+                            "section_title": "Service Overview | What This Service Usually Includes",
+                            "source_type": "document",
+                            "text": (
+                                "Title: COB Solution Contact Information\n"
+                                "Service: COB Solution Contact Information\n"
+                                "Section: Service Overview | What This Service Usually Includes\n\n"
+                                "What This Service Usually Includes\n"
+                                "- Phone: +1 (929) 229-7207\n"
+                                "- Email: info@cobsolution.com\n"
+                                "- Office address: Midtown, 575 8th Ave, New York, NY 10018"
+                            ),
+                        },
+                    ),
+                ]
+            ),
+            answer_generator=StubAnswerGenerator("unused"),
+            retrieval_limit=1,
+            query_rewriter=IdentityQueryRewriter(),
+        )
+
+        result = service.answer({"user_query": "how can i contact the company?"})
+
+        self.assertEqual(result.turn_outcome, "resolved")
+        self.assertEqual(len(result.retrieved_context), 1)
+        self.assertTrue(result.retrieved_context[0].startswith("Document: doc_0011"))
+        self.assertIn("Phone: +1 (929) 229-7207", result.retrieved_context[0])
+
     def test_returns_grounded_generated_answer_and_context(self) -> None:
         embedding_generator = StubEmbeddingGenerator([0.1, 0.2, 0.3])
         searcher = StubVectorSearcher(

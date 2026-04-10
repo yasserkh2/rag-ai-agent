@@ -219,7 +219,11 @@ def _stream_response_text(text: str):
             yield f"{token} "
 
 
-def _run_turn(user_query: str, progress_placeholder=None) -> dict[str, object]:
+def _run_turn(
+    user_query: str,
+    progress_placeholder=None,
+    response_placeholder=None,
+) -> dict[str, object]:
     trace_handler = st.session_state.trace_handler
     trace_handler.reset()
     graph = _get_graph()
@@ -237,6 +241,7 @@ def _run_turn(user_query: str, progress_placeholder=None) -> dict[str, object]:
     }
     try:
         invoke_start = perf_counter()
+        response_rendered = False
         if progress_placeholder is not None:
             progress_placeholder.caption("Running: ingest_query")
         for update in graph.stream(working_state, stream_mode="updates"):
@@ -245,6 +250,15 @@ def _run_turn(user_query: str, progress_placeholder=None) -> dict[str, object]:
             for node_name, node_update in update.items():
                 if isinstance(node_update, dict):
                     working_state.update(node_update)
+                    if response_placeholder is not None and not response_rendered:
+                        final_response = str(
+                            node_update.get("final_response", "")
+                        ).strip()
+                        if final_response:
+                            response_placeholder.write_stream(
+                                _stream_response_text(final_response)
+                            )
+                            response_rendered = True
                 if progress_placeholder is not None:
                     progress_placeholder.caption(f"Running: {node_name}")
         backend_invoke_ms = (perf_counter() - invoke_start) * 1000
@@ -264,6 +278,7 @@ def _run_turn(user_query: str, progress_placeholder=None) -> dict[str, object]:
         "content": next_state.get("final_response", "").strip()
         or "I wasn't able to generate a response.",
         "backend_invoke_ms": backend_invoke_ms,
+        "response_rendered": response_rendered,
         "retrieval_query": str(next_state.get("retrieval_query", "")).strip(),
         "retrieved_context": list(next_state.get("retrieved_context", [])),
         "turn_logs": turn_logs,
@@ -304,6 +319,7 @@ def main() -> None:
             assistant_message = _run_turn(
                 user_query,
                 progress_placeholder=progress_placeholder,
+                response_placeholder=response_placeholder,
             )
         except Exception:
             assistant_message = {
@@ -312,6 +328,7 @@ def main() -> None:
                     "Check the Backend Trace panel for details."
                 ),
                 "backend_invoke_ms": 0.0,
+                "response_rendered": False,
                 "retrieval_query": "",
                 "retrieved_context": [],
                 "turn_logs": st.session_state.turn_logs,
@@ -322,9 +339,10 @@ def main() -> None:
             f"Latency: backend={float(assistant_message.get('backend_invoke_ms', 0.0)):.0f}ms, "
             f"ui_total={ui_turn_ms:.0f}ms"
         )
-        response_placeholder.write_stream(
-            _stream_response_text(str(assistant_message["content"]))
-        )
+        if not bool(assistant_message.get("response_rendered", False)):
+            response_placeholder.write_stream(
+                _stream_response_text(str(assistant_message["content"]))
+            )
         st.caption(latency_caption)
 
         retrieval_query = str(assistant_message.get("retrieval_query", "")).strip()

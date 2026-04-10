@@ -25,8 +25,31 @@ logger = get_logger("services.knowledge_base")
 _FAQ_TEXT_PATTERN = re.compile(
     r"^Question:\s*(?P<question>.*?)\n"
     r"Answer:\s*(?P<answer>.*?)\n"
-    r"Service:\s*(?P<service>.*)$",
+    r"Service:\s*(?P<service>[^\n]*)",
     re.DOTALL,
+)
+_CONTACT_QUERY_TERMS = (
+    "contact",
+    "phone",
+    "email",
+    "e-mail",
+    "address",
+    "location",
+    "where",
+    "linkedin",
+    "facebook",
+    "instagram",
+    "reach",
+    "call",
+)
+_CONTACT_EVIDENCE_TERMS = (
+    "phone:",
+    "email:",
+    "office address:",
+    "map link:",
+    "linkedin:",
+    "facebook:",
+    "instagram:",
 )
 
 
@@ -94,6 +117,26 @@ class RetrievalKnowledgeBaseService:
         self._query_rewriter = query_rewriter or LlmRetrievalQueryRewriter()
         self._settings: QdrantSettings | None = None
         self._document_settings: QdrantSettings | None = None
+        self._warmed_up = False
+
+    def warmup(self) -> None:
+        if self._warmed_up:
+            return
+
+        warmup_start = perf_counter()
+        try:
+            self._get_embedding_generator()
+            self._get_searcher()
+            if self._search_documents:
+                self._get_document_searcher()
+            self._get_answer_generator()
+            self._warmed_up = True
+            logger.info(
+                "kb service warmup completed (ms=%.1f)",
+                (perf_counter() - warmup_start) * 1000,
+            )
+        except Exception as exc:
+            logger.warning("kb service warmup skipped due to error: %s", exc)
 
     def answer(self, state: ChatState) -> KnowledgeBaseAnswer:
         total_start = perf_counter()
@@ -238,7 +281,10 @@ class RetrievalKnowledgeBaseService:
         )
         parallel_wait_overhead_ms = max(0.0, raw_parallel_wait_ms)
         combined_matches = faq_matches + document_matches
-        combined_matches.sort(key=lambda item: item.score, reverse=True)
+        combined_matches.sort(
+            key=lambda item: self._scored_retrieval_priority(query, item),
+            reverse=True,
+        )
         top_matches = combined_matches[: self._retrieval_limit]
         logger.info(
             "kb retrieved faq_matches=%s document_matches=%s total=%s top=%s (embed_ms=%.1f searcher_setup_ms=%.1f faq_search_ms=%.1f doc_search_ms=%.1f retrieval_ms=%.1f parallel_wait_overhead_ms=%.1f)",
@@ -261,6 +307,41 @@ class RetrievalKnowledgeBaseService:
             parallel_wait_overhead_ms,
         )
         return top_matches
+
+    def _scored_retrieval_priority(
+        self,
+        query: str,
+        match: VectorSearchMatch,
+    ) -> tuple[float, float]:
+        bonus = 0.0
+        if self._is_contact_query(query):
+            bonus = self._contact_evidence_bonus(match)
+        return (match.score + bonus, match.score)
+
+    def _is_contact_query(self, query: str) -> bool:
+        normalized = query.strip().lower()
+        if not normalized:
+            return False
+        return any(term in normalized for term in _CONTACT_QUERY_TERMS)
+
+    def _contact_evidence_bonus(self, match: VectorSearchMatch) -> float:
+        payload = match.payload
+        searchable = " ".join(
+            str(payload.get(field, "")).strip().lower()
+            for field in ("title", "service_name", "section_title", "text")
+        )
+        if not searchable:
+            return 0.0
+
+        evidence_hits = sum(
+            1 for term in _CONTACT_EVIDENCE_TERMS if term in searchable
+        )
+        if evidence_hits == 0:
+            return 0.0
+
+        # Keep bonus small so vector similarity remains dominant while preferring
+        # concrete contact-detail chunks when scores are close.
+        return min(0.05, evidence_hits * 0.01)
 
     def _generate_answer(
         self,

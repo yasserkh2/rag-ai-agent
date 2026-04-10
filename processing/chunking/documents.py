@@ -32,6 +32,7 @@ class DocumentChunkingStrategy(ChunkingStrategy):
                         service_name=str(item.metadata.get("service_name", "")).strip(),
                         section_title="Document",
                         section_blocks=[("Document", item.text.strip())],
+                        keywords=str(item.metadata.get("keywords", "")).strip(),
                     ),
                     metadata=dict(item.metadata),
                 )
@@ -87,6 +88,7 @@ class DocumentChunkingStrategy(ChunkingStrategy):
                         service_name=str(metadata.get("service_name", "")).strip(),
                         section_title=section_title,
                         section_blocks=blocks,
+                        keywords=str(metadata.get("keywords", "")).strip(),
                     ),
                     metadata=metadata,
                 )
@@ -133,13 +135,16 @@ class DocumentChunkingStrategy(ChunkingStrategy):
         service_name: str,
         section_title: str,
         section_blocks: list[tuple[str, str]],
+        keywords: str = "",
     ) -> str:
         lines = [
             f"Title: {title}",
             f"Service: {service_name}",
             f"Section: {section_title}",
-            "",
         ]
+        if keywords:
+            lines.append(f"Keywords: {keywords}")
+        lines.append("")
         for index, (block_title, block_body) in enumerate(section_blocks):
             if index > 0:
                 lines.append("")

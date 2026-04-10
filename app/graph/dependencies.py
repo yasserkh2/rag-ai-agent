@@ -53,6 +53,7 @@ class GraphDependencies:
     def default(cls) -> "GraphDependencies":
         history_manager = DefaultConversationHistoryManager()
         knowledge_base_service = RetrievalKnowledgeBaseService()
+        knowledge_base_service.warmup()
         action_request_service = AppointmentActionService(
             extractor=AppointmentExtractorFactory().build(),
             booking_api_client=LocalMockBookingApiClient(),

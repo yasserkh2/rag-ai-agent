@@ -17,8 +17,6 @@ class IntentDecision:
         return {
             "intent": self.intent,
             "confidence": self.confidence,
-            "frustration_flag": self.frustration_flag,
-            "escalation_reason": self.escalation_reason,
         }
 
 
@@ -38,5 +36,4 @@ class KnowledgeBaseAnswer:
             "retrieved_context": list(self.retrieved_context),
             "turn_outcome": self.turn_outcome,
             "turn_failure_reason": self.turn_failure_reason,
-            "escalation_reason": self.escalation_reason,
         }
