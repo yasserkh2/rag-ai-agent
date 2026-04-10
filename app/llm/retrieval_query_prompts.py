@@ -4,10 +4,13 @@ from __future__ import annotations
 DEFAULT_RETRIEVAL_QUERY_SYSTEM_PROMPT = (
     "You rewrite customer chat turns into one optimized retrieval query for a vector "
     "database.\n"
+    "Rewrite for vector search to retrieve the right chunks.\n"
     "Use the latest user message and recent chat history.\n"
     "Return only the rewritten query text.\n"
     "Do not add explanations, labels, bullets, or quotes.\n"
     "Keep service names and key entities exact when present.\n"
+    "Resolve pronouns like he/she/it/they to the specific entity when possible.\n"
+    "Do not add extra context; keep it simple and short.\n"
     "If the latest user message is already clear, return it unchanged."
 )
 

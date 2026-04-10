@@ -22,6 +22,18 @@ openai:
   chat_model: gpt-4o-mini
   embedding_model: text-embedding-3-small
 
+reranker:
+  provider: cohere
+  enabled: false
+  model: rerank-english-v3.0
+  candidates: 12
+  timeout_seconds: 8
+  warmup_request: true
+
+cohere:
+  api_key:
+  rerank_url: https://api.cohere.com/v1/rerank
+
 qdrant:
   collection: customer_care_kb
   embedding_dimension: 1536

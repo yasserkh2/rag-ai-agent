@@ -12,6 +12,11 @@ from app.observability import get_logger, truncate_text
 from app.services.contracts import RetrievalQueryRewriter
 from app.services.models import KnowledgeBaseAnswer
 from app.services.query_rewriting import LlmRetrievalQueryRewriter
+from app.services.reranking import (
+    Reranker,
+    build_reranker_from_env,
+    rerank_candidate_limit,
+)
 from processing.vectorization import build_embedding_generator
 from processing.vectorization.contracts import EmbeddingGenerator
 from vector_db.contracts import VectorSearcher
@@ -104,6 +109,7 @@ class RetrievalKnowledgeBaseService:
         retrieval_limit: int = 3,
         document_searcher: VectorSearcher | None = None,
         query_rewriter: RetrievalQueryRewriter | None = None,
+        reranker: Reranker | None = None,
     ) -> None:
         if retrieval_limit <= 0:
             raise ValueError("retrieval_limit must be greater than zero.")
@@ -115,6 +121,8 @@ class RetrievalKnowledgeBaseService:
         self._retrieval_limit = retrieval_limit
         self._search_documents = document_searcher is not None or searcher is None
         self._query_rewriter = query_rewriter or LlmRetrievalQueryRewriter()
+        self._reranker = reranker or build_reranker_from_env()
+        self._rerank_candidates = rerank_candidate_limit(self._retrieval_limit)
         self._settings: QdrantSettings | None = None
         self._document_settings: QdrantSettings | None = None
         self._warmed_up = False
@@ -130,6 +138,8 @@ class RetrievalKnowledgeBaseService:
             if self._search_documents:
                 self._get_document_searcher()
             self._get_answer_generator()
+            if self._reranker is not None:
+                self._reranker.warmup()
             self._warmed_up = True
             logger.info(
                 "kb service warmup completed (ms=%.1f)",
@@ -286,6 +296,33 @@ class RetrievalKnowledgeBaseService:
             reverse=True,
         )
         top_matches = combined_matches[: self._retrieval_limit]
+        if self._reranker and combined_matches:
+            rerank_candidates = combined_matches[: self._rerank_candidates]
+            rerank_start = perf_counter()
+            try:
+                reranked = self._reranker.rerank(
+                    query=query,
+                    matches=rerank_candidates,
+                    top_k=self._retrieval_limit,
+                )
+            except Exception as exc:
+                logger.warning("kb rerank failed: %s", exc)
+                reranked = None
+            rerank_ms = (perf_counter() - rerank_start) * 1000
+            if reranked:
+                top_matches = reranked
+                logger.info(
+                    "kb rerank applied candidates=%s results=%s rerank_ms=%.1f",
+                    len(rerank_candidates),
+                    len(reranked),
+                    rerank_ms,
+                )
+            else:
+                logger.info(
+                    "kb rerank skipped candidates=%s rerank_ms=%.1f",
+                    len(rerank_candidates),
+                    rerank_ms,
+                )
         logger.info(
             "kb retrieved faq_matches=%s document_matches=%s total=%s top=%s (embed_ms=%.1f searcher_setup_ms=%.1f faq_search_ms=%.1f doc_search_ms=%.1f retrieval_ms=%.1f parallel_wait_overhead_ms=%.1f)",
             len(faq_matches),
