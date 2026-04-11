@@ -19,6 +19,8 @@ gemini:
   min_request_interval_seconds: 1.0
 
 openai:
+  # NOTE: OpenAI provider path is not fully validated in this project yet.
+  # TODO: Add dedicated end-to-end tests and finalize implementation hardening.
   chat_model: gpt-4o-mini
   embedding_model: text-embedding-3-small
 
