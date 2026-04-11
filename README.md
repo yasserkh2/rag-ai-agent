@@ -29,7 +29,12 @@ This is a strong base for continuing retrieval, state-safe action flows, confirm
 ## Recent updates
 
 - KB warmup runs once at graph bootstrap to reduce first-turn latency.
-- Contact queries get a lightweight metadata-aware rerank to prefer chunks with phone/email/address details.
+- KB retrieval ranking now uses cosine similarity scores only (no lexical bonus, contact boost, or reranker path in `RetrievalKnowledgeBaseService`).
+- KB retrieval now embeds the raw user query directly (no retrieval-query rewrite in the active KB retrieval path).
+- Document chunk text now carries stronger semantic metadata for embedding:
+  - normalized `Keywords`
+  - `Keyword Terms`, `Keyword Tokens`, and `Keyword Query Hints`
+  - document identity fields (`Document ID`, `Document File`)
 - Streamlit renders the assistant response as soon as `final_response` is produced during graph streaming.
 - Mock booking integration now uses a JSON-backed calendar store at `data/booking_store.json` with slot states (`free` or `booked`) and booking persistence.
 - Mock booking API now supports create, fetch, and delete booking operations, and availability is computed from stored slot state.
@@ -262,6 +267,13 @@ After `kb_answer` and `action_request`, the graph now runs a post-turn escalatio
 The general conversation path returns short conversational guidance for turns like greetings, thanks, or “what can you do?” without forcing a retrieval or action workflow. This keeps the experience natural while preserving a clean graph separation between routing and user-facing replies.
 
 The knowledge-base path now retrieves from both FAQ and document collections (parallel search) and uses grounded generation to produce the final answer. If generation fails, the app returns an explicit unresolved message instead of extractive fallback content.
+
+Retrieval ranking details:
+
+- cosine-only ordering by vector score
+- no active reranker in KB retrieval
+- no active retrieval-query rewrite in KB retrieval
+- `retrieval_query` currently mirrors the raw user query
 
 The action request path is now a real multi-turn appointment agent. It collects booking fields across turns, validates service/date/time/name/email state in code, asks for one missing field at a time, lets the LLM phrase the reply naturally, asks for confirmation only when the booking is complete, and then submits a mock booking request.
 
@@ -506,7 +518,7 @@ The UI is useful for interview demos because it shows:
 - streamed reply rendering (token-style) for better perceived responsiveness
 - live node progress while the graph runs (for example `Running: kb_answer`)
 - per-turn latency caption (`backend` vs `ui_total`)
-- the rewritten vector query used for retrieval
+- the vector query used for retrieval
 - the retrieved chunks for that specific turn
 - backend trace logs for routing, retrieval, and escalation decisions
 
@@ -695,7 +707,7 @@ Bot: I need to transfer this conversation to a human agent. A human agent will f
 
 ## Next development steps
 
-- Improve retrieval filtering and reranking for weak matches
+- Add optional retrieval post-ranking as a separately gated experiment (without changing the cosine-only baseline).
 - Add provider-specific retry and error handling for embedding and generation failures
 - Add retrieval-quality checks for Gemini/OpenAI experiment sets
 - Expand ingestion beyond FAQs into documents and structured data

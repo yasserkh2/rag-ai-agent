@@ -9,6 +9,8 @@ from processing.chunking.models import ChunkingInput, TextChunk
 
 _TITLE_PATTERN = re.compile(r"^#\s+(?P<title>.+?)\s*$", re.MULTILINE)
 _SECTION_PATTERN = re.compile(r"^##\s+(?P<title>.+?)\s*$", re.MULTILINE)
+_KEYWORD_SPLIT_PATTERN = re.compile(r"[,;\n]")
+_KEYWORD_TOKEN_PATTERN = re.compile(r"[a-z0-9][a-z0-9-]*")
 
 
 @dataclass(frozen=True, slots=True)
@@ -28,6 +30,8 @@ class DocumentChunkingStrategy(ChunkingStrategy):
                 TextChunk(
                     chunk_id=f"{item.record_id}_chunk_0001",
                     text=self._build_chunk_text(
+                        doc_id=str(item.metadata.get("doc_id", "")).strip(),
+                        source_file=str(item.metadata.get("source_file", "")).strip(),
                         title=document_title,
                         service_name=str(item.metadata.get("service_name", "")).strip(),
                         section_title="Document",
@@ -84,6 +88,8 @@ class DocumentChunkingStrategy(ChunkingStrategy):
                 TextChunk(
                     chunk_id=f"{item.record_id}_chunk_{index:04d}",
                     text=self._build_chunk_text(
+                        doc_id=str(metadata.get("doc_id", "")).strip(),
+                        source_file=str(metadata.get("source_file", "")).strip(),
                         title=document_title,
                         service_name=str(metadata.get("service_name", "")).strip(),
                         section_title=section_title,
@@ -131,19 +137,39 @@ class DocumentChunkingStrategy(ChunkingStrategy):
     def _build_chunk_text(
         self,
         *,
+        doc_id: str,
+        source_file: str,
         title: str,
         service_name: str,
         section_title: str,
         section_blocks: list[tuple[str, str]],
         keywords: str = "",
     ) -> str:
-        lines = [
+        lines: list[str] = []
+        if doc_id:
+            lines.append(f"Document ID: {doc_id}")
+        if source_file:
+            lines.append(f"Document File: {source_file}")
+        lines.extend(
+            [
             f"Title: {title}",
             f"Service: {service_name}",
             f"Section: {section_title}",
-        ]
+            ]
+        )
         if keywords:
-            lines.append(f"Keywords: {keywords}")
+            keyword_terms = self._normalize_keywords(keywords)
+            if keyword_terms:
+                lines.append(f"Keywords: {', '.join(keyword_terms)}")
+                lines.extend(
+                    self._build_keyword_hint_lines(
+                        keyword_terms=keyword_terms,
+                        service_name=service_name,
+                        title=title,
+                    )
+                )
+            else:
+                lines.append(f"Keywords: {keywords}")
         lines.append("")
         for index, (block_title, block_body) in enumerate(section_blocks):
             if index > 0:
@@ -151,3 +177,69 @@ class DocumentChunkingStrategy(ChunkingStrategy):
             lines.append(block_title)
             lines.append(block_body)
         return "\n".join(lines).strip()
+
+    def _normalize_keywords(self, keywords: str) -> list[str]:
+        normalized_terms: list[str] = []
+        seen: set[str] = set()
+
+        for raw_term in _KEYWORD_SPLIT_PATTERN.split(keywords):
+            term = raw_term.strip().lstrip("-* ").strip()
+            if not term:
+                continue
+            collapsed = " ".join(term.split())
+            key = collapsed.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            normalized_terms.append(collapsed)
+
+        return normalized_terms
+
+    def _build_keyword_hint_lines(
+        self,
+        *,
+        keyword_terms: list[str],
+        service_name: str,
+        title: str,
+    ) -> list[str]:
+        lines: list[str] = []
+        lines.append(f"Keyword Terms: {' | '.join(keyword_terms)}")
+
+        keyword_tokens: list[str] = []
+        seen_tokens: set[str] = set()
+        for term in keyword_terms:
+            for token in _KEYWORD_TOKEN_PATTERN.findall(term.lower()):
+                if len(token) < 4:
+                    continue
+                if token in seen_tokens:
+                    continue
+                seen_tokens.add(token)
+                keyword_tokens.append(token)
+        if keyword_tokens:
+            lines.append(f"Keyword Tokens: {' | '.join(keyword_tokens)}")
+
+        raw_hints: list[str] = list(keyword_terms)
+        for term in keyword_terms[:8]:
+            if service_name:
+                raw_hints.append(f"{service_name} {term}")
+            if title and title.lower() != service_name.lower():
+                raw_hints.append(f"{title} {term}")
+
+        hint_terms: list[str] = []
+        seen_hints: set[str] = set()
+        for hint in raw_hints:
+            normalized_hint = " ".join(hint.split())
+            if not normalized_hint:
+                continue
+            hint_key = normalized_hint.lower()
+            if hint_key in seen_hints:
+                continue
+            seen_hints.add(hint_key)
+            hint_terms.append(normalized_hint)
+            if len(hint_terms) >= 16:
+                break
+
+        if hint_terms:
+            lines.append(f"Keyword Query Hints: {' ; '.join(hint_terms)}")
+
+        return lines

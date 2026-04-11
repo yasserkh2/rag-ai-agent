@@ -194,6 +194,91 @@ class DocumentProcessingTests(unittest.TestCase):
             )
             self.assertEqual(record.embedding[0], 1.0)
 
+    def test_chunking_adds_keyword_hint_lines_to_chunk_text(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            markdown_path = temp_path / "doc_0001.md"
+            markdown_path.write_text(_sample_document_markdown(), encoding="utf-8")
+            manifest_path = temp_path / "documents_manifest.json"
+            manifest_path.write_text(
+                json.dumps(
+                    [
+                        {
+                            "doc_id": "doc_0001",
+                            "service_id": "svc_auth_benefits",
+                            "service_name": "Authorizations and Benefits Verification",
+                            "title": "Authorizations and Benefits Verification",
+                            "file_path": markdown_path.name,
+                            "source_type": "document",
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            pipeline = DocumentManifestIngestionPipeline()
+            pipeline.ingest(
+                IngestionSource(
+                    source_name="document_manifest",
+                    file_path=str(manifest_path),
+                    content_type="application/json",
+                )
+            )
+            chunks = DocumentChunkingStrategy().chunk(
+                pipeline.processed_records[0].as_chunking_input()
+            )
+
+            self.assertTrue(chunks)
+            chunk_text = chunks[0].text
+            self.assertIn(
+                "Keywords: prior authorization, benefits verification, insurance",
+                chunk_text,
+            )
+            self.assertIn(
+                "Keyword Terms: prior authorization | benefits verification | insurance",
+                chunk_text,
+            )
+            self.assertIn("Keyword Query Hints:", chunk_text)
+
+    def test_chunk_text_includes_document_identity_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            markdown_path = temp_path / "doc_0001.md"
+            markdown_path.write_text(_sample_document_markdown(), encoding="utf-8")
+            manifest_path = temp_path / "documents_manifest.json"
+            manifest_path.write_text(
+                json.dumps(
+                    [
+                        {
+                            "doc_id": "doc_0001",
+                            "service_id": "svc_auth_benefits",
+                            "service_name": "Authorizations and Benefits Verification",
+                            "title": "Authorizations and Benefits Verification",
+                            "file_path": markdown_path.name,
+                            "source_type": "document",
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            pipeline = DocumentManifestIngestionPipeline()
+            pipeline.ingest(
+                IngestionSource(
+                    source_name="document_manifest",
+                    file_path=str(manifest_path),
+                    content_type="application/json",
+                )
+            )
+            chunks = DocumentChunkingStrategy().chunk(
+                pipeline.processed_records[0].as_chunking_input()
+            )
+
+            self.assertTrue(chunks)
+            chunk_text = chunks[0].text
+            self.assertIn("Document ID: doc_0001", chunk_text)
+            self.assertIn("Document File: doc_0001.md", chunk_text)
+
 
 def _sample_document_markdown() -> str:
     return textwrap.dedent(
