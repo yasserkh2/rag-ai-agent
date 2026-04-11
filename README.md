@@ -31,6 +31,8 @@ This is a strong base for continuing retrieval, state-safe action flows, confirm
 - KB warmup runs once at graph bootstrap to reduce first-turn latency.
 - Contact queries get a lightweight metadata-aware rerank to prefer chunks with phone/email/address details.
 - Streamlit renders the assistant response as soon as `final_response` is produced during graph streaming.
+- Mock booking integration now uses a JSON-backed calendar store at `data/booking_store.json` with slot states (`free` or `booked`) and booking persistence.
+- Mock booking API now supports create, fetch, and delete booking operations, and availability is computed from stored slot state.
 
 ## Architecture
 
@@ -157,6 +159,8 @@ scripts/
   run_cli_chat.py
   setup_qdrant.py
   export_graph_png.py
+data/
+  booking_store.json
 README.md
 DEVELOPMENT_DECISIONS.md
 INTERFACE_DECISIONS.md
@@ -333,10 +337,11 @@ Current behavior:
 - stores slots in `ChatState`
 - proactively fetches available dates when the service is known and the date is still missing
 - asks for one missing field at a time across turns
-- fetches available time slots through a local mock HTTP API
+- fetches available dates and time slots through a local mock HTTP API
 - validates malformed slot values such as incomplete email addresses
 - confirms the final booking details only after all required fields are complete and date/time are confirmed
 - creates a mock booking with a confirmation id
+- persists bookings and slot state in a local JSON calendar store
 
 The action service is intentionally split this way:
 
@@ -349,8 +354,23 @@ The external integration boundary is intentionally separated:
 
 - `app/services/booking_api.py` is the client
 - `app/mock_api/booking_api.py` is the local mock endpoint
+- `data/booking_store.json` is the persisted local booking store
 
 This keeps the graph and agent logic independent from the transport details and gives a clean replacement path for a future real calendar or booking API.
+
+Mock booking API summary:
+
+- `GET /available-dates`
+- `GET /availability`
+- `POST /bookings`
+- `GET /bookings/{confirmation_id}`
+- `DELETE /bookings/{confirmation_id}`
+
+Default local seeded calendar window:
+
+- start date: `2026-04-15`
+- duration: `31` days
+- slot frequency: every `30` minutes from `09:00 AM` to `05:00 PM`
 
 ### Current FAQ dataset
 
@@ -362,12 +382,12 @@ For current KB testing, the repo now includes a curated higher-quality FAQ set:
 
 Helpful repo docs:
 
-- [KB Agent Walkthrough](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/KB_AGENT_WALKTHROUGH.md)
-- [Action Agent Walkthrough](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/ACTION_AGENT_WALKTHROUGH.md)
-- [Agent Interface Decision](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/AGENT_INTERFACE_DECISION.md)
-- [OOP and SOLID Principles](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/OOP_SOLID_PRINCIPLES.md)
-- [Document RAG Implementation](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/DOCUMENT_RAG_IMPLEMENTATION.md)
-- [Retrieval Query Rewriting](/media/yasser/New Volume1/yasser/New_journey/customer-care-ai-agent/RETRIEVAL_QUERY_REWRITING.md)
+- [KB Agent Walkthrough](KB_AGENT_WALKTHROUGH.md)
+- [Action Agent Walkthrough](ACTION_AGENT_WALKTHROUGH.md)
+- [Agent Interface Decision](AGENT_INTERFACE_DECISION.md)
+- [OOP and SOLID Principles](OOP_SOLID_PRINCIPLES.md)
+- [Document RAG Implementation](DOCUMENT_RAG_IMPLEMENTATION.md)
+- [Retrieval Query Rewriting](RETRIEVAL_QUERY_REWRITING.md)
 
 This set is intended to be a better retrieval baseline than the older large mixed synthetic FAQ source because it is:
 
@@ -636,15 +656,17 @@ Action-flow example:
 You: i need to book a meeting
 Bot: Which service would you like to book?
 You: website
-Bot: Please provide the date you would like to schedule your appointment for Digital Marketing and Website Services.
-You: thursday
-Bot: For Digital Marketing and Website Services on Next Thursday, the available times are 09:00 AM, 10:30 AM, and 04:00 PM. Which time would you like?
-You: 10 30
-Bot: Great, I have your appointment for Digital Marketing and Website Services on Next Thursday at 10:30 AM. Could you please provide your name?
+Bot: For Digital Marketing and Website Services, available dates include 2026-04-15, 2026-04-16, and 2026-04-17. Which date works for you?
+You: 2026-04-17
+Bot: For Digital Marketing and Website Services on 2026-04-17, available times include 09:00 AM, 09:30 AM, 10:00 AM, and more. Which time would you like?
+You: 10:00 AM
+Bot: Great, I have your appointment for Digital Marketing and Website Services on 2026-04-17 at 10:00 AM. Could you please provide your name?
 You: yasser khira
 Bot: Thanks, Yasser Khira. Could you please provide your email address to complete the booking?
 You: yasserkhira@gmail.com
-Bot: Please confirm your appointment for Digital Marketing and Website Services on Next Thursday at 10:30 AM under the name Yasser Khira with the email yasserkhira@gmail.com. Should I proceed to book it?
+Bot: Please confirm your appointment for Digital Marketing and Website Services on 2026-04-17 at 10:00 AM under the name Yasser Khira with the email yasserkhira@gmail.com. Should I proceed to book it?
+You: yes
+Bot: Your appointment is confirmed. Confirmation ID: apt_xxxxxxxxxx.
 ```
 
 Escalation example:
@@ -677,7 +699,8 @@ Bot: I need to transfer this conversation to a human agent. A human agent will f
 - Add provider-specific retry and error handling for embedding and generation failures
 - Add retrieval-quality checks for Gemini/OpenAI experiment sets
 - Expand ingestion beyond FAQs into documents and structured data
-- Add entity extraction for appointment requests
+- Add rescheduling and cancellation flow support in the action service
+- Add timezone normalization for booking dates and slots
 - Expand the LLM intent classifier prompt and evaluation rules for richer escalation decisions
 - Add automated tests for nodes, services, and routing
 - Improve the Streamlit debug presentation and source metadata display
