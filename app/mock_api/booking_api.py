@@ -2,15 +2,82 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import dataclass
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
 from threading import Lock, Thread
 from urllib import parse
 
 _SERVER_LOCK = Lock()
 _SERVER_BASE_URL: str | None = None
 _BOOKINGS_LOCK = Lock()
-_SAVED_BOOKINGS: dict[str, dict[str, object]] = {}
+
+_STORE_PATH = (
+    Path(__file__).resolve().parents[2] / "data" / "booking_store.json"
+)
+_DEFAULT_START_DATE = "2026-04-15"
+_DEFAULT_DAYS = 31
+
+
+@dataclass(frozen=True, slots=True)
+class SlotEntry:
+    time: str
+    state: str
+    title: str
+
+
+def _default_times() -> list[str]:
+    times: list[str] = []
+    hour = 9
+    minute = 0
+    while hour < 17 or (hour == 17 and minute == 0):
+        display_hour = hour % 12 or 12
+        suffix = "AM" if hour < 12 else "PM"
+        times.append(f"{display_hour:02d}:{minute:02d} {suffix}")
+        minute += 30
+        if minute >= 60:
+            minute = 0
+            hour += 1
+    return times
+
+
+def _seed_slots() -> dict[str, dict[str, dict[str, str]]]:
+    from datetime import date, timedelta
+
+    start = date.fromisoformat(_DEFAULT_START_DATE)
+    slots: dict[str, dict[str, dict[str, str]]] = {}
+    for offset in range(_DEFAULT_DAYS):
+        day = (start + timedelta(days=offset)).isoformat()
+        slots[day] = {
+            time: {"state": "free", "title": ""}
+            for time in _default_times()
+        }
+    return slots
+
+
+def _load_store() -> dict[str, object]:
+    if not _STORE_PATH.exists():
+        _STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        store = {"slots": _seed_slots(), "bookings": {}}
+        _STORE_PATH.write_text(json.dumps(store, indent=2), encoding="utf-8")
+        return store
+
+    raw = _STORE_PATH.read_text(encoding="utf-8")
+    try:
+        store = json.loads(raw)
+    except json.JSONDecodeError:
+        store = {"slots": _seed_slots(), "bookings": {}}
+    if not isinstance(store, dict):
+        store = {"slots": _seed_slots(), "bookings": {}}
+    store.setdefault("slots", _seed_slots())
+    store.setdefault("bookings", {})
+    return store
+
+
+def _save_store(store: dict[str, object]) -> None:
+    _STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _STORE_PATH.write_text(json.dumps(store, indent=2), encoding="utf-8")
 
 
 def ensure_mock_booking_api_server_started() -> str:
@@ -143,6 +210,22 @@ class _BookingApiHandler(BaseHTTPRequestHandler):
             },
         )
 
+    def do_DELETE(self) -> None:
+        if not self.path.startswith("/bookings/"):
+            self._write_json(HTTPStatus.NOT_FOUND, {"error": "not_found"})
+            return
+
+        confirmation_id = self.path.rsplit("/", 1)[-1].strip()
+        deleted = delete_booking(confirmation_id)
+        if not deleted:
+            self._write_json(HTTPStatus.NOT_FOUND, {"error": "booking_not_found"})
+            return
+
+        self._write_json(
+            HTTPStatus.OK,
+            {"success": True, "confirmation_id": confirmation_id, "message": "Booking deleted successfully."},
+        )
+
     def log_message(self, format: str, *args: object) -> None:
         return
 
@@ -169,43 +252,62 @@ def _generate_available_slots(
     date: str,
     time_preference: str | None,
 ) -> list[str]:
-    all_slots = ["09:00 AM", "10:30 AM", "01:00 PM", "02:30 PM", "04:00 PM"]
-    digest = hashlib.sha256(f"{service}|{date}".encode("utf-8")).hexdigest()
-    rotation = int(digest[:2], 16) % len(all_slots)
-    rotated_slots = all_slots[rotation:] + all_slots[:rotation]
+    store = _load_store()
+    slots_by_date = store.get("slots", {})
+    if not isinstance(slots_by_date, dict):
+        return []
+    day_slots = slots_by_date.get(date, {})
+    if not isinstance(day_slots, dict):
+        return []
+
+    free_slots = [
+        time
+        for time, slot in day_slots.items()
+        if isinstance(slot, dict) and slot.get("state") == "free"
+    ]
 
     normalized_preference = (time_preference or "").strip().lower()
-    if normalized_preference == "morning":
-        filtered_slots = [slot for slot in rotated_slots if slot.endswith("AM")]
-    elif normalized_preference in {"afternoon", "evening"}:
-        filtered_slots = [slot for slot in rotated_slots if slot.endswith("PM")]
-    else:
-        filtered_slots = rotated_slots
+    if normalized_preference in {"morning", "afternoon", "evening"}:
+        filtered: list[str] = []
+        for slot in free_slots:
+            minutes = _time_to_minutes(slot)
+            if minutes is None:
+                continue
+            if normalized_preference == "morning" and minutes < 12 * 60:
+                filtered.append(slot)
+            elif normalized_preference == "afternoon" and 12 * 60 <= minutes < 17 * 60:
+                filtered.append(slot)
+            elif normalized_preference == "evening" and minutes >= 17 * 60:
+                filtered.append(slot)
+        free_slots = filtered
 
-    return filtered_slots[:3]
+    return sorted(free_slots)
 
 
 def _generate_available_dates(
     service: str,
     date_preference: str | None,
 ) -> list[str]:
-    all_dates = [
-        "Tomorrow",
-        "Next Tuesday",
-        "Next Thursday",
-        "Next Monday",
-        "Next Friday",
-    ]
-    digest = hashlib.sha256(f"dates|{service}".encode("utf-8")).hexdigest()
-    rotation = int(digest[:2], 16) % len(all_dates)
-    rotated_dates = all_dates[rotation:] + all_dates[:rotation]
+    store = _load_store()
+    slots_by_date = store.get("slots", {})
+    if not isinstance(slots_by_date, dict):
+        return []
+    available_dates = []
+    for day, slots in slots_by_date.items():
+        if not isinstance(slots, dict):
+            continue
+        if any(
+            isinstance(slot, dict) and slot.get("state") == "free"
+            for slot in slots.values()
+        ):
+            available_dates.append(day)
 
     preferred = _format_date_label(date_preference)
-    if preferred and preferred in rotated_dates:
-        rotated_dates.remove(preferred)
-        rotated_dates.insert(0, preferred)
+    if preferred and preferred in available_dates:
+        available_dates.remove(preferred)
+        available_dates.insert(0, preferred)
 
-    return rotated_dates[:3]
+    return available_dates
 
 
 def _build_confirmation_id(payload: dict[str, object]) -> str:
@@ -232,6 +334,7 @@ def persist_booking(payload: dict[str, object]) -> tuple[str, dict[str, object]]
         "time": str(payload["time"]).strip(),
         "name": str(payload["name"]).strip(),
         "email": str(payload["email"]).strip(),
+        "title": str(payload.get("title") or "").strip(),
         "status": "confirmed",
     }
     _save_booking(confirmation_id, booking_record)
@@ -240,17 +343,61 @@ def persist_booking(payload: dict[str, object]) -> tuple[str, dict[str, object]]
 
 def _save_booking(confirmation_id: str, booking_record: dict[str, object]) -> None:
     with _BOOKINGS_LOCK:
-        _SAVED_BOOKINGS[confirmation_id] = dict(booking_record)
+        store = _load_store()
+        bookings = store.get("bookings")
+        slots_by_date = store.get("slots")
+        if not isinstance(bookings, dict) or not isinstance(slots_by_date, dict):
+            store = {"slots": _seed_slots(), "bookings": {}}
+            bookings = store["bookings"]
+            slots_by_date = store["slots"]
+
+        date = str(booking_record.get("date") or "").strip()
+        time = str(booking_record.get("time") or "").strip()
+        day_slots = slots_by_date.get(date)
+        if isinstance(day_slots, dict) and time in day_slots:
+            slot = day_slots.get(time)
+            if isinstance(slot, dict) and slot.get("state") == "free":
+                slot["state"] = "booked"
+                slot["title"] = str(booking_record.get("title") or "")
+
+        bookings[confirmation_id] = dict(booking_record)
+        _save_store(store)
 
 
 def _get_saved_booking(confirmation_id: str) -> dict[str, object] | None:
     with _BOOKINGS_LOCK:
-        booking = _SAVED_BOOKINGS.get(confirmation_id)
-        return dict(booking) if booking is not None else None
+        store = _load_store()
+        bookings = store.get("bookings", {})
+        if not isinstance(bookings, dict):
+            return None
+        booking = bookings.get(confirmation_id)
+        return dict(booking) if isinstance(booking, dict) else None
 
 
 def get_saved_booking(confirmation_id: str) -> dict[str, object] | None:
     return _get_saved_booking(confirmation_id)
+
+
+def delete_booking(confirmation_id: str) -> bool:
+    with _BOOKINGS_LOCK:
+        store = _load_store()
+        bookings = store.get("bookings", {})
+        slots_by_date = store.get("slots", {})
+        if not isinstance(bookings, dict) or not isinstance(slots_by_date, dict):
+            return False
+        booking = bookings.pop(confirmation_id, None)
+        if not isinstance(booking, dict):
+            return False
+        date = str(booking.get("date") or "").strip()
+        time = str(booking.get("time") or "").strip()
+        day_slots = slots_by_date.get(date)
+        if isinstance(day_slots, dict) and time in day_slots:
+            slot = day_slots.get(time)
+            if isinstance(slot, dict):
+                slot["state"] = "free"
+                slot["title"] = ""
+        _save_store(store)
+        return True
 
 
 def _format_date_label(date_text: str | None) -> str | None:
@@ -258,6 +405,26 @@ def _format_date_label(date_text: str | None) -> str | None:
         return None
     words = [word.capitalize() for word in date_text.strip().split()]
     return " ".join(words) or None
+
+
+def _time_to_minutes(value: str) -> int | None:
+    try:
+        time_part, suffix = value.strip().split()
+        hour_text, minute_text = time_part.split(":")
+        hour = int(hour_text)
+        minute = int(minute_text)
+    except ValueError:
+        return None
+    suffix = suffix.upper()
+    if suffix not in {"AM", "PM"}:
+        return None
+    if hour < 1 or hour > 12 or minute not in {0, 30}:
+        return None
+    if suffix == "AM":
+        hour = 0 if hour == 12 else hour
+    else:
+        hour = 12 if hour == 12 else hour + 12
+    return hour * 60 + minute
 
 
 def _first_value(query: dict[str, list[str]], key: str) -> str | None:

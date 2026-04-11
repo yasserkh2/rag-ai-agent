@@ -84,6 +84,7 @@ class LocalMockBookingApiClient(AppointmentBookingApiClient):
                     "time": request_data.time,
                     "name": request_data.name,
                     "email": request_data.email,
+                    "title": request_data.title or "",
                 }
             ).encode("utf-8"),
             headers={"Content-Type": "application/json"},

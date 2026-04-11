@@ -95,6 +95,7 @@ class AppointmentBookingRequest:
     time: str
     name: str
     email: str
+    title: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

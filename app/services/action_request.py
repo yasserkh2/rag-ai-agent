@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import re
-from typing import Protocol
+from typing import Any, Protocol
 
-from app.graph.state import ChatState
+from app.graph.state import ChatState, TurnOutcome
 from app.llm.contracts import ActionReplyGenerator
 from app.observability import get_logger, truncate_text
 from app.services.action_models import (
@@ -547,6 +547,7 @@ class AppointmentActionService:
                     time=current_slots["time"],
                     name=current_slots["name"],
                     email=current_slots["email"],
+                    title=current_slots.get("service"),
                 )
             )
         except Exception as exc:
@@ -581,7 +582,7 @@ class AppointmentActionService:
                 ),
             )
 
-        booking_result_payload = {
+        booking_result_payload: dict[str, Any] = {
             "confirmation_id": booking_result.confirmation_id,
             "service": booking_result.service,
             "date": booking_result.date,
@@ -790,14 +791,19 @@ class AppointmentActionService:
         return f"Action LLM failed to {stage}: {error_message}"
 
     def _current_slots(self, state: ChatState) -> dict[str, str]:
-        raw_slots = state.get("appointment_slots", {})
+        raw_slots: object = state.get("appointment_slots", {})
         if not isinstance(raw_slots, dict):
             return {}
-        return {
-            str(key): str(value).strip()
-            for key, value in raw_slots.items()
-            if isinstance(value, str) and value.strip()
-        }
+        cleaned: dict[str, str] = {}
+        for raw_key, raw_value in raw_slots.items():
+            if not isinstance(raw_key, str) or not isinstance(raw_value, str):
+                continue
+            key = raw_key.strip()
+            value = raw_value.strip()
+            if not key or not value:
+                continue
+            cleaned[key] = value
+        return cleaned
 
     def _state_update(
         self,
@@ -809,13 +815,13 @@ class AppointmentActionService:
         awaiting_confirmation: bool,
         final_response: str,
         booking_error: str | None = None,
-        turn_outcome: str = "needs_input",
+        turn_outcome: TurnOutcome = "needs_input",
         turn_failure_reason: str | None = None,
         escalation_reason: str | None = None,
         invalid_field: str | None = None,
         validation_error: str | None = None,
     ) -> ChatState:
-        update = {
+        update: ChatState = {
             "active_action": "appointment_scheduling",
             "appointment_slots": current_slots,
             "missing_slots": missing_appointment_fields(current_slots),
