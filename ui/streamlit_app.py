@@ -234,35 +234,6 @@ def _render_sidebar() -> None:
 
         current_state = st.session_state.chat_state
         st.divider()
-        st.subheader("Session State")
-        st.write(
-            {
-                "intent": current_state.get("intent"),
-                "active_action": current_state.get("active_action"),
-                "handoff_pending": current_state.get("handoff_pending"),
-                "failure_count": current_state.get("failure_count"),
-                "awaiting_confirmation": current_state.get("awaiting_confirmation"),
-            }
-        )
-        st.divider()
-        st.subheader("Vector Query")
-        retrieval_query = str(current_state.get("retrieval_query", "")).strip()
-        if retrieval_query:
-            st.code(retrieval_query, language="text")
-        else:
-            st.caption("No vector query was used on the current turn.")
-
-        st.divider()
-        st.subheader("Retrieved Context")
-        retrieved_context = current_state.get("retrieved_context", [])
-        if retrieved_context:
-            for index, item in enumerate(retrieved_context, start=1):
-                st.caption(f"Chunk {index}")
-                st.code(item, language="text")
-        else:
-            st.caption("No chunks retrieved on the current turn.")
-
-        st.divider()
         st.subheader("RAG Chunk Tester")
         st.caption(
             "Run retrieval-only checks to inspect returned chunks without relying on final answer wording."
@@ -349,30 +320,6 @@ def _render_sidebar() -> None:
                         st.code(raw_chunk, language="text")
             else:
                 st.caption("No chunks returned for this test query.")
-
-        st.divider()
-        routing_lines, node_lines = _extract_trace_sections(st.session_state.turn_logs)
-
-        st.subheader("Routing Trace")
-        if routing_lines:
-            st.code("\n".join(routing_lines), language="text")
-        else:
-            st.caption("Routing steps will appear here after the first message.")
-
-        st.divider()
-        st.subheader("Node Trace")
-        if node_lines:
-            st.code("\n".join(node_lines), language="text")
-        else:
-            st.caption("Node execution steps will appear here after the first message.")
-
-        st.divider()
-        st.subheader("Full Backend Trace")
-        turn_logs = st.session_state.turn_logs
-        if turn_logs:
-            st.code("\n".join(turn_logs), language="text")
-        else:
-            st.caption("Logs will appear here after the first message.")
 
 
 def _render_message(message: dict[str, object]) -> None:
