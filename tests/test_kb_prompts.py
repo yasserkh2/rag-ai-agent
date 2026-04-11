@@ -6,27 +6,30 @@ from app.llm.prompts import DEFAULT_KB_SYSTEM_PROMPT, build_kb_user_prompt
 
 
 class KnowledgeBasePromptTests(unittest.TestCase):
-    def test_system_prompt_includes_long_conversation_and_confusion_guidance(self) -> None:
+    def test_system_prompt_includes_unknown_answer_guardrails(self) -> None:
         self.assertIn(
-            "If the conversation becomes too long without clear progress",
+            "clearly say you do not know based on the available information",
             DEFAULT_KB_SYSTEM_PROMPT,
         )
         self.assertIn(
-            "If the user sounds confused or says the responses are unclear",
+            "Do not use phrasing like \"Would you like to ...\" when information is missing or uncertain.",
             DEFAULT_KB_SYSTEM_PROMPT,
         )
 
-    def test_user_prompt_includes_escalation_guidance_for_long_or_confused_threads(self) -> None:
+    def test_user_prompt_includes_unknown_answer_guardrails(self) -> None:
         prompt = build_kb_user_prompt(
             user_query="I still do not understand",
             retrieved_context=["Document: doc_1\nText: sample"],
             conversation_history=["user: hi", "assistant: hello"],
         )
         self.assertIn(
-            "If the conversation is getting long without progress or the user sounds confused",
+            "If the context is not enough, clearly say you do not know from the current information",
             prompt,
         )
-        self.assertIn("offer a meeting or human escalation as a next step", prompt)
+        self.assertIn(
+            "Do not guess and do not use phrasing like 'Would you like to ...' when information is missing.",
+            prompt,
+        )
 
 
 if __name__ == "__main__":

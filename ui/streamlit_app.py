@@ -20,103 +20,66 @@ from app.observability import (
     get_logger,
     truncate_text,
 )
-from app.services.knowledge_base import RetrievalKnowledgeBaseService
 
 logger = get_logger("ui.streamlit")
-_DEFAULT_STREAM_CHUNK_WORDS = 10
 
 
-class _IdentityRetrievalQueryRewriter:
-    def rewrite(self, query: str, history: list[str]) -> str:
-        return query.strip()
+def _normalize_query(text: str) -> str:
+    return " ".join(text.strip().lower().split())
 
 
-class _RetrievalPreviewAnswerGenerator:
-    def generate_answer(
-        self,
-        user_query: str,
-        retrieved_context: list[str],
-        conversation_history: list[str],
-    ) -> str:
-        _ = (user_query, retrieved_context, conversation_history)
-        return "Retrieval preview completed."
+def _build_optimistic_preview(
+    user_query: str,
+    state: dict[str, object],
+) -> str | None:
+    if bool(state.get("handoff_pending")):
+        return None
+    if str(state.get("active_action") or "").strip():
+        return None
 
+    normalized_query = _normalize_query(user_query)
+    if not normalized_query:
+        return None
 
-def _extract_chunk_metadata(chunk_text: str) -> dict[str, str]:
-    lines = chunk_text.splitlines()
-    metadata: dict[str, str] = {}
-    if not lines:
-        return metadata
+    if normalized_query in {
+        "hello",
+        "hi",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+    }:
+        return (
+            "Hello! I can help explain our services, book a consultation, "
+            "or connect you with a human agent. What would you like to do?"
+        )
 
-    first_line = lines[0].strip()
-    normalized_first_line = first_line.lower()
-    if normalized_first_line.startswith("document:"):
-        metadata["source_type"] = "document"
-        metadata["source_id"] = first_line.split(":", 1)[1].strip()
-    elif normalized_first_line.startswith("faq:"):
-        metadata["source_type"] = "faq"
-        metadata["source_id"] = first_line.split(":", 1)[1].strip()
+    if normalized_query in {"thanks", "thank you", "ok", "okay"}:
+        return (
+            "You're welcome. I can also answer service questions, help you "
+            "schedule a consultation, or connect you with a human agent."
+        )
 
-    for line in lines[1:]:
-        stripped = line.strip()
-        if not stripped:
-            continue
-        if stripped.startswith("Text:"):
-            break
-        if ":" not in stripped:
-            continue
-        key, value = stripped.split(":", 1)
-        normalized_key = key.strip().lower()
-        normalized_value = value.strip()
-        if normalized_key and normalized_value:
-            metadata[normalized_key] = normalized_value
+    if normalized_query in {
+        "what can you do",
+        "help me",
+        "can you help",
+        "how can you help",
+        "what do you do",
+    }:
+        return (
+            "I can help with service information, consultation booking, and "
+            "human handoff when needed. You can ask about a service or ask me "
+            "to schedule a meeting."
+        )
 
-    return metadata
+    if normalized_query in {"bye", "goodbye", "see you"}:
+        return (
+            "You're welcome to come back anytime. I can help with service "
+            "questions, consultation booking, or human support."
+        )
 
-
-@st.cache_resource(show_spinner=False)
-def _get_chunk_test_service(use_llm_query_rewriter: bool) -> RetrievalKnowledgeBaseService:
-    _bootstrap_app()
-    query_rewriter = None
-    if not use_llm_query_rewriter:
-        query_rewriter = _IdentityRetrievalQueryRewriter()
-
-    return RetrievalKnowledgeBaseService(
-        answer_generator=_RetrievalPreviewAnswerGenerator(),
-        query_rewriter=query_rewriter,
-    )
-
-
-def _run_chunk_test(
-    query: str,
-    *,
-    use_llm_query_rewriter: bool,
-    include_chat_history: bool,
-) -> dict[str, object]:
-    service = _get_chunk_test_service(use_llm_query_rewriter)
-    history = (
-        list(st.session_state.chat_state.get("history", []))
-        if include_chat_history
-        else []
-    )
-    test_state = create_initial_state(query)
-    if history:
-        test_state["history"] = history
-
-    run_start = perf_counter()
-    answer = service.answer(test_state)
-    run_ms = (perf_counter() - run_start) * 1000
-    return {
-        "query": query,
-        "retrieval_query": answer.retrieval_query,
-        "retrieved_context": list(answer.retrieved_context),
-        "turn_outcome": answer.turn_outcome,
-        "turn_failure_reason": answer.turn_failure_reason,
-        "final_response": answer.final_response,
-        "latency_ms": run_ms,
-        "include_chat_history": include_chat_history,
-        "use_llm_query_rewriter": use_llm_query_rewriter,
-    }
+    return None
 
 
 def _extract_trace_sections(turn_logs: list[str]) -> tuple[list[str], list[str]]:
@@ -196,21 +159,6 @@ def _ensure_session_state() -> None:
     if "turn_logs" not in st.session_state:
         st.session_state.turn_logs = []
 
-    if "retrieval_tester_query" not in st.session_state:
-        st.session_state.retrieval_tester_query = ""
-
-    if "retrieval_tester_use_history" not in st.session_state:
-        st.session_state.retrieval_tester_use_history = True
-
-    if "retrieval_tester_use_llm_rewrite" not in st.session_state:
-        st.session_state.retrieval_tester_use_llm_rewrite = False
-
-    if "retrieval_test_result" not in st.session_state:
-        st.session_state.retrieval_test_result = None
-
-    if "retrieval_test_error" not in st.session_state:
-        st.session_state.retrieval_test_error = ""
-
     if "show_debug_panels" not in st.session_state:
         st.session_state.show_debug_panels = False
 
@@ -243,95 +191,6 @@ def _render_sidebar() -> None:
                 }
             ]
             st.rerun()
-
-        current_state = st.session_state.chat_state
-        st.divider()
-        st.subheader("RAG Chunk Tester")
-        st.caption(
-            "Run retrieval-only checks to inspect returned chunks without relying on final answer wording."
-        )
-        with st.form("rag_chunk_tester_form"):
-            st.text_area(
-                "Test query",
-                key="retrieval_tester_query",
-                height=90,
-                placeholder="e.g. what should we collect during intake for authorizations?",
-            )
-            use_history = st.checkbox(
-                "Include current chat history context",
-                key="retrieval_tester_use_history",
-            )
-            use_llm_rewrite = st.checkbox(
-                "Use LLM retrieval query rewrite",
-                key="retrieval_tester_use_llm_rewrite",
-            )
-            run_chunk_test = st.form_submit_button(
-                "Run Chunk Test",
-                use_container_width=True,
-            )
-
-        if run_chunk_test:
-            query = str(st.session_state.retrieval_tester_query).strip()
-            if not query:
-                st.session_state.retrieval_test_result = None
-                st.session_state.retrieval_test_error = (
-                    "Please enter a query before running the chunk test."
-                )
-            else:
-                try:
-                    with st.spinner("Running retrieval test..."):
-                        st.session_state.retrieval_test_result = _run_chunk_test(
-                            query,
-                            use_llm_query_rewriter=bool(use_llm_rewrite),
-                            include_chat_history=bool(use_history),
-                        )
-                    st.session_state.retrieval_test_error = ""
-                except Exception as exc:
-                    st.session_state.retrieval_test_result = None
-                    st.session_state.retrieval_test_error = str(exc)
-
-        retrieval_test_error = str(st.session_state.retrieval_test_error).strip()
-        if retrieval_test_error:
-            st.error(retrieval_test_error)
-
-        retrieval_test_result = st.session_state.retrieval_test_result
-        if isinstance(retrieval_test_result, dict):
-            st.caption(
-                "Result: "
-                f"outcome={retrieval_test_result.get('turn_outcome', '')}, "
-                f"chunks={len(list(retrieval_test_result.get('retrieved_context', [])))}, "
-                f"latency={float(retrieval_test_result.get('latency_ms', 0.0)):.0f}ms"
-            )
-
-            retrieval_query = str(
-                retrieval_test_result.get("retrieval_query", "")
-            ).strip()
-            if retrieval_query:
-                st.caption("Rewritten retrieval query")
-                st.code(retrieval_query, language="text")
-
-            retrieved_chunks = retrieval_test_result.get("retrieved_context", [])
-            if isinstance(retrieved_chunks, list) and retrieved_chunks:
-                for index, item in enumerate(retrieved_chunks, start=1):
-                    raw_chunk = str(item)
-                    chunk_meta = _extract_chunk_metadata(raw_chunk)
-                    source_type = chunk_meta.get("source_type", "chunk").upper()
-                    source_id = chunk_meta.get("source_id", "unknown")
-                    score = chunk_meta.get("score", "n/a")
-                    with st.expander(
-                        f"{index}. {source_type} {source_id} (score={score})",
-                        expanded=False,
-                    ):
-                        quick_view = {
-                            "service": chunk_meta.get("service", ""),
-                            "title": chunk_meta.get("title", ""),
-                            "section": chunk_meta.get("section", ""),
-                            "category": chunk_meta.get("category", ""),
-                        }
-                        st.json(quick_view)
-                        st.code(raw_chunk, language="text")
-            else:
-                st.caption("No chunks returned for this test query.")
 
 
 def _render_message(
@@ -376,20 +235,12 @@ def _render_message(
                     st.code(str(item), language="text")
 
 
-def _stream_response_text(text: str, *, chunk_words: int = _DEFAULT_STREAM_CHUNK_WORDS):
-    words = [token for token in text.split(" ") if token]
-    if not words:
-        return
-    safe_chunk_words = max(1, chunk_words)
-    for index in range(0, len(words), safe_chunk_words):
-        yield " ".join(words[index : index + safe_chunk_words]) + " "
-
-
 def _run_turn(
     user_query: str,
     progress_placeholder=None,
     response_placeholder=None,
     show_debug_panels: bool = True,
+    optimistic_preview: str | None = None,
 ) -> dict[str, object]:
     trace_handler = st.session_state.trace_handler
     trace_handler.reset()
@@ -409,6 +260,7 @@ def _run_turn(
     try:
         invoke_start = perf_counter()
         response_rendered = False
+        last_node_name = ""
         if progress_placeholder is not None:
             progress_placeholder.caption("Running: ingest_query")
         for update in graph.stream(working_state, stream_mode="updates"):
@@ -422,12 +274,15 @@ def _run_turn(
                             node_update.get("final_response", "")
                         ).strip()
                         if final_response:
-                            response_placeholder.write_stream(
-                                _stream_response_text(final_response)
-                            )
+                            if optimistic_preview is not None:
+                                if final_response != optimistic_preview.strip():
+                                    response_placeholder.markdown(final_response)
+                            else:
+                                response_placeholder.markdown(final_response)
                             response_rendered = True
-                if progress_placeholder is not None:
+                if progress_placeholder is not None and node_name != last_node_name:
                     progress_placeholder.caption(f"Running: {node_name}")
+                    last_node_name = node_name
         backend_invoke_ms = (perf_counter() - invoke_start) * 1000
         next_state = working_state
     except Exception as exc:
@@ -493,12 +348,19 @@ def main() -> None:
         turn_start = perf_counter()
         progress_placeholder = st.empty()
         response_placeholder = st.empty()
+        optimistic_preview = _build_optimistic_preview(
+            user_query=user_query,
+            state=st.session_state.chat_state,
+        )
+        if optimistic_preview:
+            response_placeholder.markdown(optimistic_preview)
         try:
             assistant_message = _run_turn(
                 user_query,
                 progress_placeholder=progress_placeholder,
                 response_placeholder=response_placeholder,
                 show_debug_panels=show_debug_panels,
+                optimistic_preview=optimistic_preview,
             )
         except Exception:
             assistant_message = {
@@ -519,9 +381,7 @@ def main() -> None:
             f"ui_total={ui_turn_ms:.0f}ms"
         )
         if not bool(assistant_message.get("response_rendered", False)):
-            response_placeholder.write_stream(
-                _stream_response_text(str(assistant_message["content"]))
-            )
+            response_placeholder.markdown(str(assistant_message["content"]))
         st.caption(latency_caption)
 
         if show_debug_panels:

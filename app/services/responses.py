@@ -89,7 +89,7 @@ class GeneralConversationService:
         if query in {"hello", "hi", "hey", "good morning", "good afternoon", "good evening"}:
             return (
                 "Hello! I can help explain our services, book a consultation, "
-                "or connect you with a human agent. What would you like to do?"
+                "or connect you with a human agent. Share what you need."
             )
 
         if query in {"thanks", "thank you", "ok", "okay"}:
@@ -122,5 +122,5 @@ class GeneralConversationService:
 
         return (
             "I can help with service information, scheduling a consultation, or "
-            "connecting you with a human agent. Tell me what you'd like to do."
+            "connecting you with a human agent. Tell me what you need."
         )
