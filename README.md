@@ -402,7 +402,7 @@ Use this section if you want one complete path from setup to a working chatbot s
 
 - Python `3.11+`
 - `pip`
-- One provider API key for LLM + embeddings (`gemini`, `openai`, or `azure_openai`)
+- Recommended: Azure OpenAI key (for chat-generation flows) + Gemini key (for embeddings)
 
 ### 2) Install dependencies
 
@@ -424,33 +424,11 @@ cp .env.example .env
 cp config.yml.example config.yml
 ```
 
-Set your provider values in `.env` (example for Gemini):
+Set your provider values in `.env` (recommended: Azure OpenAI for LLM flows + Gemini for embeddings):
 
 ```bash
 EMBEDDING_PROVIDER=gemini
-KB_ANSWER_PROVIDER=gemini
-INTENT_CLASSIFIER_PROVIDER=gemini
-ACTION_AGENT_PROVIDER=gemini
-ACTION_EXTRACTION_PROVIDER=gemini
-ESCALATION_AGENT_PROVIDER=gemini
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-GEMINI_CHAT_MODEL=gemini-2.5-flash
-# Optional lower-latency model for retrieval-query rewriting
-GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
-QDRANT_EMBEDDING_DIMENSION=1536
-QDRANT_PATH=vector_db/qdrant/data/local
-```
-
-This project currently uses Gemini embeddings for indexing and retrieval.
-For chat-generation providers, Azure OpenAI with a GPT-4.1 deployment is optional and can be used instead of Gemini Flash models.
-For latency-sensitive cases, you can use Gemini Flash-Lite (`gemini-2.5-flash-lite`) for selected steps such as retrieval-query rewriting.
-If needed, you can also set `GEMINI_CHAT_MODEL=gemini-2.5-flash-lite` to reduce latency more broadly.
-
-Optional Azure OpenAI GPT-4.1 provider setup (while keeping Gemini embeddings):
-
-```bash
-EMBEDDING_PROVIDER=gemini
 GEMINI_EMBEDDING_MODEL=gemini-embedding-001
 KB_ANSWER_PROVIDER=azure_openai
 ACTION_AGENT_PROVIDER=azure_openai
@@ -461,6 +439,30 @@ AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
 AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com
 AZURE_OPENAI_CHAT_DEPLOYMENT=your_gpt_4_1_deployment_name
 AZURE_OPENAI_API_VERSION=2024-02-01
+QDRANT_EMBEDDING_DIMENSION=1536
+QDRANT_PATH=vector_db/qdrant/data/local
+```
+
+Preferred production-style setup:
+
+- Gemini embeddings for ingestion + retrieval
+- Azure OpenAI for KB answers, action replies/extraction, intent classification, and escalation replies
+
+Alternative fully-Gemini setup (supported across the project):
+
+```bash
+EMBEDDING_PROVIDER=gemini
+GEMINI_EMBEDDING_MODEL=gemini-embedding-001
+KB_ANSWER_PROVIDER=gemini
+ACTION_AGENT_PROVIDER=gemini
+ACTION_EXTRACTION_PROVIDER=gemini
+INTENT_CLASSIFIER_PROVIDER=gemini
+ESCALATION_AGENT_PROVIDER=gemini
+GEMINI_CHAT_MODEL=gemini-2.5-flash
+# Lower-latency option:
+GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
+# If you prefer lower latency broadly:
+# GEMINI_CHAT_MODEL=gemini-2.5-flash-lite
 ```
 
 Config precedence at runtime:
@@ -540,28 +542,12 @@ pip install --upgrade pip
 pip install -e .
 ```
 
-Set the provider you want in `.env`:
+Recommended provider setup in `.env`:
 
 ```bash
 EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=your_gemini_api_key_here
-# Latest stable Gemini embedding model
 GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-GEMINI_CHAT_MODEL=gemini-2.5-flash
-# Optional lower-latency model for retrieval-query rewriting
-GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
-KB_ANSWER_PROVIDER=gemini
-INTENT_CLASSIFIER_PROVIDER=gemini
-ESCALATION_AGENT_PROVIDER=gemini
-GEMINI_MIN_REQUEST_INTERVAL_SECONDS=1.0
-QDRANT_EMBEDDING_DIMENSION=1536
-```
-
-For latency-sensitive cases, Gemini Flash-Lite (`gemini-2.5-flash-lite`) can be used for selected steps, or as the main chat model if faster responses are preferred.
-
-Azure OpenAI is also supported for chat generation as an optional alternative to Gemini Flash models (for example, a GPT-4.1 deployment):
-
-```bash
 KB_ANSWER_PROVIDER=azure_openai
 ACTION_AGENT_PROVIDER=azure_openai
 ACTION_EXTRACTION_PROVIDER=azure_openai
@@ -571,6 +557,23 @@ AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
 AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com
 AZURE_OPENAI_CHAT_DEPLOYMENT=your_gpt_4_1_deployment_name
 AZURE_OPENAI_API_VERSION=2024-02-01
+QDRANT_EMBEDDING_DIMENSION=1536
+```
+
+All-Gemini mode is also supported:
+
+```bash
+EMBEDDING_PROVIDER=gemini
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_EMBEDDING_MODEL=gemini-embedding-001
+KB_ANSWER_PROVIDER=gemini
+ACTION_AGENT_PROVIDER=gemini
+ACTION_EXTRACTION_PROVIDER=gemini
+INTENT_CLASSIFIER_PROVIDER=gemini
+ESCALATION_AGENT_PROVIDER=gemini
+GEMINI_CHAT_MODEL=gemini-2.5-flash
+# Optional lower-latency model (retrieval-query or broader usage):
+GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
 ```
 
 You can also use a structured `config.yml` instead of relying only on `.env`.
@@ -812,7 +815,6 @@ Notes:
 
 - escalation replies are LLM-generated when the configured provider is available
 - if escalation generation is unavailable, the app automatically falls back to a safe template handoff message
-
 
 
 

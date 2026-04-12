@@ -2,7 +2,8 @@ kb_answer_provider: azure_openai
 retrieval_query_provider: gemini
 action_agent_provider: azure_openai
 action_extraction_provider: azure_openai
-intent_classifier_provider: gemini
+intent_classifier_provider: azure_openai
+escalation_agent_provider: azure_openai
 
 embedding_provider: gemini
 kb_answer_max_output_tokens: 220
@@ -13,6 +14,7 @@ azure_openai:
   api_version: 2024-02-01
 
 gemini:
+  # Full-Gemini mode is supported for all LLM paths.
   chat_model: gemini-2.5-flash
   retrieval_query_model: gemini-2.5-flash-lite
   embedding_model: gemini-embedding-001
