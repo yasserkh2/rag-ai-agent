@@ -48,7 +48,7 @@ qdrant:
   prefer_grpc: false
 
 qdrant_document_collection: customer_care_documents_kb
-faqs_jsonl_path: cob_mock_kb_large/high_quality_faqs/high_quality_faqs.jsonl
-documents_manifest_path: cob_mock_kb_large/high_quality_documents/documents_manifest.json
+faqs_jsonl_path: data/faqs/high_quality_faqs.jsonl
+documents_manifest_path: data/documents/documents_manifest.json
 faq_pipeline_batch_size: 3
 document_pipeline_batch_size: 16

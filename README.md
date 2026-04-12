@@ -14,7 +14,8 @@ The project is set up as a runnable foundation for a customer support chatbot. I
 - Multi-turn appointment action agent with mock external integration
 - Mid-conversation human escalation routing with sticky handoff state
 - YAML-based runtime config through `config.yml` with `.env` overrides
-- OpenAI, Gemini, and Azure OpenAI support for KB answers, action replies, action extraction, intent classification, and escalation replies
+- Gemini and Azure OpenAI support for KB answers, action replies, action extraction, intent classification, and escalation replies
+- OpenAI provider path exists in code but is not fully validated for end-to-end runtime use in this project
 - Human escalation response path with LLM-first generation and safe template fallback
 - Shared chat state and conversation history handling
 - Session memory in the CLI chat loop
@@ -424,45 +425,59 @@ cp .env.example .env
 cp config.yml.example config.yml
 ```
 
-Set your provider values in `.env` (recommended: Azure OpenAI for LLM flows + Gemini for embeddings):
+Set secrets in `.env`:
 
 ```bash
-EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-KB_ANSWER_PROVIDER=azure_openai
-ACTION_AGENT_PROVIDER=azure_openai
-ACTION_EXTRACTION_PROVIDER=azure_openai
-INTENT_CLASSIFIER_PROVIDER=azure_openai
-ESCALATION_AGENT_PROVIDER=azure_openai
+OPENAI_API_KEY=your_openai_api_key_here
 AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
-AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com
-AZURE_OPENAI_CHAT_DEPLOYMENT=your_gpt_4_1_deployment_name
-AZURE_OPENAI_API_VERSION=2024-02-01
-QDRANT_EMBEDDING_DIMENSION=1536
-QDRANT_PATH=vector_db/qdrant/data/local
+COHERE_API_KEY=your_cohere_api_key_here
+# Optional for hosted Qdrant:
+QDRANT_API_KEY=
+```
+
+Set non-secret runtime settings in `config.yml`:
+
+```yaml
+embedding_provider: gemini
+kb_answer_provider: azure_openai
+action_agent_provider: azure_openai
+action_extraction_provider: azure_openai
+intent_classifier_provider: azure_openai
+escalation_agent_provider: azure_openai
+
+azure_openai:
+  endpoint: https://your-resource-name.openai.azure.com
+  chat_deployment: your_gpt_4_1_deployment_name
+  api_version: 2024-02-01
+
+gemini:
+  embedding_model: gemini-embedding-001
+  chat_model: gemini-2.5-flash
+  retrieval_query_model: gemini-2.5-flash-lite
 ```
 
 Preferred production-style setup:
 
 - Gemini embeddings for ingestion + retrieval
 - Azure OpenAI for KB answers, action replies/extraction, intent classification, and escalation replies
+- Gemini and Azure OpenAI are the recommended model providers for this project
+- OpenAI provider path is currently not fully validated end-to-end
 
-Alternative fully-Gemini setup (supported across the project):
+Alternative fully-Gemini setup in `config.yml` (supported across the project):
 
-```bash
-EMBEDDING_PROVIDER=gemini
-GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-KB_ANSWER_PROVIDER=gemini
-ACTION_AGENT_PROVIDER=gemini
-ACTION_EXTRACTION_PROVIDER=gemini
-INTENT_CLASSIFIER_PROVIDER=gemini
-ESCALATION_AGENT_PROVIDER=gemini
-GEMINI_CHAT_MODEL=gemini-2.5-flash
-# Lower-latency option:
-GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
-# If you prefer lower latency broadly:
-# GEMINI_CHAT_MODEL=gemini-2.5-flash-lite
+```yaml
+embedding_provider: gemini
+kb_answer_provider: gemini
+action_agent_provider: gemini
+action_extraction_provider: gemini
+intent_classifier_provider: gemini
+escalation_agent_provider: gemini
+
+gemini:
+  embedding_model: gemini-embedding-001
+  chat_model: gemini-2.5-flash
+  retrieval_query_model: gemini-2.5-flash-lite
 ```
 
 Config precedence at runtime:
@@ -471,16 +486,29 @@ Config precedence at runtime:
 - `.env`
 - `config.yml`
 
+Recommended convention:
+
+- `.env` contains secrets only
+- `config.yml` contains non-secret settings
+
 ### 4) Initialize vector storage and index the demo KB
 
 This step is required for grounded KB answers.
 
 ```bash
 .venv/bin/python scripts/setup_qdrant.py
-.venv/bin/python scripts/build_interview_demo_dataset.py
-FAQS_JSONL_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/faqs/faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_faq_processing_pipeline.py
-DOCUMENTS_MANIFEST_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/documents/documents_manifest.json QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_document_processing_pipeline.py
+.venv/bin/python scripts/run_faq_processing_pipeline.py
+.venv/bin/python scripts/run_document_processing_pipeline.py
 ```
+
+Recommended defaults in `config.yml` for full local data indexing:
+
+```yaml
+faqs_jsonl_path: data/faqs/high_quality_faqs.jsonl
+documents_manifest_path: data/documents/documents_manifest.json
+```
+
+You do not need to set ingestion paths in `.env` unless you want a temporary override.
 
 ### 5) Run the app
 
@@ -542,38 +570,51 @@ pip install --upgrade pip
 pip install -e .
 ```
 
-Recommended provider setup in `.env`:
+Recommended secrets in `.env`:
 
 ```bash
-EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-KB_ANSWER_PROVIDER=azure_openai
-ACTION_AGENT_PROVIDER=azure_openai
-ACTION_EXTRACTION_PROVIDER=azure_openai
-INTENT_CLASSIFIER_PROVIDER=azure_openai
-ESCALATION_AGENT_PROVIDER=azure_openai
+OPENAI_API_KEY=your_openai_api_key_here
 AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
-AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com
-AZURE_OPENAI_CHAT_DEPLOYMENT=your_gpt_4_1_deployment_name
-AZURE_OPENAI_API_VERSION=2024-02-01
-QDRANT_EMBEDDING_DIMENSION=1536
+COHERE_API_KEY=your_cohere_api_key_here
+# Optional for hosted Qdrant:
+QDRANT_API_KEY=
+```
+
+Recommended non-secret provider setup in `config.yml`:
+
+```yaml
+embedding_provider: gemini
+kb_answer_provider: azure_openai
+action_agent_provider: azure_openai
+action_extraction_provider: azure_openai
+intent_classifier_provider: azure_openai
+escalation_agent_provider: azure_openai
+
+azure_openai:
+  endpoint: https://your-resource-name.openai.azure.com
+  chat_deployment: your_gpt_4_1_deployment_name
+  api_version: 2024-02-01
+
+gemini:
+  embedding_model: gemini-embedding-001
+  chat_model: gemini-2.5-flash
+  retrieval_query_model: gemini-2.5-flash-lite
 ```
 
 All-Gemini mode is also supported:
 
-```bash
-EMBEDDING_PROVIDER=gemini
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_EMBEDDING_MODEL=gemini-embedding-001
-KB_ANSWER_PROVIDER=gemini
-ACTION_AGENT_PROVIDER=gemini
-ACTION_EXTRACTION_PROVIDER=gemini
-INTENT_CLASSIFIER_PROVIDER=gemini
-ESCALATION_AGENT_PROVIDER=gemini
-GEMINI_CHAT_MODEL=gemini-2.5-flash
-# Optional lower-latency model (retrieval-query or broader usage):
-GEMINI_RETRIEVAL_QUERY_MODEL=gemini-2.5-flash-lite
+```yaml
+embedding_provider: gemini
+kb_answer_provider: gemini
+action_agent_provider: gemini
+action_extraction_provider: gemini
+intent_classifier_provider: gemini
+escalation_agent_provider: gemini
+
+gemini:
+  chat_model: gemini-2.5-flash
+  retrieval_query_model: gemini-2.5-flash-lite
 ```
 
 You can also use a structured `config.yml` instead of relying only on `.env`.
@@ -658,39 +699,38 @@ That script creates:
 
 Only `retrieval/` should be indexed for normal RAG. `operations/` is for appointment, case, and structured workflow data.
 
-Run the full FAQ processing pipeline with your `.env` settings:
+Run the full FAQ processing pipeline with your configured defaults (`config.yml` + optional `.env` overrides):
 
 ```bash
 .venv/bin/python scripts/run_faq_processing_pipeline.py
 ```
 
-Run the pipeline against the smaller high-quality FAQ test set:
+Run the pipeline against the local data FAQ source explicitly (optional override):
 
 ```bash
-FAQS_JSONL_PATH=cob_mock_kb_large/high_quality_faqs/high_quality_faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/high_quality_faqs .venv/bin/python scripts/run_faq_processing_pipeline.py
+FAQS_JSONL_PATH=data/faqs/high_quality_faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_faq_processing_pipeline.py
 ```
 
-Run the document pipeline against the interview-ready retrieval corpus:
+Run the document pipeline against the local data manifest explicitly (optional override):
 
 ```bash
-.venv/bin/python scripts/run_document_processing_pipeline.py
+DOCUMENTS_MANIFEST_PATH=data/documents/documents_manifest.json QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_document_processing_pipeline.py
 ```
 
-Recommended clean rebuild flow for the interview demo:
+Recommended clean rebuild flow using all local `data/` sources:
 
 ```bash
 rm -rf vector_db/qdrant/data/local
 mkdir -p vector_db/qdrant/data/local
 .venv/bin/python scripts/setup_qdrant.py
-.venv/bin/python scripts/build_interview_demo_dataset.py
-FAQS_JSONL_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/faqs/faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_faq_processing_pipeline.py
-DOCUMENTS_MANIFEST_PATH=cob_mock_kb_large/interview_demo_kb/retrieval/documents/documents_manifest.json QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_document_processing_pipeline.py
+FAQS_JSONL_PATH=data/faqs/high_quality_faqs.jsonl QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_faq_processing_pipeline.py
+DOCUMENTS_MANIFEST_PATH=data/documents/documents_manifest.json QDRANT_PATH=vector_db/qdrant/data/local .venv/bin/python scripts/run_document_processing_pipeline.py
 ```
 
-Why `DOCUMENTS_MANIFEST_PATH` is set explicitly:
+Why `FAQS_JSONL_PATH` and `DOCUMENTS_MANIFEST_PATH` are shown explicitly above:
 
-- `config.yml` may still contain an older document manifest path
-- setting the env var ensures ingestion uses the interview demo document corpus
+- `config.yml` might point to a different dataset
+- env vars are useful when you want one-off overrides without editing config files
 
 If you want more visible progress during ingestion, lower the batch size:
 
@@ -815,6 +855,3 @@ Notes:
 
 - escalation replies are LLM-generated when the configured provider is available
 - if escalation generation is unavailable, the app automatically falls back to a safe template handoff message
-
-
-

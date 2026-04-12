@@ -41,7 +41,6 @@ DEFAULT_KB_SYSTEM_PROMPT = (
     "- Format responses so they are organized and easy to read.\n"
     "- When listing services or steps, use short bullet points.\n"
     "- Use brief section labels if it improves readability.\n"
-    "- When the context includes a company overview, include a short Summary section and a Services section listing the core service areas.\n"
     "- Be concise, friendly, and easy to understand."
 )
 
