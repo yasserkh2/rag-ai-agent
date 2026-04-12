@@ -758,6 +758,81 @@ class AppointmentActionServiceTests(unittest.TestCase):
         self.assertIn("Credentialing and Provider Maintenance", result["final_response"])
         self.assertIn("Which service would you like to book", result["final_response"])
 
+    def test_service_question_uses_history_based_service_hint(self) -> None:
+        generator = StubActionReplyGenerator(
+            reply="Great! Which service are you interested in?"
+        )
+        service = AppointmentActionService(
+            extractor=StubAppointmentExtractor(),
+            booking_api_client=StubBookingApiClient(),
+            response_generator=generator,
+        )
+
+        result = service.handle_turn(
+            {
+                "user_query": "need to make a meeting",
+                "history": [
+                    "user: tell me about Credentialing and Provider Maintenance",
+                    "assistant: Credentialing and Provider Maintenance includes provider enrollment and updates.",
+                ],
+            }
+        )
+
+        self.assertIn("Which service are you interested in?", result["final_response"])
+        self.assertEqual(
+            generator.calls[-1].suggested_service,
+            "Credentialing and Provider Maintenance",
+        )
+
+    def test_generic_services_request_does_not_force_specific_service_hint(self) -> None:
+        generator = StubActionReplyGenerator(
+            reply="I can help you schedule a meeting to learn more about our services. Which service would you like to focus on?"
+        )
+        service = AppointmentActionService(
+            extractor=StubAppointmentExtractor(),
+            booking_api_client=StubBookingApiClient(),
+            response_generator=generator,
+        )
+
+        result = service.handle_turn(
+            {
+                "user_query": "cani make a meeting to understand more about the services",
+                "history": [
+                    "assistant: Credentialing and Provider Maintenance",
+                    "assistant: Authorizations and Benefits Verification",
+                    "assistant: Medical Billing and Denial Management",
+                ],
+            }
+        )
+
+        self.assertIn("Which service would you like to focus on?", result["final_response"])
+        self.assertIsNone(generator.calls[-1].suggested_service)
+
+    def test_short_credentialing_mention_in_history_maps_to_full_service_name(self) -> None:
+        generator = StubActionReplyGenerator(
+            reply="Great, let's get your meeting booked. Which service would you like to focus on?"
+        )
+        service = AppointmentActionService(
+            extractor=StubAppointmentExtractor(),
+            booking_api_client=StubBookingApiClient(),
+            response_generator=generator,
+        )
+
+        result = service.handle_turn(
+            {
+                "user_query": "need to book ameeting",
+                "history": [
+                    "user: from the history need to know more about Credentialing",
+                    "assistant: Summary about credentialing and provider maintenance.",
+                ],
+            }
+        )
+
+        self.assertEqual(
+            generator.calls[-1].suggested_service,
+            "Credentialing and Provider Maintenance",
+        )
+
     def test_booking_failure_returns_llm_generated_error_message(self) -> None:
         extractor = StubAppointmentExtractor(
             {

@@ -125,6 +125,7 @@ class AppointmentActionReplyContext:
     awaiting_confirmation: bool
     date_confirmed: bool
     time_confirmed: bool
+    suggested_service: str | None = None
     suggested_date: str | None = None
     suggested_time: str | None = None
     booking_result: dict[str, Any] | None = None

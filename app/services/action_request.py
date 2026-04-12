@@ -425,6 +425,11 @@ class AppointmentActionService:
                 )
 
         missing_fields = missing_appointment_fields(current_slots)
+        suggested_service = self._infer_service_from_history(
+            user_query=query,
+            conversation_history=history,
+            current_slots=current_slots,
+        )
         if (
             "date" in missing_fields
             and current_slots.get("service")
@@ -452,6 +457,7 @@ class AppointmentActionService:
                         date_confirmed=False,
                         time_confirmed=False,
                         awaiting_confirmation=False,
+                        suggested_service=suggested_service,
                         invalid_field=invalid_field,
                         validation_error=validation_error,
                     ),
@@ -475,6 +481,7 @@ class AppointmentActionService:
                     date_confirmed=date_confirmed,
                     time_confirmed=time_confirmed,
                     awaiting_confirmation=True,
+                    suggested_service=suggested_service,
                     invalid_field=invalid_field,
                     validation_error=validation_error,
                 ),
@@ -510,6 +517,7 @@ class AppointmentActionService:
                         date_confirmed=True,
                         time_confirmed=False,
                         awaiting_confirmation=False,
+                        suggested_service=suggested_service,
                         invalid_field=invalid_field,
                         validation_error=validation_error,
                     ),
@@ -532,6 +540,7 @@ class AppointmentActionService:
                 date_confirmed=date_confirmed if "date" not in missing_fields else False,
                 time_confirmed=time_confirmed if "time" not in missing_fields else False,
                 awaiting_confirmation=False,
+                suggested_service=suggested_service,
                 invalid_field=invalid_field,
                 validation_error=validation_error,
             ),
@@ -749,6 +758,7 @@ class AppointmentActionService:
         date_confirmed: bool,
         time_confirmed: bool,
         awaiting_confirmation: bool,
+        suggested_service: str | None = None,
         suggested_date: str | None = None,
         suggested_time: str | None = None,
         booking_result: dict[str, object] | None = None,
@@ -773,6 +783,7 @@ class AppointmentActionService:
             awaiting_confirmation=awaiting_confirmation,
             date_confirmed=date_confirmed,
             time_confirmed=time_confirmed,
+            suggested_service=suggested_service,
             suggested_date=suggested_date,
             suggested_time=suggested_time,
             booking_result=dict(booking_result) if booking_result else None,
@@ -911,3 +922,85 @@ class AppointmentActionService:
         except Exception as exc:
             logger.exception("action available dates lookup failed: %s", exc)
             return None
+
+    def _infer_service_from_history(
+        self,
+        user_query: str,
+        conversation_history: list[str],
+        current_slots: dict[str, str],
+    ) -> str | None:
+        if current_slots.get("service"):
+            return None
+
+        searchable_lines: list[str] = []
+        if user_query.strip():
+            searchable_lines.append(user_query)
+        for raw_line in conversation_history[-8:]:
+            user_message = self._extract_user_message(str(raw_line))
+            if user_message:
+                searchable_lines.append(user_message)
+        lowered_options = {
+            option.lower(): option for option in APPOINTMENT_SERVICE_OPTIONS
+        }
+        service_aliases: dict[str, str] = {
+            "credentialing": "Credentialing and Provider Maintenance",
+            "provider maintenance": "Credentialing and Provider Maintenance",
+            "authorizations": "Authorizations and Benefits Verification",
+            "authorization": "Authorizations and Benefits Verification",
+            "benefits verification": "Authorizations and Benefits Verification",
+            "medical billing": "Medical Billing and Denial Management",
+            "denial management": "Medical Billing and Denial Management",
+            "medical auditing": "Medical Auditing",
+            "auditing": "Medical Auditing",
+            "communication services": "Communication Services",
+            "financial management": "Financial Management",
+            "digital marketing": "Digital Marketing and Website Services",
+            "website services": "Digital Marketing and Website Services",
+        }
+
+        for line in reversed(searchable_lines):
+            normalized = str(line).strip().lower()
+            if not normalized:
+                continue
+            if self._is_generic_services_request(normalized):
+                continue
+            for alias, option in service_aliases.items():
+                if alias in normalized:
+                    return option
+            for option_lower, option in lowered_options.items():
+                if option_lower in normalized:
+                    return option
+            for option in APPOINTMENT_SERVICE_OPTIONS:
+                compact = option.lower().replace(" and ", " ")
+                keywords = [token for token in compact.split() if len(token) > 4]
+                if keywords and sum(1 for token in keywords if token in normalized) >= 2:
+                    return option
+        return None
+
+    @staticmethod
+    def _is_generic_services_request(text: str) -> bool:
+        generic_signals = (
+            "more about the services",
+            "about the services",
+            "about services",
+            "our services",
+            "the services",
+            "all services",
+            "available services",
+            "service list",
+        )
+        return any(signal in text for signal in generic_signals)
+
+    @staticmethod
+    def _extract_user_message(line: str) -> str | None:
+        normalized = line.strip()
+        if not normalized:
+            return None
+        role_match = re.match(
+            r"^(user|customer|client)\s*:\s*(.+)$",
+            normalized,
+            flags=re.IGNORECASE,
+        )
+        if role_match:
+            return role_match.group(2).strip()
+        return None
