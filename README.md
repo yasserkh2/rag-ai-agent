@@ -340,7 +340,7 @@ Current providers:
 - `openai` for OpenAI embeddings
 - `local` for deterministic pipeline-only testing
 
-Current project default for retrieval is Gemini embeddings (`EMBEDDING_PROVIDER=gemini` with `GEMINI_EMBEDDING_MODEL=gemini-embedding-001`).
+Current project default for retrieval is Gemini embeddings (configured in `config.yml`: `embedding_provider=gemini` with `gemini.embedding_model=gemini-embedding-001`).
 
 The vectorization pipeline embeds stored FAQ chunks as documents, while retrieval embeds incoming user questions as queries. This matters for providers such as Gemini that support retrieval-specific task types.
 
@@ -617,7 +617,7 @@ gemini:
   retrieval_query_model: gemini-2.5-flash-lite
 ```
 
-You can also use a structured `config.yml` instead of relying only on `.env`.
+Use structured `config.yml` for non-secret runtime settings.
 Copy [config.yml.example](/media/yasser/New%20Volume1/yasser/New_journey/customer-care-ai-agent/config.yml.example) to `config.yml` and edit the values you want.
 
 Config loading precedence is:
@@ -699,7 +699,7 @@ That script creates:
 
 Only `retrieval/` should be indexed for normal RAG. `operations/` is for appointment, case, and structured workflow data.
 
-Run the full FAQ processing pipeline with your configured defaults (`config.yml` + optional `.env` overrides):
+Run the full FAQ processing pipeline with your configured defaults (`config.yml` + optional one-off shell env overrides):
 
 ```bash
 .venv/bin/python scripts/run_faq_processing_pipeline.py
@@ -730,7 +730,7 @@ DOCUMENTS_MANIFEST_PATH=data/documents/documents_manifest.json QDRANT_PATH=vecto
 Why `FAQS_JSONL_PATH` and `DOCUMENTS_MANIFEST_PATH` are shown explicitly above:
 
 - `config.yml` might point to a different dataset
-- env vars are useful when you want one-off overrides without editing config files
+- shell env vars are useful when you want one-off overrides without editing config files
 
 If you want more visible progress during ingestion, lower the batch size:
 
